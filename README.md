@@ -1,5 +1,5 @@
 
 ## Best .gitignore generator
 
-Simple webpage with api to generate .gitignore files for your project.
+Simple webpage and api to generate .gitignore files for your project.
 
