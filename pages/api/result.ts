@@ -13,7 +13,13 @@ type Error = {
 };
 
 async function getTechoptionsList() {
-  try {    let techOptions: string[] = await fetch(      "https://api.github.com/repos/github/gitignore/contents",      {        method: "GET",        headers: {          Authorization: "Bearer " + token,        },      },    )      .then((res) => res.json())      .then((data) => {
+  try {
+    let techOptions: string[] = await fetch(
+      "https://api.github.com/repos/github/gitignore/contents",
+      { method: "GET", headers: { Authorization: "Bearer " + token } },
+    )
+      .then((res) => res.json())
+      .then((data) => {
         return data.map((element: { name: string }) =>
           element.name.slice(0, -10),
         );
