@@ -27,6 +27,6 @@
     "typescript": "^5"
   },
   "lint-staged": {
-    "*.{ts,json,js,css,md}": "prettier --write"
+    "*": "yarn prettier --write"
   }
 }
