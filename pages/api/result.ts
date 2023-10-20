@@ -26,7 +26,7 @@ async function getTechoptionsList() {
       });
     return techOptions;
   } catch (e) {
-    console.log(e);
+    // console.log(e);
     return ["###No results found###"];
   }
 }
@@ -45,7 +45,7 @@ async function getElementarResult(
   allTechOptions: { [key: string]: string },
 ) {
   try {
-    console.log(techOption);
+    // console.log(techOption);
     techOption = allTechOptions[techOption.toLowerCase()];
     let resultText: string = await fetch(
       "https://api.github.com/repos/github/gitignore/contents/" +
@@ -60,7 +60,7 @@ async function getElementarResult(
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         return Buffer.from(data.content, "base64").toString("ascii");
       });
     return "### " + techOption + " ###\n" + resultText;
