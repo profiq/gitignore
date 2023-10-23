@@ -2,8 +2,9 @@
   "name": "gitignore",
   "version": "0.1.0",
   "private": true,
-    "scripts": {
+  "scripts": {
     "dev": "next dev",
+    "prebuild": "node ./prebuild-scripts/update-list.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -25,7 +26,8 @@
     "postcss": "^8",
     "prettier": "3.0.3",
     "tailwindcss": "^3",
-        "typescript": "^5"
+    "ts-node": "^10.9.1",
+    "typescript": "^5"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx,yml}": [
