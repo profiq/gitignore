@@ -26,19 +26,11 @@ async function genTechOptionsDict() {
   techOptions.forEach((techOption) => {
     techOptionsDict[techOption.toLowerCase()] = techOption;
     techOptionsDict[techOption.replace(/[!@#$%^&*()_+{}[\]:;<>,.?\/\\| \-]/g, '').toLowerCase()] = techOption;
-    let words = techOption.replace(/([A-Z])/g, ' $1').replace(/^./, function(str){ return str.toUpperCase(); }).split(/[!@#$%^&*()_+{}[\]:;<>,.?\/\\| \-]/)
-    words = words.filter((word)=>word.length>1)
-    if(words.length>1){
-      console.log(words)
-      words.forEach((word)=>{
-        techOptionsDict[word.toLowerCase()+techOption.toLowerCase()] = techOption;
-      })
-    }
   });
 
   let techOptionsDictSorted = {};
   Object.keys(techOptionsDict)
-    .sort()
+    .sort((key1, key2)=>techOptionsDict[key1].localeCompare(techOptionsDict[key2]))
     .forEach(function (key) {
       techOptionsDictSorted[key] = techOptionsDict[key];
     });

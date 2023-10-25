@@ -6,13 +6,6 @@ import { list } from "postcss";
 const token =
   "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";
 
-type Data = {
-  text: string;
-};
-type Error = {
-  error: string;
-};
-
 async function getTechoptionsList() {
   try {
     //read all files in the directory
