@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -18,9 +14,7 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["./*"]
     },
     "plugins": [
       {
@@ -32,14 +26,11 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
-, "prebuild-scripts/update-list.mjs"  ],
-  "exclude": [
-    "node_modules"
+    ".next/types/**/*.ts",
+    "prebuild-scripts/update-list.mjs"
   ],
+  "exclude": ["node_modules"],
   "ts-node": {
-    "esm": true, // «———— enabling ESM for ts-node
-  },
-
+    "esm": true // «———— enabling ESM for ts-node
+  }
 }
-

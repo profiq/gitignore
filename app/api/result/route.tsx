@@ -1,92 +1,59 @@
 import fs from "fs";
-import type { NextApiRequest, NextApiResponse } from "next";
 import { NextRequest, NextResponse } from "next/server";
-import { list } from "postcss";
 import allTechOptions from "../../../techOptions.json";
 
-const token =
-  "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";
-
-async function getTechoptionsList() {
-  try {
-    //read all files in the directory
-    let techOptions = await fs.promises.readdir(
-      "./totpal.gitignoreTemplates/gitignore/templates",
-    );
-    techOptions = techOptions
-      .filter((element) => element.endsWith(".gitignore"))
-      .map((element) => element.slice(0, -10));
-    // console.log(techOptions)
-
-    return techOptions;
-  } catch (e) {
-    console.log(e);
-    return ["### No results found ###"];
-  }
-}
-
-async function genTechOptionsDict() {
-  let techOptions = await getTechoptionsList();
-  let techOptionsDict: { [key: string]: string } = {};
-  techOptions.forEach((techOption: string) => {
-    techOptionsDict[techOption.toLowerCase()] = techOption;
-  });
-  return techOptionsDict;
-}
-
-async function getElementarResult(techOption: string) {
+/**
+ * Retrieves the gitignore template for a given technology option.
+ * @param techOption - The name of the technology option to retrieve the gitignore template for.
+ * @returns A string containing the gitignore template for the specified technology option.
+ */
+async function getElementarResult(techOption: string): Promise<string> {
   // console.log(encodeURI(techOption))
   try {
     // console.log(techOption);
-    techOption =
+    // Get the name of the technology option
+    let techOptionName: string =
       allTechOptions[techOption.toLowerCase() as keyof typeof allTechOptions];
-    //read file in the directory and return the contents
+    // Read the proper file in the directory
     let resultText: string = await fs.promises.readFile(
-      "./totpal.gitignoreTemplates/gitignore/templates/" +
-        techOption +
-        ".gitignore",
+      `./totpal.gitignoreTemplates/gitignore/templates/${techOptionName}.gitignore`,
       "utf8",
     );
-    // console.log(rs)
-    // let resultText: string = await fetch(
-    //   "https://api.github.com/repos/github/gitignore/contents/" +
-    //     techOption +
-    //     ".gitignore",
-    //   {
-    //     method: "GET",
-    //     headers: {
-    //       Authorization: "Bearer " + token,
-    //     },
-    //   },
-    // )
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     // console.log(data);
-    //     return Buffer.from(data.content, "base64").toString("ascii");
-    //   });
-    return "### " + techOption + " ###\n" + resultText;
+    return `### ${techOptionName} ###\n` + resultText;
   } catch (e) {
     console.log(e);
-    return "### " + techOption + " ###\n### No results found ###";
+    return `### ${techOption} ###\n### No results found ###`;
   }
 }
 
-export async function GET(req: NextRequest) {
-  // console.log(allTechOptions)
+/**
+ * Handles GET requests for the result route.
+ * The GET request for the result route expects a query parameter called "options" which should be a comma-separated
+ * list of technology options for which the gitignore templates are to be retrieved.
+ * For example, a valid query parameter could be "options=node,react,nextjs"
+ * @param {NextRequest} req - The Next.js request object.
+ * @returns {Promise<NextResponse>} A Promise that resolves to a Next.js response object.
+ */
+export async function GET(req: NextRequest): Promise<NextResponse> {
+  // Check if options query parameter is present
   if (
-    !req.nextUrl.searchParams.has("s") &&
-    req.nextUrl.searchParams.get("s")?.replace(",", "").length == 0
+    !req.nextUrl.searchParams.has("options") &&
+    req.nextUrl.searchParams.get("options")?.replace(",", "").length == 0
   ) {
     return NextResponse.json(
       { error: "No query parameters provided" },
       { status: 400 },
     );
   }
-  let techOptions = (req.nextUrl.searchParams.get("s") as string).split(",");
-  console.log("");
+  // Get the options from the query parameter
+  let techOptions = (req.nextUrl.searchParams.get("options") as string).split(
+    ",",
+  );
+  // Get the results for each option
   let results = await Promise.all(
     techOptions.map(async (option) => getElementarResult(option)),
   );
+  // Join the results into a single string
   let resultText = results.join("\n");
 
   return new NextResponse(resultText, { status: 200 });
