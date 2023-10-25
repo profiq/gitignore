@@ -2,6 +2,7 @@ import fs from "fs";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { NextRequest, NextResponse } from "next/server";
 import { list } from "postcss";
+import allTechOptions from "../../../techOptions.json";
 
 const token =
   "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";
@@ -33,14 +34,12 @@ async function genTechOptionsDict() {
   return techOptionsDict;
 }
 
-async function getElementarResult(
-  techOption: string,
-  allTechOptions: { [key: string]: string },
-) {
+async function getElementarResult(techOption: string) {
   // console.log(encodeURI(techOption))
   try {
     // console.log(techOption);
-    techOption = allTechOptions[techOption.toLowerCase()];
+    techOption =
+      allTechOptions[techOption.toLowerCase() as keyof typeof allTechOptions];
     //read file in the directory and return the contents
     let resultText: string = await fs.promises.readFile(
       "./totpal.gitignoreTemplates/gitignore/templates/" +
@@ -73,21 +72,20 @@ async function getElementarResult(
 }
 
 export async function GET(req: NextRequest) {
-  const allTechOptions = await genTechOptionsDict();
   // console.log(allTechOptions)
-  let techOptions = req.nextUrl.search.substring(1).split("&");
-  console.log(req);
-  console.log(techOptions.map((element) => encodeURI(element)));
-  if (techOptions.length <= 0) {
+  if (
+    !req.nextUrl.searchParams.has("s") &&
+    req.nextUrl.searchParams.get("s")?.replace(",", "").length == 0
+  ) {
     return NextResponse.json(
       { error: "No query parameters provided" },
       { status: 400 },
     );
   }
+  let techOptions = (req.nextUrl.searchParams.get("s") as string).split(",");
+  console.log("");
   let results = await Promise.all(
-    techOptions.map(async (option) =>
-      getElementarResult(option, allTechOptions),
-    ),
+    techOptions.map(async (option) => getElementarResult(option)),
   );
   let resultText = results.join("\n");
 

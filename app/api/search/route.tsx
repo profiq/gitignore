@@ -8,13 +8,8 @@ export async function GET(req: NextRequest) {
 
   const techOptions: string[] = Object.keys(techOptionsDict);
 
-  let maxResults = techOptions.length;
-  if (req.nextUrl.searchParams.has("maxResults")) {
-    maxResults = parseInt(req.nextUrl.searchParams.get("maxResults") as string);
-  }
-
   const search = req.nextUrl.searchParams.get("s") as string;
-  console.log(`searching for "${search}" with maximum ${maxResults} results`);
+  console.log(`searching for "${search}" with`);
 
   let startKeys = techOptions.filter((element) => element.startsWith(search));
   // console.log(startKeys)
@@ -27,7 +22,7 @@ export async function GET(req: NextRequest) {
   let keys = [...startKeys, ...includeKeys];
   console.log("keys found: ", keys);
 
-  while (results.length < maxResults && keys.length > 0) {
+  while (keys.length > 0) {
     let key = keys.shift() as string;
     if (
       !results.includes(techOptionsDict[key as keyof typeof techOptionsDict])
