@@ -18,8 +18,8 @@ export async function GET(req: NextRequest) {
   if (!searchQuery) {
     return new NextResponse("No search query", { status: 400 });
   }
+  // Get the search results
+  let result = await searchTechOptions(searchQuery);
 
-  return NextResponse.json(await searchTechOptions(searchQuery), {
-    status: 200,
-  });
+  return NextResponse.json(result, { status: 200 });
 }

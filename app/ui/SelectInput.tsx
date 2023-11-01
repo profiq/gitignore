@@ -1,49 +1,53 @@
+/**
+ * A component that renders a searchable multi-select input field with tech options
+ * @returns A React component.
+ */
+
 "use client";
 
-// import { MultiSelect, ComboboxItem, OptionsFilter, MultiSelectFactory } from '@mantine/core';
-import { searchTechOptions } from "@/app/api/lib/techOptions";
 import { useEffect, useRef, useState } from "react";
 import Select, { InputActionMeta, MultiValue } from "react-select";
-import { get } from "http";
-import {
-  redirect,
-  usePathname,
-  useRouter,
-  useSearchParams,
-} from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+
 import classes from "./SelectInput.module.css";
 
-// const allTechOptions = searchTechOptions("").map((option) => ({ value: option, label: option }));
+// function for searching tech options
+import { searchTechOptions } from "@/app/api/lib/techOptions";
 
-export default function SelectInput({
-  queryParams,
-}: {
-  queryParams?: string[];
-}) {
+export default function SelectInput() {
+  // state for currently searched tech options
   const [techOptions, setTechOptions] = useState<
     { value: string; label: string }[]
   >([]);
-  // const [selectedOptions, setSelectedOptions] = useState<MultiValue<{ value: string; label: string; }>>([]);
-  const [search, setSearch] = useState<string>("");
-  const msRef = useRef(null);
 
+  // state for current search string
+  const [search, setSearch] = useState<string>("");
+
+  // next.js navigation hooks for working with params
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
 
+  // get tech options on search change
   useEffect(() => {
+    // asnyc wrapper function for getting tech options
     const getTechOptions = async () => {
+      // if search is empty, clear tech options
       if (search.length === 0) {
         setTechOptions([]);
         return;
       }
+
+      // get tech options
       let a = await searchTechOptions(search);
       // console.log(a, techOptions)
       setTechOptions(a.map((option) => ({ value: option, label: option })));
     };
+
     getTechOptions();
   }, [search]);
 
+  // function for changing search state on search input change
   async function handleSearchChange(
     value: string,
     actionMeta: InputActionMeta,
@@ -51,9 +55,9 @@ export default function SelectInput({
     setSearch(value);
   }
 
+  // function for changing search params on select change
   function handleChange(value: MultiValue<{ value: string; label: string }>) {
     console.log(value);
-    // setSelectedOptions(value)
 
     const params = new URLSearchParams(searchParams);
     if (value.length > 0) {
@@ -64,59 +68,75 @@ export default function SelectInput({
     router.replace(`${pathname}?${params.toString()}`);
   }
 
+  // function for handling submit on enter or button click
   const handleSubmit = () => {
-    // if(selectedOptions.length===0){
     if (!searchParams.get("options")) {
       return;
     }
     console.log("submit");
 
     const params = new URLSearchParams(searchParams);
+
+    // redirecting to result page
     router.push(`/api/result?${params.toString()}`);
   };
 
+  // function for handling enter key press
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && search.length === 0) {
       handleSubmit();
     }
   };
+
   return (
     <div className="flex flex-row">
       <Select
+        // getting selected options from search params
         value={
           searchParams
             .get("options")
             ?.split(",")
             .map((option) => ({ value: option, label: option })) || []
         }
+        // searched tech options
         options={techOptions}
+        // enabling multi select
         isMulti
+        // connecting value to search state
         inputValue={search}
+        // disabling built-in serch logic
         filterOption={(option, search) => true}
         onChange={handleChange}
         onInputChange={handleSearchChange}
+        onKeyDown={handleKeyDown}
+        // disabling dropdown indicator
         components={{
           DropdownIndicator: null,
         }}
+        // different messages if not found or no input
         noOptionsMessage={(value) =>
           value.inputValue.length === 0
             ? "Enter at least one character"
             : "No options found"
         }
+        // custom styles
         styles={{
+          // width: if all select element
           container: (baseStyles, state) => ({
             ...baseStyles,
             width: "500px",
           }),
+
+          // color of selected option in dropdown
           option: (baseStyles, state) => ({
             ...baseStyles,
-            backgroundColor: state.isRtl
-              ? "var(--profiq-blue)"
-              : state.isFocused
+            backgroundColor: state.isFocused
               ? "var(--profiq-blue-transparent)"
               : "white",
             color: state.isFocused ? "white" : "black",
           }),
+
+          // styling of main component
           control: (baseStyles, state) => ({
             ...baseStyles,
             borderRadius: "4px 0 0 4px",
@@ -124,35 +144,11 @@ export default function SelectInput({
             height: "100%",
           }),
         }}
-        onKeyDown={handleKeyDown}
       />
+
       <button className={classes.button} onClick={handleSubmit}>
         Create
       </button>
-      {/*
-    <MultiSelect
-      label="Your favorite libraries"
-      placeholder="Pick value"
-      data={techOptions}
-      onSearchChange={handleSearchChange}
-      filter={optionsFilter}
-      hidePickedOptions
-      searchable
-      clearable
-      selectFirstOptionOnChange
-      ref={msRef}
-      onChange={handleChange}
-      value={selectedOptions}
-      onKeyDown={(e) => {
-        console.log(e.target)
-        console.log(e.target as HTMLInputElement)
-        if (e.key === "Enter") {
-          //setSelectedOptions([...selectedOptions, techOptions.filter((option)=>selectedOptions.indexOf(option)===-1)[0]])
-        }
-      }
-
-      }
-    /> */}
     </div>
   );
 }
