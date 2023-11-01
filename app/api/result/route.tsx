@@ -1,6 +1,6 @@
 import fs from "fs";
 import { NextRequest, NextResponse } from "next/server";
-import allTechOptions from "../../../techOptions.json";
+import allTechOptions from "@/techOptions.json";
 
 /**
  * Retrieves the gitignore template for a given technology option.

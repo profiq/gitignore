@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import { GeistSans, GeistMono } from "geist/font";
+// import { MantineProvider, ColorSchemeScript } from '@mantine/core';
+// import { theme } from '@/theme';
+// import '@mantine/core/styles.css';
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +18,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        <link rel="icon" href="/favicon.png" />
+        {/* <ColorSchemeScript /> */}
+      </head>
+      <body className={GeistSans.className}>
+        {/* <MantineProvider theme={theme}> */}
+        {children}
+        {/* </MantineProvider> */}
+      </body>
     </html>
   );
 }

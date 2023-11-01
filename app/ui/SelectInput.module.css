@@ -1,0 +1,8 @@
+.button {
+  background-color: var(--profiq-green);
+  border-radius: 0 4px 4px 0;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+}
