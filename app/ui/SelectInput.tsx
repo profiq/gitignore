@@ -89,8 +89,9 @@ export default function SelectInput() {
   };
 
   return (
-    <div className="flex flex-row">
+    <div className="scale-150 flex flex-row w-2/3">
       <Select
+        className="flex-grow"
         // getting selected options from search params
         value={
           searchParams
@@ -135,12 +136,36 @@ export default function SelectInput() {
               : "white",
             color: state.isFocused ? "white" : "black",
           }),
-
+          multiValue: (baseStyles, state) => ({
+            ...baseStyles,
+            backgroundColor: "var(--profiq-green-shaddow)",
+            color: "white",
+          }),
+          multiValueLabel: (baseStyles, state) => ({
+            ...baseStyles,
+            color: "white",
+          }),
+          multiValueRemove: (baseStyles, state) => ({
+            ...baseStyles,
+            ":hover": {
+              backgroundColor: "#ffbdadad",
+            },
+          }),
           // styling of main component
           control: (baseStyles, state) => ({
             ...baseStyles,
+            boxShadow: "0",
             borderRadius: "4px 0 0 4px",
-            borderColor: "var(--profiq-blue)",
+            borderColor: state.isFocused
+              ? "var(--profiq-blue)"
+              : "var(--profiq-green)",
+            ":hover": state.isFocused
+              ? {
+                  borderColor: "var(--profiq-blue-light)",
+                }
+              : {
+                  borderColor: "var(--profiq-blue-light)",
+                },
             height: "100%",
           }),
         }}

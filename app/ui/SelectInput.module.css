@@ -6,3 +6,15 @@
   border: none;
   cursor: pointer;
 }
+
+.button:hover {
+  background-color: var(--profiq-blue-light);
+  /* color: var(--profiq-blue) */
+}
+
+.wrapper {
+  width: 100%;
+  justify-content: center;
+  margin-top: 100px;
+  
+}
