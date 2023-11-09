@@ -54,7 +54,6 @@ async function genTechOptionsDict() {
     .forEach(function (key) {
       techOptionsDictSorted[key] = techOptionsDict[key];
     });
-    techOptionsDictSorted["timestamp"] = Date.now();
   return techOptionsDictSorted;
 }
 
