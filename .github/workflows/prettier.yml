@@ -9,9 +9,19 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '20'
-      - run: node ./prebuild-scripts/update-list.mjs
-      
-      - run: |
+
+      - name: Clone toptal templates
+        run: |
+          git clone --depth 1 https://github.com/toptal/gitignore ./totpal.gitignoreTemplates/gitignore
+
+      - name: Update github templates
+        run: bash ./totpal.gitignoreTemplates/gitignore/.github/scripts/sync-github.sh
+
+      - name: Run the prebuild script
+        run: node ./prebuild-scripts/update-list.mjs
+
+      - name: Commit changes
+        run: |
           git config --global user.name "FilipLunski"
           git config --global user.email "f.lunski@gmail.com"
 
