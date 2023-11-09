@@ -12,12 +12,12 @@ jobs:
 
       - name: Clone toptal templates
         run: |
-          git clone https://github.com/toptal/gitignore ./totpal.gitignoreTemplates/gitignore
+          git clone https://github.com/toptal/gitignore ./toptal.gitignoreTemplates/gitignore
 
       - name: Update github templates
         run: |
-          ls -la ./totpal.gitignoreTemplates/gitignore/.github/scripts
-          cd ./totpal.gitignoreTemplates/gitignore/.github/scripts && bash ./sync-github.sh
+          ls -la ./toptal.gitignoreTemplates/gitignore/.github/scripts
+          cd ./toptal.gitignoreTemplates/gitignore/.github/scripts && bash ./sync-github.sh
 
       - name: Run the prebuild script
         run: node ./prebuild-scripts/update-list.mjs
