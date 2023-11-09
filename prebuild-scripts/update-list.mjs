@@ -61,5 +61,5 @@ async function genTechOptionsDict() {
 // Writes the dictionary to a file stored in the root directory.
 fs.writeFileSync(
   "./techOptions.json",
-  JSON.stringify(await genTechOptionsDict()),
+  JSON.stringify(await genTechOptionsDict(), null, 2),
 );
