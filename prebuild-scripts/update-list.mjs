@@ -12,7 +12,7 @@ async function getTechoptionsList() {
   try {
      // Read all files in the template directory
     let techOptions = await fs.promises.readdir(
-      "./totpal.gitignoreTemplates/gitignore/templates",
+      "./toptal.gitignoreTemplates/gitignore/templates",
     );
 
     // Get only files that end with .gitignore and remove the extension
