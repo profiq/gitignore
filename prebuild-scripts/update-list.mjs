@@ -1,6 +1,6 @@
 import fs from "fs";
 
-import techOptionsDict from ".techOptions.json" assert { type: "json" };
+import techOptionsDict from "./techOptions.json" assert { type: "json" };
 
 /**
  * Retrieves a list of available tech options from the gitignore templates directory.
