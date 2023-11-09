@@ -9,10 +9,9 @@ import techOptionsDict from "./techOptions.json" assert { type: "json" };
  * @returns {Promise<Array<string>>} - A promise that resolves to an array of tech options.
  */
 async function getTechoptionsList() {
-  try {
      // Read all files in the template directory
     let techOptions = await fs.promises.readdir(
-      "./toptal.gitignoreTemplates/gitignore/templates",
+      "./topptal.gitignoreTemplates/gitignore/templates",
     );
 
     // Get only files that end with .gitignore and remove the extension
@@ -23,10 +22,6 @@ async function getTechoptionsList() {
     // console.log(techOptions)
 
     return techOptions;
-  } catch (e) {
-    console.log(e);
-    return ["### No results found ###"];
-  }
 }
 
 /**
