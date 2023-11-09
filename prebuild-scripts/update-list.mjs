@@ -11,7 +11,7 @@ import techOptionsDict from "./techOptions.json" assert { type: "json" };
 async function getTechoptionsList() {
      // Read all files in the template directory
     let techOptions = await fs.promises.readdir(
-      "./topptal.gitignoreTemplates/gitignore/templates",
+      "./toptal.gitignoreTemplates/gitignore/templates",
     );
 
     // Get only files that end with .gitignore and remove the extension

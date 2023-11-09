@@ -1,5 +1,5 @@
-name: learn-github-actions
-run-name: ${{ github.actor }} is learning GitHub Actions
+name: update-tech-options
+run-name: Updating tech options according to the latest github templates
 on: [push]
 jobs:
   update-tech-options:
