@@ -10,3 +10,11 @@ jobs:
         with:
           node-version: '20'
       - run: node ./prebuild-scripts/update-list.mjs
+      - name: Commit and push changes
+      - run: |
+          git config --global user.name "FilipLunski"
+          git config --global user.email "f.lunski@gmail.com"
+
+          git add -A
+          git commit -m "timestamp"
+          git push
