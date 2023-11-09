@@ -13,6 +13,7 @@ import classes from "./SelectInput.module.css";
 
 // function for searching tech options
 import { searchTechOptions } from "@/app/api/lib/techOptions";
+import clsx from "clsx";
 
 export default function SelectInput() {
   // state for currently searched tech options
@@ -78,7 +79,7 @@ export default function SelectInput() {
     const params = new URLSearchParams(searchParams);
 
     // redirecting to result page
-    router.push(`/api/result?${params.toString()}`);
+    router.push(`/result?${params.toString()}`);
   };
 
   // function for handling enter key press
@@ -171,7 +172,7 @@ export default function SelectInput() {
         }}
       />
 
-      <button className={classes.button} onClick={handleSubmit}>
+      <button className={clsx(classes.button, "ml-0.5")} onClick={handleSubmit}>
         Create
       </button>
     </div>

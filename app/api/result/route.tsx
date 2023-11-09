@@ -1,30 +1,5 @@
-import fs from "fs";
 import { NextRequest, NextResponse } from "next/server";
-import allTechOptions from "@/techOptions.json";
-
-/**
- * Retrieves the gitignore template for a given technology option.
- * @param techOption - The name of the technology option to retrieve the gitignore template for.
- * @returns A string containing the gitignore template for the specified technology option.
- */
-async function getElementarResult(techOption: string): Promise<string> {
-  // console.log(encodeURI(techOption))
-  try {
-    // console.log(techOption);
-    // Get the name of the technology option
-    let techOptionName: string =
-      allTechOptions[techOption.toLowerCase() as keyof typeof allTechOptions];
-    // Read the proper file in the directory
-    let resultText: string = await fs.promises.readFile(
-      `./totpal.gitignoreTemplates/gitignore/templates/${techOptionName}.gitignore`,
-      "utf8",
-    );
-    return `### ${techOptionName} ###\n` + resultText;
-  } catch (e) {
-    console.log(e);
-    return `### ${techOption} ###\n### No results found ###`;
-  }
-}
+import { getResult } from "@/app/api/lib/result";
 
 /**
  * Handles GET requests for the result route.
@@ -36,6 +11,9 @@ async function getElementarResult(techOption: string): Promise<string> {
  */
 export async function GET(req: NextRequest): Promise<NextResponse> {
   // Check if options query parameter is present
+  const download =
+    req.nextUrl.searchParams.get("download") &&
+    req.nextUrl.searchParams.get("download")?.toLowerCase() == "true";
   if (
     !req.nextUrl.searchParams.has("options") &&
     req.nextUrl.searchParams.get("options")?.replace(",", "").length == 0
@@ -49,12 +27,18 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
   let techOptions = (req.nextUrl.searchParams.get("options") as string).split(
     ",",
   );
-  // Get the results for each option
-  let results = await Promise.all(
-    techOptions.map(async (option) => getElementarResult(option)),
-  );
-  // Join the results into a single string
-  let resultText = results.join("\n");
-
-  return new NextResponse(resultText, { status: 200 });
+  let resultText = await getResult(techOptions);
+  return new NextResponse(resultText, {
+    status: 200,
+    headers: download
+      ? {
+          "Content-Type": "application/json",
+          "Content-Length": resultText.length.toString(),
+          "Content-Disposition": "attachment; filename=.gitignore",
+        }
+      : {
+          "Content-Type": "text/json",
+          "Content-Disposition": "filename=.gitignore",
+        },
+  });
 }

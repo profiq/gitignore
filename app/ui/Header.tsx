@@ -28,7 +28,7 @@ const Header: React.FC = () => {
           href="https://github.com/profiq/gitignore"
           target="_blank"
         >
-          Source codes
+          <span className={clsx(classes.linkLabel)}>Source codes</span>
           <div className={classes.icon}>
             <FaGithub />
           </div>

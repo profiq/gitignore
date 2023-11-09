@@ -30,4 +30,6 @@ body {
       transparent,
       rgb(var(--background-end-rgb)),
     ) rgb(var(--background-start-rgb));
+
+  color: var(--profiq-blue);
 }

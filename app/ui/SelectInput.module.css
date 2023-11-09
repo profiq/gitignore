@@ -8,7 +8,7 @@
 }
 
 .button:hover {
-  background-color: var(--profiq-blue-light);
+  background-color: var(--profiq-blue);
   /* color: var(--profiq-blue) */
 }
 
@@ -16,5 +16,5 @@
   width: 100%;
   justify-content: center;
   margin-top: 100px;
-  
+
 }

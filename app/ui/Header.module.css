@@ -55,3 +55,7 @@
 .link:hover {
   color: var(--profiq-green);
 }
+
+.linkLabel{
+  position: relative;
+}

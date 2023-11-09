@@ -4,7 +4,7 @@ import classes from "./Home.module.css";
 
 export default function Home() {
   return (
-    <main className="max-w-5xl mx-auto px-5 flex min-h-screen flex-col items-center justify-center pt-20 pb-40">
+    <>
       <div
         className={
           classes.h + " mb-16 flex flex-col items-center justify-center"
@@ -17,6 +17,6 @@ export default function Home() {
         </h4>
       </div>
       <SelectInput />
-    </main>
+    </>
   );
 }

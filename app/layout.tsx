@@ -26,7 +26,10 @@ export default function RootLayout({
       </head>
       <body className={roboto.className}>
         <Header />
-        {children}
+
+        <main className="max-w-5xl mx-auto px-5 relative flex min-h-screen flex-col items-center justify-center pt-20 pb-40">
+          {children}
+        </main>
       </body>
     </html>
   );

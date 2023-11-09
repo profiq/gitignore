@@ -1,0 +1,13 @@
+.box {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.comment {
+  color: var(--profiq-green);
+}
+
+.line
+{
+  height: 20px;
+}
