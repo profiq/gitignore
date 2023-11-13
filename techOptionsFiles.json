@@ -706,6 +706,9 @@
   "IDAPro": [
     "IDAPro.gitignore"
   ],
+  "Idris": [
+    "Idris.gitignore"
+  ],
   "IGORPro": [
     "IGORPro.gitignore"
   ],
@@ -1704,6 +1707,9 @@
   ],
   "vRealizeOrchestrator": [
     "vRealizeOrchestrator.gitignore"
+  ],
+  "vs": [
+    "vs.gitignore"
   ],
   "Vue": [
     "Vue.gitignore"
