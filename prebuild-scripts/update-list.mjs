@@ -1,6 +1,6 @@
 import fs from "fs";
 
-import techOptionsDict from "./techOptions.json" assert { type: "json" };
+import techOptionsDict from "./techOptions.json" assert { type: 'json' };
 
 /**
  * Retrieves a list of available tech options from the gitignore templates directory.
@@ -8,20 +8,20 @@ import techOptionsDict from "./techOptions.json" assert { type: "json" };
  * @function getTechoptionsList
  * @returns {Promise<Array<string>>} - A promise that resolves to an array of tech options.
  */
-async function getTechoptionsList() {
-     // Read all files in the template directory
-    let techOptions = await fs.promises.readdir(
-      "./toptal.gitignoreTemplates/gitignore/templates",
-    );
+ function getTechoptionsList() {
+  // Read all files in the template directory
+  let techOptions = fs.readdirSync(
+    "./toptal.gitignoreTemplates/gitignore/templates",
+  );
 
-    // Get only files that end with .gitignore and remove the extension
-    techOptions = techOptions
-      .filter((element) => element.endsWith(".gitignore"))
-      .map((element) => element.slice(0, -10));
+  // Get only files that end with .gitignore and remove the extension
+  techOptions = techOptions
+    .filter((element) => element.endsWith(".gitignore"))
+    .map((element) => element.replace(".gitignore", ""));
 
-    // console.log(techOptions)
+  // console.log(techOptions)
 
-    return techOptions;
+  return techOptions;
 }
 
 /**
@@ -29,9 +29,9 @@ async function getTechoptionsList() {
  * Also keys with removed special characters are added. The dictionary is sorted alphabetically by the values.
  * @returns {Object} A sorted dictionary of technology options.
  */
-async function genTechOptionsDict() {
+ function genTechOptionsDict() {
   // Get the list of tech options from the gitignore templates directory
-  let techOptions = await getTechoptionsList();
+  let techOptions = getTechoptionsList();
 
   // Create a dictionary of tech options
   techOptions.forEach((techOption) => {
@@ -57,8 +57,84 @@ async function genTechOptionsDict() {
   return techOptionsDictSorted;
 }
 
+function getFilesForLink(files, option)
+{
+  return files
+      .filter((file) => {
+        let name = file.name.slice(0, file.name.indexOf("."));
+        return name === option;
+      })
+      .map((file) => {
+        if (file.isSymbolicLink()) {
+          const target = fs.readlinkSync(
+            `${file.path}/${file.name}`,
+          );
+
+          return getFilesForLink(files, target.slice(0, target.indexOf(".")));
+        } else {
+          return [file.name];
+        }
+      }).flat();
+}
+
+function getLinksDict() {
+  let linksDict = {};
+
+  let files = fs.readdirSync(
+    "./toptal.gitignoreTemplates/gitignore/templates",
+    { withFileTypes: true },
+  );
+    files
+      .filter((option) => option.name.endsWith(".gitignore"))
+      .map((o) => {
+        let option = o.name.replace(".gitignore", "");
+
+        let filesForOption = (getFilesForLink(files, option))
+          .flat()
+          .filter((value, index, array) => {
+            return array.indexOf(value) === index;
+          })
+          // sorting files so first will be main files (contains option name) and and also prioritizing .gitignore files
+          .sort((a, b) => {
+            if (a.includes(option) && !b.includes(option)) {
+              return -1;
+            } else if (!a.includes(option) && b.includes(option)) {
+              return 1;
+            } else if (
+              a.slice(0, a.indexOf(".")) ===
+              b.slice(0, b.indexOf("."))
+            ) {
+              if (a.includes(".gitignore") && !b.includes(".gitignore")) {
+                return -1;
+              } else if (
+                !a.includes(".gitignore") &&
+                b.includes(".gitignore")
+              ) {
+                return 1;
+              }
+            }
+            return a.localeCompare(b);
+
+          });
+        linksDict[option] = filesForOption;
+      })
+  let linksDictSorted = {};
+  Object.keys(linksDict)
+    .sort((key1, key2) => key1.localeCompare(key2))
+    .forEach(function (key) {
+      linksDictSorted[key] = linksDict[key];
+    });
+  // console.log(linksDictSorted);
+  return linksDictSorted;
+}
+
+fs.writeFileSync(
+  "./techOptionsFiles.json",
+  JSON.stringify(getLinksDict(), null, 2),
+);
+
 // Writes the dictionary to a file stored in the root directory.
 fs.writeFileSync(
   "./techOptions.json",
-  JSON.stringify(await genTechOptionsDict(), null, 2),
+  JSON.stringify(genTechOptionsDict(), null, 2),
 );

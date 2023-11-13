@@ -8,8 +8,8 @@ interface Props {
 }
 
 export default function CodeView({ code, options }: Props) {
-  console.log(code);
-  console.log(code.split("\n"));
+  // console.log(code);
+  // console.log(code.split("\n"));
 
   const btnClasses = "bg-[var(--profiq-green)] text-white p-2 rounded-md ml-2";
 
@@ -18,7 +18,7 @@ export default function CodeView({ code, options }: Props) {
   params.append("download", "true");
 
   return (
-    <div className={clsx(classes.box, "w-full  rounded-lg my-10")}>
+    <div className={clsx(classes.box, "w-full  rounded-lg mt-10")}>
       <div
         className={clsx(
           "bg-[#EDEDED] rounded-t-lg sticky top-0 flex flex-row-reverse py-3",
@@ -30,11 +30,14 @@ export default function CodeView({ code, options }: Props) {
           </button>
         </a>
         <CopyButton code={code} className={clsx(classes.btn, btnClasses)} />
+        <div className="flex-grow flex flex-row p-2 ml-8">{`${options.join(
+          "_",
+        )}.gitignore`}</div>
       </div>
       <div className={clsx("h-full max-h-[calc(100vh-15rem)]	overflow-y-auto")}>
         <div className="p-10">
           {code.split("\n").map((line, index) => {
-            console.log(line);
+            // console.log(line);
             return (
               <p
                 key={index}

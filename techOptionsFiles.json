@@ -1,0 +1,1822 @@
+{
+  "1C": [
+    "1C.gitignore"
+  ],
+  "1C-Bitrix": [
+    "1C-Bitrix.gitignore"
+  ],
+  "A-Frame": [
+    "A-Frame.gitignore"
+  ],
+  "Actionscript": [
+    "Actionscript.gitignore"
+  ],
+  "Ada": [
+    "Ada.gitignore"
+  ],
+  "Adobe": [
+    "Adobe.gitignore"
+  ],
+  "AdvancedInstaller": [
+    "AdvancedInstaller.gitignore"
+  ],
+  "AdventureGameStudio": [
+    "AdventureGameStudio.gitignore"
+  ],
+  "Agda": [
+    "Agda.gitignore"
+  ],
+  "AL": [
+    "AL.gitignore"
+  ],
+  "AlteraQuartusII": [
+    "AlteraQuartusII.gitignore"
+  ],
+  "Altium": [
+    "Altium.gitignore"
+  ],
+  "Amplify": [
+    "Amplify.gitignore"
+  ],
+  "Android": [
+    "Android.gitignore",
+    "Android.patch"
+  ],
+  "AndroidStudio": [
+    "AndroidStudio.gitignore",
+    "AndroidStudio.patch"
+  ],
+  "Angular": [
+    "Angular.gitignore"
+  ],
+  "Anjuta": [
+    "Anjuta.gitignore"
+  ],
+  "Ansible": [
+    "Ansible.gitignore"
+  ],
+  "AnsibleTower": [
+    "AnsibleTower.gitignore"
+  ],
+  "ApacheCordova": [
+    "ApacheCordova.gitignore"
+  ],
+  "ApacheHadoop": [
+    "ApacheHadoop.gitignore"
+  ],
+  "AppBuilder": [
+    "AppBuilder.gitignore"
+  ],
+  "AppceleratorTitanium": [
+    "AppceleratorTitanium.gitignore"
+  ],
+  "AppCode": [
+    "JetBrains.gitignore",
+    "JetBrains.patch"
+  ],
+  "AppCode+all": [
+    "JetBrains.gitignore",
+    "JetBrains.patch",
+    "JetBrains+all.patch"
+  ],
+  "AppCode+iml": [
+    "JetBrains.gitignore",
+    "JetBrains.patch",
+    "JetBrains+iml.patch"
+  ],
+  "AppEngine": [
+    "AppEngine.gitignore"
+  ],
+  "AptanaStudio": [
+    "Eclipse.gitignore",
+    "Eclipse.patch"
+  ],
+  "Arcanist": [
+    "Arcanist.gitignore"
+  ],
+  "Archive": [
+    "Archive.gitignore"
+  ],
+  "Archives": [
+    "Archives.gitignore"
+  ],
+  "ArchLinuxPackages": [
+    "ArchLinuxPackages.gitignore"
+  ],
+  "asdf": [
+    "asdf.gitignore"
+  ],
+  "ASPNETCore": [
+    "ASPNETCore.gitignore"
+  ],
+  "Assembler": [
+    "Assembler.gitignore"
+  ],
+  "Astro": [
+    "Astro.gitignore"
+  ],
+  "ATE": [
+    "ATE.gitignore"
+  ],
+  "AtmelStudio": [
+    "AtmelStudio.gitignore"
+  ],
+  "ATS": [
+    "ATS.gitignore"
+  ],
+  "Audio": [
+    "Audio.gitignore"
+  ],
+  "Autohotkey": [
+    "Autohotkey.gitignore"
+  ],
+  "AutomationStudio": [
+    "AutomationStudio.gitignore"
+  ],
+  "Autotools": [
+    "Autotools.gitignore",
+    "Autotools.patch"
+  ],
+  "Autotools+strict": [
+    "Autotools+strict.patch",
+    "Autotools.gitignore",
+    "Autotools.patch"
+  ],
+  "AWR": [
+    "AWR.gitignore"
+  ],
+  "AzureFunctions": [
+    "AzureFunctions.gitignore"
+  ],
+  "Azurite": [
+    "Azurite.gitignore"
+  ],
+  "Backup": [
+    "Backup.gitignore"
+  ],
+  "Ballerina": [
+    "Ballerina.gitignore"
+  ],
+  "baserCMS": [
+    "baserCMS.gitignore"
+  ],
+  "Basic": [
+    "Basic.gitignore"
+  ],
+  "Batch": [
+    "Batch.gitignore"
+  ],
+  "Bazaar": [
+    "Bazaar.gitignore"
+  ],
+  "Bazel": [
+    "Bazel.gitignore"
+  ],
+  "Bitrise": [
+    "Bitrise.gitignore"
+  ],
+  "Bitrix": [
+    "Bitrix.gitignore"
+  ],
+  "BitTorrent": [
+    "BitTorrent.gitignore"
+  ],
+  "Blackbox": [
+    "Blackbox.gitignore"
+  ],
+  "Blender": [
+    "Blender.gitignore"
+  ],
+  "Bloop": [
+    "Bloop.gitignore"
+  ],
+  "bluej": [
+    "bluej.gitignore"
+  ],
+  "Bookdown": [
+    "Bookdown.gitignore"
+  ],
+  "Bower": [
+    "Bower.gitignore"
+  ],
+  "BricxCC": [
+    "BricxCC.gitignore"
+  ],
+  "Buck": [
+    "Buck.gitignore"
+  ],
+  "C": [
+    "C.gitignore"
+  ],
+  "C++": [
+    "C++.gitignore"
+  ],
+  "Cake": [
+    "Cake.gitignore"
+  ],
+  "CakePHP": [
+    "CakePHP.gitignore"
+  ],
+  "CakePHP2": [
+    "CakePHP2.gitignore"
+  ],
+  "CakePHP3": [
+    "CakePHP3.gitignore"
+  ],
+  "Calabash": [
+    "Calabash.gitignore"
+  ],
+  "Carthage": [
+    "Carthage.gitignore"
+  ],
+  "certificates": [
+    "certificates.gitignore"
+  ],
+  "Ceylon": [
+    "Ceylon.gitignore"
+  ],
+  "CFWheels": [
+    "CFWheels.gitignore"
+  ],
+  "ChefCookbook": [
+    "ChefCookbook.gitignore"
+  ],
+  "Chocolatey": [
+    "Chocolatey.gitignore"
+  ],
+  "CircuitPython": [
+    "CircuitPython.gitignore"
+  ],
+  "Clean": [
+    "Clean.gitignore"
+  ],
+  "CLion": [
+    "JetBrains.gitignore",
+    "JetBrains.patch"
+  ],
+  "CLion+all": [
+    "JetBrains.gitignore",
+    "JetBrains.patch",
+    "JetBrains+all.patch"
+  ],
+  "CLion+iml": [
+    "JetBrains.gitignore",
+    "JetBrains.patch",
+    "JetBrains+iml.patch"
+  ],
+  "Clojure": [
+    "Clojure.gitignore"
+  ],
+  "Cloud9": [
+    "Cloud9.gitignore"
+  ],
+  "CMake": [
+    "CMake.gitignore",
+    "CMake.patch"
+  ],
+  "CocoaPods": [
+    "CocoaPods.gitignore"
+  ],
+  "Cocos2dx": [
+    "Cocos2dx.gitignore"
+  ],
+  "CocosCreator": [
+    "CocosCreator.gitignore"
+  ],
+  "CodeBlocks": [
+    "CodeBlocks.gitignore"
+  ],
+  "CodeComposerStudio": [
+    "CodeComposerStudio.gitignore"
+  ],
+  "CodeIgniter": [
+    "CodeIgniter.gitignore",
+    "CodeIgniter.patch"
+  ],
+  "Codeio": [
+    "Codeio.gitignore"
+  ],
+  "CodeKit": [
+    "CodeKit.gitignore",
+    "CodeKit.patch"
+  ],
+  "CodeSniffer": [
+    "CodeSniffer.gitignore"
+  ],
+  "CoffeeScript": [
+    "CoffeeScript.gitignore"
+  ],
+  "CommonLisp": [
+    "CommonLisp.gitignore"
+  ],
+  "Compodoc": [
+    "Compodoc.gitignore"
+  ],
+  "Composer": [
+    "Composer.gitignore"
+  ],
+  "Compressed": [
+    "Compressed.gitignore"
+  ],
+  "CompressedArchive": [
+    "CompressedArchive.gitignore"
+  ],
+  "Compression": [
+    "Compression.gitignore"
+  ],
+  "Conan": [
+    "Conan.gitignore"
+  ],
+  "Concrete5": [
+    "Concrete5.gitignore"
+  ],
+  "Coq": [
+    "Coq.gitignore"
+  ],
+  "Cordova": [
+    "Cordova.gitignore"
+  ],
+  "CraftCMS": [
+    "CraftCMS.gitignore"
+  ],
+  "Crashlytics": [
+    "Crashlytics.gitignore"
+  ],
+  "CRBasic": [
+    "CRBasic.gitignore"
+  ],
+  "Crossbar": [
+    "Crossbar.gitignore"
+  ],
+  "Crystal": [
+    "Crystal.gitignore"
+  ],
+  "CS-Cart": [
+    "CS-Cart.gitignore"
+  ],
+  "Csharp": [
+    "VisualStudio.gitignore",
+    "VisualStudio.patch"
+  ],
+  "CUDA": [
+    "CUDA.gitignore"
+  ],
+  "CVS": [
+    "CVS.gitignore"
+  ],
+  "CypressIO": [
+    "CypressIO.gitignore"
+  ],
+  "D": [
+    "D.gitignore",
+    "D.patch"
+  ],
+  "Dart": [
+    "Dart.gitignore",
+    "Dart.patch"
+  ],
+  "DartEditor": [
+    "DartEditor.gitignore"
+  ],
+  "Data": [
+    "Data.gitignore"
+  ],
+  "Database": [
+    "Database.gitignore"
+  ],
+  "DataRecovery": [
+    "DataRecovery.gitignore"
+  ],
+  "DBeaver": [
+    "DBeaver.gitignore"
+  ],
+  "dbt": [
+    "dbt.gitignore"
+  ],
+  "Defold": [
+    "Defold.gitignore"
+  ],
+  "Delphi": [
+    "Delphi.gitignore"
+  ],
+  "Deno": [
+    "Deno.gitignore"
+  ],
+  "Dframe": [
+    "Dframe.gitignore"
+  ],
+  "Diff": [
+    "Diff.gitignore"
+  ],
+  "direnv": [
+    "direnv.gitignore"
+  ],
+  "DiskImage": [
+    "DiskImage.gitignore"
+  ],
+  "Django": [
+    "Django.gitignore",
+    "Python.gitignore",
+    "Python.patch"
+  ],
+  "DM": [
+    "DM.gitignore"
+  ],
+  "DocFx": [
+    "DocFx.gitignore"
+  ],
+  "Docpress": [
+    "Docpress.gitignore"
+  ],
+  "Docusaurus": [
+    "Docusaurus.gitignore",
+    "Node.gitignore",
+    "Node.patch"
+  ],
+  "Docz": [
+    "Docz.gitignore"
+  ],
+  "dotenv": [
+    "dotenv.gitignore"
+  ],
+  "DotfilesSh": [
+    "DotfilesSh.gitignore"
+  ],
+  "DotnetCore": [
+    "DotnetCore.gitignore"
+  ],
+  "DotSettings": [
+    "DotSettings.gitignore"
+  ],
+  "Doxygen": [
+    "Doxygen.gitignore"
+  ],
+  "Dreamweaver": [
+    "Dreamweaver.gitignore"
+  ],
+  "Dropbox": [
+    "Dropbox.gitignore"
+  ],
+  "Drupal": [
+    "Drupal.gitignore"
+  ],
+  "Drupal7": [
+    "Drupal7.gitignore"
+  ],
+  "Drupal8": [
+    "Drupal.gitignore"
+  ],
+  "e2studio": [
+    "e2studio.gitignore"
+  ],
+  "Eagle": [
+    "Eagle.gitignore"
+  ],
+  "easybook": [
+    "easybook.gitignore"
+  ],
+  "Eclipse": [
+    "Eclipse.gitignore",
+    "Eclipse.patch"
+  ],
+  "EiffelStudio": [
+    "EiffelStudio.gitignore"
+  ],
+  "ElasticBeanstalk": [
+    "ElasticBeanstalk.gitignore"
+  ],
+  "Elisp": [
+    "Elisp.gitignore"
+  ],
+  "Elixir": [
+    "Elixir.gitignore",
+    "Elixir.patch"
+  ],
+  "Elm": [
+    "Elm.gitignore"
+  ],
+  "Emacs": [
+    "Emacs.gitignore"
+  ],
+  "Ember": [
+    "Ember.gitignore"
+  ],
+  "Ensime": [
+    "Ensime.gitignore"
+  ],
+  "EPiServer": [
+    "EPiServer.gitignore"
+  ],
+  "Erlang": [
+    "Erlang.gitignore",
+    "Erlang.patch"
+  ],
+  "Espresso": [
+    "Espresso.gitignore"
+  ],
+  "Executable": [
+    "Executable.gitignore"
+  ],
+  "Exercism": [
+    "Exercism.gitignore"
+  ],
+  "ExpressionEngine": [
+    "ExpressionEngine.gitignore"
+  ],
+  "ExtJs": [
+    "ExtJs.gitignore"
+  ],
+  "Fancy": [
+    "Fancy.gitignore"
+  ],
+  "fastlane": [
+    "fastlane.gitignore"
+  ],
+  "Finale": [
+    "Finale.gitignore"
+  ],
+  "Firebase": [
+    "Firebase.gitignore",
+    "Firebase.patch"
+  ],
+  "Fish": [
+    "Fish.gitignore"
+  ],
+  "FlashBuilder": [
+    "FlashBuilder.gitignore"
+  ],
+  "Flask": [
+    "Flask.gitignore",
+    "Python.gitignore",
+    "Python.patch"
+  ],
+  "Flatpak": [
+    "Flatpak.gitignore"
+  ],
+  "Flex": [
+    "Flex.gitignore"
+  ],
+  "FlexBuilder": [
+    "FlexBuilder.gitignore"
+  ],
+  "floobits": [
+    "floobits.gitignore"
+  ],
+  "Flutter": [
+    "Flutter.gitignore"
+  ],
+  "Font": [
+    "Font.gitignore"
+  ],
+  "FontForge": [
+    "FontForge.gitignore"
+  ],
+  "ForceDotCom": [
+    "ForceDotCom.gitignore"
+  ],
+  "ForgeGradle": [
+    "ForgeGradle.gitignore"
+  ],
+  "Fortran": [
+    "Fortran.gitignore"
+  ],
+  "FreeCad": [
+    "FreeCad.gitignore"
+  ],
+  "FreePascal": [
+    "FreePascal.gitignore"
+  ],
+  "fsharp": [
+    "fsharp.gitignore"
+  ],
+  "FuelPHP": [
+    "FuelPHP.gitignore"
+  ],
+  "FuseTools": [
+    "FuseTools.gitignore"
+  ],
+  "Games": [
+    "Games.gitignore"
+  ],
+  "Gatsby": [
+    "Gatsby.gitignore"
+  ],
+  "Gcov": [
+    "Gcov.gitignore"
+  ],
+  "Genero4GL": [
+    "Genero4GL.gitignore"
+  ],
+  "Geth": [
+    "Geth.gitignore"
+  ],
+  "GGTS": [
+    "GGTS.gitignore"
+  ],
+  "GIS": [
+    "GIS.gitignore"
+  ],
+  "Git": [
+    "Git.gitignore"
+  ],
+  "GitBook": [
+    "GitBook.gitignore"
+  ],
+  "Go": [
+    "Go.gitignore"
+  ],
+  "Godot": [
+    "Godot.gitignore"
+  ],
+  "GoLand": [
+    "JetBrains.gitignore",
+    "JetBrains.patch"
+  ],
+  "GoLand+all": [
+    "JetBrains.gitignore",
+    "JetBrains.patch",
+    "JetBrains+all.patch"
+  ],
+  "GoLand+iml": [
+    "JetBrains.gitignore",
+    "JetBrains.patch",
+    "JetBrains+iml.patch"
+  ],
+  "GoodSync": [
+    "GoodSync.gitignore"
+  ],
+  "GPG": [
+    "GPG.gitignore"
+  ],
+  "Gradle": [
+    "Gradle.gitignore",
+    "Gradle.patch"
+  ],
+  "Grails": [
+    "Grails.gitignore"
+  ],
+  "greenfoot": [
+    "greenfoot.gitignore"
+  ],
+  "Groovy": [
+    "Groovy.gitignore"
+  ],
+  "grunt": [
+    "grunt.gitignore"
+  ],
+  "GWT": [
+    "GWT.gitignore"
+  ],
+  "Haskell": [
+    "Haskell.gitignore"
+  ],
+  "Helm": [
+    "Helm.gitignore"
+  ],
+  "Hexo": [
+    "Hexo.gitignore"
+  ],
+  "HOL": [
+    "HOL.gitignore"
+  ],
+  "HomeAssistant": [
+    "HomeAssistant.gitignore"
+  ],
+  "Homebrew": [
+    "Homebrew.gitignore"
+  ],
+  "HSP": [
+    "HSP.gitignore"
+  ],
+  "Hugo": [
+    "Hugo.gitignore"
+  ],
+  "HyperledgerComposer": [
+    "HyperledgerComposer.gitignore"
+  ],
+  "IAR": [
+    "IAR.gitignore"
+  ],
+  "IAR_EWARM": [
+    "IAR_EWARM.gitignore"
+  ],
+  "IAREmbeddedWorkBench": [
+    "IAREmbeddedWorkBench.gitignore"
+  ],
+  "IDAPro": [
+    "IDAPro.gitignore"
+  ],
+  "IGORPro": [
+    "IGORPro.gitignore"
+  ],
+  "Images": [
+    "Images.gitignore"
+  ],
+  "infer": [
+    "infer.gitignore"
+  ],
+  "InforCMS": [
+    "InforCMS.gitignore"
+  ],
+  "InforCRM": [
+    "InforCRM.gitignore"
+  ],
+  "Intellij": [
+    "JetBrains.gitignore",
+    "JetBrains.patch"
+  ],
+  "Intellij+all": [
+    "JetBrains.gitignore",
+    "JetBrains.patch",
+    "JetBrains+all.patch"
+  ],
+  "Intellij+iml": [
+    "JetBrains.gitignore",
+    "JetBrains.patch",
+    "JetBrains+iml.patch"
+  ],
+  "Ionic3": [
+    "Ionic3.gitignore"
+  ],
+  "JabRef": [
+    "JabRef.gitignore"
+  ],
+  "Janet": [
+    "Janet.gitignore"
+  ],
+  "Java": [
+    "Java.gitignore"
+  ],
+  "JBoss": [
+    "JBoss.gitignore"
+  ],
+  "JBoss-4-2-3-GA": [
+    "JBoss-4-2-3-GA.gitignore"
+  ],
+  "JBoss-6-x": [
+    "JBoss-6-x.gitignore"
+  ],
+  "JBoss4": [
+    "JBoss4.gitignore"
+  ],
+  "JBoss6": [
+    "JBoss6.gitignore"
+  ],
+  "JDeveloper": [
+    "JDeveloper.gitignore"
+  ],
+  "Jekyll": [
+    "Jekyll.gitignore"
+  ],
+  "JEnv": [
+    "JEnv.gitignore"
+  ],
+  "JetBrains": [
+    "JetBrains.gitignore",
+    "JetBrains.patch"
+  ],
+  "JetBrains+all": [
+    "JetBrains+all.patch",
+    "JetBrains.gitignore",
+    "JetBrains.patch"
+  ],
+  "JetBrains+iml": [
+    "JetBrains+iml.patch",
+    "JetBrains.gitignore",
+    "JetBrains.patch"
+  ],
+  "JGiven": [
+    "JGiven.gitignore"
+  ],
+  "Jigsaw": [
+    "Jigsaw.gitignore"
+  ],
+  "JMeter": [
+    "JMeter.gitignore"
+  ],
+  "Joe": [
+    "Joe.gitignore"
+  ],
+  "Joomla": [
+    "Joomla.gitignore"
+  ],
+  "Jsonnet": [
+    "Jsonnet.gitignore"
+  ],
+  "jspm": [
+    "jspm.gitignore"
+  ],
+  "Julia": [
+    "Julia.gitignore"
+  ],
+  "JupyterNotebooks": [
+    "JupyterNotebooks.gitignore"
+  ],
+  "JustCode": [
+    "JustCode.gitignore"
+  ],
+  "kaldi": [
+    "kaldi.gitignore"
+  ],
+  "Kate": [
+    "Kate.gitignore"
+  ],
+  "KDevelop4": [
+    "KDevelop4.gitignore"
+  ],
+  "KDiff3": [
+    "KDiff3.gitignore"
+  ],
+  "Keil": [
+    "Keil.gitignore"
+  ],
+  "Kentico": [
+    "Kentico.gitignore"
+  ],
+  "KeystoneJS": [
+    "KeystoneJS.gitignore"
+  ],
+  "KiCad": [
+    "KiCad.gitignore",
+    "KiCad.patch"
+  ],
+  "Kirby2": [
+    "Kirby2.gitignore"
+  ],
+  "Kirby3": [
+    "Kirby3.gitignore"
+  ],
+  "Kobalt": [
+    "Kobalt.gitignore"
+  ],
+  "Kohana": [
+    "Kohana.gitignore"
+  ],
+  "KomodoEdit": [
+    "KomodoEdit.gitignore"
+  ],
+  "KonyVisualizer": [
+    "KonyVisualizer.gitignore"
+  ],
+  "Kotlin": [
+    "Java.gitignore"
+  ],
+  "LabVIEW": [
+    "LabVIEW.gitignore"
+  ],
+  "LabVIEWNXG": [
+    "LabVIEWNXG.gitignore"
+  ],
+  "LAMP": [
+    "LAMP.gitignore",
+    "JetBrains.gitignore",
+    "JetBrains.patch",
+    "Linux.gitignore"
+  ],
+  "Laravel": [
+    "Laravel.gitignore"
+  ],
+  "LaTeX": [
+    "TeX.gitignore",
+    "TeX.patch"
+  ],
+  "Lazarus": [
+    "Lazarus.gitignore"
+  ],
+  "Leiningen": [
+    "Leiningen.gitignore"
+  ],
+  "LemonStand": [
+    "LemonStand.gitignore"
+  ],
+  "Less": [
+    "Less.gitignore"
+  ],
+  "LiberoSOC": [
+    "LiberoSOC.gitignore"
+  ],
+  "librarian-chef": [
+    "librarian-chef.gitignore"
+  ],
+  "LibreOffice": [
+    "LibreOffice.gitignore"
+  ],
+  "LighthouseCI": [
+    "LighthouseCI.gitignore"
+  ],
+  "Lilypond": [
+    "Lilypond.gitignore"
+  ],
+  "Linux": [
+    "Linux.gitignore"
+  ],
+  "Lithium": [
+    "Lithium.gitignore"
+  ],
+  "LocalStack": [
+    "LocalStack.gitignore"
+  ],
+  "Logtalk": [
+    "Logtalk.gitignore"
+  ],
+  "LSspice": [
+    "LSspice.gitignore"
+  ],
+  "LTspice": [
+    "LTspice.gitignore"
+  ],
+  "Lua": [
+    "Lua.gitignore"
+  ],
+  "LyX": [
+    "LyX.gitignore"
+  ],
+  "macOS": [
+    "macOS.gitignore",
+    "macOS.patch"
+  ],
+  "Magento": [
+    "Magento.gitignore",
+    "Magento.patch"
+  ],
+  "Magento1": [
+    "Magento1.gitignore"
+  ],
+  "Magento2": [
+    "Magento2.gitignore"
+  ],
+  "Magic-xpa": [
+    "Magic-xpa.gitignore"
+  ],
+  "MATLAB": [
+    "MATLAB.gitignore"
+  ],
+  "Maven": [
+    "Maven.gitignore"
+  ],
+  "MavensMate": [
+    "MavensMate.gitignore"
+  ],
+  "MdBook": [
+    "MdBook.gitignore"
+  ],
+  "MEAN": [
+    "MEAN.gitignore",
+    "Angular.gitignore",
+    "Node.gitignore",
+    "Node.patch"
+  ],
+  "Mercurial": [
+    "Mercurial.gitignore"
+  ],
+  "Mercury": [
+    "Mercury.gitignore"
+  ],
+  "Meson": [
+    "Meson.gitignore"
+  ],
+  "Metals": [
+    "Metals.gitignore"
+  ],
+  "Metalsmith": [
+    "Metalsmith.gitignore"
+  ],
+  "MetaProgrammingSystem": [
+    "MetaProgrammingSystem.gitignore"
+  ],
+  "Meteor": [
+    "Meteor.gitignore"
+  ],
+  "MeteorJS": [
+    "MeteorJS.gitignore"
+  ],
+  "MicrosoftOffice": [
+    "MicrosoftOffice.gitignore"
+  ],
+  "MikroC": [
+    "MikroC.gitignore"
+  ],
+  "Mill": [
+    "Mill.gitignore"
+  ],
+  "Moban": [
+    "Moban.gitignore"
+  ],
+  "ModelSim": [
+    "ModelSim.gitignore"
+  ],
+  "MODX": [
+    "MODX.gitignore"
+  ],
+  "Momentics": [
+    "Momentics.gitignore"
+  ],
+  "MonoDevelop": [
+    "MonoDevelop.gitignore"
+  ],
+  "MPLabX": [
+    "MPLabX.gitignore"
+  ],
+  "mule": [
+    "mule.gitignore"
+  ],
+  "Nanoc": [
+    "Nanoc.gitignore"
+  ],
+  "NativeScript": [
+    "NativeScript.gitignore"
+  ],
+  "NCrunch": [
+    "NCrunch.gitignore"
+  ],
+  "NesC": [
+    "NesC.gitignore"
+  ],
+  "NetBeans": [
+    "NetBeans.gitignore"
+  ],
+  "Nette": [
+    "Nette.gitignore"
+  ],
+  "NextJS": [
+    "NextJS.gitignore"
+  ],
+  "Nikola": [
+    "Nikola.gitignore"
+  ],
+  "Nim": [
+    "Nim.gitignore"
+  ],
+  "Ninja": [
+    "Ninja.gitignore"
+  ],
+  "Node": [
+    "Node.gitignore",
+    "Node.patch"
+  ],
+  "NodeChakraTimeTravelDebug": [
+    "NodeChakraTimeTravelDebug.gitignore"
+  ],
+  "Nohup": [
+    "Nohup.gitignore"
+  ],
+  "NotepadPP": [
+    "NotepadPP.gitignore"
+  ],
+  "nova": [
+    "nova.gitignore"
+  ],
+  "now": [
+    "now.gitignore"
+  ],
+  "NuxtJS": [
+    "NuxtJS.gitignore"
+  ],
+  "NWjs": [
+    "NWjs.gitignore"
+  ],
+  "Objective-C": [
+    "Objective-C.gitignore",
+    "Objective-C.patch"
+  ],
+  "Obsidian": [
+    "Obsidian.gitignore"
+  ],
+  "OCaml": [
+    "OCaml.gitignore"
+  ],
+  "Octave": [
+    "MATLAB.gitignore"
+  ],
+  "OctoberCms": [
+    "OctoberCms.gitignore"
+  ],
+  "Opa": [
+    "Opa.gitignore"
+  ],
+  "OpenCart": [
+    "OpenCart.gitignore"
+  ],
+  "OpenCV": [
+    "OpenCV.gitignore"
+  ],
+  "OpenFOAM": [
+    "OpenFOAM.gitignore"
+  ],
+  "OpenFrameworks": [
+    "OpenFrameworks.gitignore"
+  ],
+  "OpenFrameworks+VisualStudio": [
+    "OpenFrameworks+VisualStudio.patch",
+    "OpenFrameworks.gitignore"
+  ],
+  "OracleForms": [
+    "OracleForms.gitignore"
+  ],
+  "OrCAD": [
+    "OrCAD.gitignore"
+  ],
+  "OSX": [
+    "macOS.gitignore",
+    "macOS.patch"
+  ],
+  "Otto": [
+    "Otto.gitignore"
+  ],
+  "OxidEshop": [
+    "OxidEshop.gitignore"
+  ],
+  "oXygenXMLEditor": [
+    "oXygenXMLEditor.gitignore"
+  ],
+  "Packer": [
+    "Packer.gitignore",
+    "Packer.patch"
+  ],
+  "Pants": [
+    "Pants.gitignore"
+  ],
+  "Particle": [
+    "Particle.gitignore"
+  ],
+  "Patch": [
+    "Patch.gitignore"
+  ],
+  "PAWN": [
+    "PAWN.gitignore"
+  ],
+  "Perl": [
+    "Perl.gitignore"
+  ],
+  "Perl6": [
+    "Perl6.gitignore"
+  ],
+  "pH7CMS": [
+    "pH7CMS.gitignore"
+  ],
+  "Phalcon": [
+    "Phalcon.gitignore"
+  ],
+  "Phoenix": [
+    "Phoenix.gitignore"
+  ],
+  "PHP-CS-Fixer": [
+    "PHP-CS-Fixer.gitignore"
+  ],
+  "PHPCodeSniffer": [
+    "PHPCodeSniffer.gitignore"
+  ],
+  "PhpStorm": [
+    "JetBrains.gitignore",
+    "JetBrains.patch"
+  ],
+  "PhpStorm+all": [
+    "JetBrains.gitignore",
+    "JetBrains.patch",
+    "JetBrains+all.patch"
+  ],
+  "PhpStorm+iml": [
+    "JetBrains.gitignore",
+    "JetBrains.patch",
+    "JetBrains+iml.patch"
+  ],
+  "PHPUnit": [
+    "PHPUnit.gitignore"
+  ],
+  "pico8": [
+    "pico8.gitignore"
+  ],
+  "Pimcore": [
+    "Pimcore.gitignore"
+  ],
+  "Pimcore4": [
+    "Pimcore4.gitignore"
+  ],
+  "Pimcore5": [
+    "Pimcore5.gitignore"
+  ],
+  "PineGrow": [
+    "PineGrow.gitignore"
+  ],
+  "PlatformIO": [
+    "PlatformIO.gitignore"
+  ],
+  "PlayFramework": [
+    "PlayFramework.gitignore"
+  ],
+  "Plone": [
+    "Plone.gitignore"
+  ],
+  "Polymer": [
+    "Polymer.gitignore"
+  ],
+  "PowerShell": [
+    "PowerShell.gitignore"
+  ],
+  "premake-gmake": [
+    "premake-gmake.gitignore"
+  ],
+  "Prepros": [
+    "Prepros.gitignore"
+  ],
+  "Prestashop": [
+    "Prestashop.gitignore"
+  ],
+  "Processing": [
+    "Processing.gitignore"
+  ],
+  "ProgressABL": [
+    "ProgressABL.gitignore"
+  ],
+  "PSoCCreator": [
+    "PSoCCreator.gitignore"
+  ],
+  "Pulumi": [
+    "Pulumi.gitignore"
+  ],
+  "Pulumi+stacks": [
+    "Pulumi+stacks.patch",
+    "Pulumi.gitignore"
+  ],
+  "Puppet": [
+    "Puppet.gitignore"
+  ],
+  "puppet-librarian": [
+    "puppet-librarian.gitignore"
+  ],
+  "PureBasic": [
+    "PureBasic.gitignore"
+  ],
+  "PureScript": [
+    "PureScript.gitignore"
+  ],
+  "PuTTY": [
+    "PuTTY.gitignore"
+  ],
+  "PVS": [
+    "PVS.gitignore"
+  ],
+  "PyCharm": [
+    "JetBrains.gitignore",
+    "JetBrains.patch"
+  ],
+  "PyCharm+all": [
+    "JetBrains.gitignore",
+    "JetBrains.patch",
+    "JetBrains+all.patch"
+  ],
+  "PyCharm+iml": [
+    "JetBrains.gitignore",
+    "JetBrains.patch",
+    "JetBrains+iml.patch"
+  ],
+  "pydev": [
+    "pydev.gitignore"
+  ],
+  "Python": [
+    "Python.gitignore",
+    "Python.patch"
+  ],
+  "PythonVanilla": [
+    "PythonVanilla.gitignore"
+  ],
+  "QML": [
+    "QML.gitignore"
+  ],
+  "Qooxdoo": [
+    "Qooxdoo.gitignore"
+  ],
+  "Qt": [
+    "Qt.gitignore"
+  ],
+  "QtCreator": [
+    "QtCreator.gitignore"
+  ],
+  "R": [
+    "R.gitignore",
+    "Bookdown.gitignore"
+  ],
+  "Racket": [
+    "Racket.gitignore"
+  ],
+  "Rails": [
+    "Rails.gitignore"
+  ],
+  "react": [
+    "react.gitignore"
+  ],
+  "ReactNative": [
+    "ReactNative.gitignore",
+    "Android.gitignore",
+    "Android.patch",
+    "Buck.gitignore",
+    "Gradle.gitignore",
+    "Gradle.patch",
+    "Linux.gitignore",
+    "macOS.gitignore",
+    "macOS.patch",
+    "Node.gitignore",
+    "Node.patch",
+    "Xcode.gitignore",
+    "Xcode.patch"
+  ],
+  "Reasonml": [
+    "Reasonml.gitignore"
+  ],
+  "Red": [
+    "Red.gitignore"
+  ],
+  "Redcar": [
+    "Redcar.gitignore"
+  ],
+  "Redis": [
+    "Redis.gitignore"
+  ],
+  "Remix": [
+    "Remix.gitignore"
+  ],
+  "Remix+Arc": [
+    "Remix+Arc.gitignore"
+  ],
+  "Remix+CloudflarePages": [
+    "Remix+CloudflarePages.gitignore"
+  ],
+  "Remix+CloudflareWorkers": [
+    "Remix+CloudflareWorkers.gitignore"
+  ],
+  "Remix+Netlify": [
+    "Remix+Netlify.gitignore"
+  ],
+  "Remix+Vercel": [
+    "Remix+Vercel.gitignore"
+  ],
+  "Renpy": [
+    "Renpy.gitignore"
+  ],
+  "replit": [
+    "replit.gitignore"
+  ],
+  "retool": [
+    "retool.gitignore"
+  ],
+  "RhodesRhomobile": [
+    "RhodesRhomobile.gitignore"
+  ],
+  "Rider": [
+    "JetBrains.gitignore",
+    "JetBrains.patch"
+  ],
+  "robotframework": [
+    "robotframework.gitignore"
+  ],
+  "ROOT": [
+    "ROOT.gitignore"
+  ],
+  "ROS": [
+    "ROS.gitignore"
+  ],
+  "ROS2": [
+    "ROS2.gitignore"
+  ],
+  "Ruby": [
+    "Ruby.gitignore"
+  ],
+  "RubyMine": [
+    "JetBrains.gitignore",
+    "JetBrains.patch"
+  ],
+  "RubyMine+all": [
+    "JetBrains.gitignore",
+    "JetBrains.patch",
+    "JetBrains+all.patch"
+  ],
+  "RubyMine+iml": [
+    "JetBrains.gitignore",
+    "JetBrains.patch",
+    "JetBrains+iml.patch"
+  ],
+  "Rust": [
+    "Rust.gitignore"
+  ],
+  "rust-analyzer": [
+    "rust-analyzer.gitignore"
+  ],
+  "Salesforce": [
+    "Salesforce.gitignore"
+  ],
+  "SalesforceDX": [
+    "SalesforceDX.patch",
+    "Salesforce.gitignore"
+  ],
+  "SAM": [
+    "SAM.gitignore"
+  ],
+  "SAM+config": [
+    "SAM+config.patch",
+    "SAM.gitignore"
+  ],
+  "SAS": [
+    "SAS.gitignore"
+  ],
+  "Sass": [
+    "Sass.gitignore"
+  ],
+  "SBT": [
+    "SBT.gitignore",
+    "SBT.patch"
+  ],
+  "Scala": [
+    "Scala.gitignore"
+  ],
+  "Scheme": [
+    "Scheme.gitignore"
+  ],
+  "SCons": [
+    "SCons.gitignore"
+  ],
+  "Scrivener": [
+    "Scrivener.gitignore"
+  ],
+  "Sdcc": [
+    "Sdcc.gitignore"
+  ],
+  "SeamGen": [
+    "SeamGen.gitignore"
+  ],
+  "SenchaTouch": [
+    "SenchaTouch.gitignore"
+  ],
+  "Serverless": [
+    "Serverless.gitignore"
+  ],
+  "Shopware": [
+    "Shopware.gitignore"
+  ],
+  "Silverstripe": [
+    "Silverstripe.gitignore"
+  ],
+  "SketchUp": [
+    "SketchUp.gitignore"
+  ],
+  "SlickEdit": [
+    "SlickEdit.gitignore"
+  ],
+  "Smalltalk": [
+    "Smalltalk.gitignore"
+  ],
+  "Snap": [
+    "Snap.gitignore"
+  ],
+  "Snapcraft": [
+    "Snapcraft.gitignore"
+  ],
+  "Snyk": [
+    "Snyk.gitignore"
+  ],
+  "Solidity": [
+    "Node.gitignore",
+    "Node.patch"
+  ],
+  "SolidityTruffle": [
+    "SolidityTruffle.gitignore"
+  ],
+  "Sonar": [
+    "Sonar.gitignore"
+  ],
+  "SonarQube": [
+    "SonarQube.gitignore"
+  ],
+  "SourcePawn": [
+    "SourcePawn.gitignore"
+  ],
+  "Spark": [
+    "Spark.gitignore"
+  ],
+  "SpecFlow": [
+    "SpecFlow.gitignore"
+  ],
+  "Splunk": [
+    "Splunk.gitignore"
+  ],
+  "Spreadsheet": [
+    "Spreadsheet.gitignore"
+  ],
+  "SSH": [
+    "SSH.gitignore"
+  ],
+  "StandardML": [
+    "StandardML.gitignore"
+  ],
+  "Stata": [
+    "Stata.gitignore"
+  ],
+  "StdLib": [
+    "StdLib.gitignore"
+  ],
+  "Stella": [
+    "Stella.gitignore"
+  ],
+  "Stellar": [
+    "Stellar.gitignore"
+  ],
+  "StorybookJs": [
+    "StorybookJs.gitignore"
+  ],
+  "Strapi": [
+    "Strapi.gitignore"
+  ],
+  "Stylus": [
+    "Stylus.gitignore"
+  ],
+  "SublimeText": [
+    "SublimeText.gitignore"
+  ],
+  "SugarCRM": [
+    "SugarCRM.gitignore"
+  ],
+  "Svelte": [
+    "Svelte.gitignore"
+  ],
+  "SVN": [
+    "SVN.gitignore"
+  ],
+  "Swift": [
+    "Swift.gitignore"
+  ],
+  "SwiftPackageManager": [
+    "SwiftPackageManager.gitignore"
+  ],
+  "SwiftPM": [
+    "SwiftPackageManager.gitignore"
+  ],
+  "Symfony": [
+    "Symfony.gitignore",
+    "Symfony.patch"
+  ],
+  "SymphonyCMS": [
+    "SymphonyCMS.gitignore"
+  ],
+  "Synology": [
+    "Synology.gitignore"
+  ],
+  "SynopsysVCS": [
+    "SynopsysVCS.gitignore"
+  ],
+  "Tags": [
+    "Tags.gitignore"
+  ],
+  "TarmaInstallMate": [
+    "TarmaInstallMate.gitignore"
+  ],
+  "Terraform": [
+    "Terraform.gitignore"
+  ],
+  "Terragrunt": [
+    "Terragrunt.gitignore"
+  ],
+  "Test": [
+    "Test.gitignore"
+  ],
+  "TestComplete": [
+    "TestComplete.gitignore"
+  ],
+  "Testinfra": [
+    "Testinfra.gitignore"
+  ],
+  "TeX": [
+    "TeX.gitignore",
+    "TeX.patch"
+  ],
+  "Text": [
+    "Text.gitignore"
+  ],
+  "TextMate": [
+    "TextMate.gitignore"
+  ],
+  "Textpattern": [
+    "Textpattern.gitignore"
+  ],
+  "THEOS-Tweak": [
+    "THEOS-Tweak.gitignore"
+  ],
+  "ThinkPHP": [
+    "ThinkPHP.gitignore"
+  ],
+  "TLA+": [
+    "TLA+.gitignore"
+  ],
+  "Toit": [
+    "Toit.gitignore"
+  ],
+  "TortoiseGit": [
+    "TortoiseGit.gitignore"
+  ],
+  "Tower": [
+    "Tower.gitignore"
+  ],
+  "Turbo": [
+    "Turbo.gitignore"
+  ],
+  "TurboGears2": [
+    "TurboGears2.gitignore"
+  ],
+  "TwinCAT3": [
+    "TwinCAT3.gitignore",
+    "TwinCAT3.OpenFrameworks.stack",
+    "TwinCAT3.VisualStudio.stack"
+  ],
+  "Tye": [
+    "Tye.gitignore"
+  ],
+  "Typings": [
+    "Typings.gitignore"
+  ],
+  "Typo3": [
+    "Typo3.gitignore"
+  ],
+  "TYPO3-composer": [
+    "TYPO3-composer.gitignore"
+  ],
+  "Umbraco": [
+    "Umbraco.gitignore"
+  ],
+  "Unity": [
+    "Unity.gitignore"
+  ],
+  "UnrealEngine": [
+    "UnrealEngine.gitignore",
+    "UnrealEngine.patch"
+  ],
+  "Vaadin": [
+    "Vaadin.gitignore"
+  ],
+  "Vagrant": [
+    "Vagrant.gitignore",
+    "Vagrant.patch"
+  ],
+  "Valgrind": [
+    "Valgrind.gitignore"
+  ],
+  "Vapor": [
+    "Vapor.gitignore",
+    "SwiftPackageManager.gitignore"
+  ],
+  "vcpkg": [
+    "vcpkg.gitignore"
+  ],
+  "venv": [
+    "VirtualEnv.gitignore"
+  ],
+  "Vercel": [
+    "Vercel.gitignore"
+  ],
+  "Vertx": [
+    "Vertx.gitignore"
+  ],
+  "Video": [
+    "Video.gitignore"
+  ],
+  "Vim": [
+    "Vim.gitignore"
+  ],
+  "VirtualEnv": [
+    "VirtualEnv.gitignore"
+  ],
+  "Virtuoso": [
+    "Virtuoso.gitignore"
+  ],
+  "VisualBasic": [
+    "VisualBasic.gitignore"
+  ],
+  "VisualStudio": [
+    "VisualStudio.gitignore",
+    "VisualStudio.patch"
+  ],
+  "VisualStudioCode": [
+    "VisualStudioCode.gitignore",
+    "VisualStudioCode.patch"
+  ],
+  "Vivado": [
+    "Vivado.gitignore"
+  ],
+  "VLab": [
+    "VLab.gitignore"
+  ],
+  "vRealizeOrchestrator": [
+    "vRealizeOrchestrator.gitignore"
+  ],
+  "Vue": [
+    "Vue.gitignore"
+  ],
+  "Vuejs": [
+    "Vuejs.gitignore"
+  ],
+  "VVVV": [
+    "VVVV.gitignore"
+  ],
+  "Waf": [
+    "Waf.gitignore"
+  ],
+  "Wakanda": [
+    "Wakanda.gitignore"
+  ],
+  "Web": [
+    "Web.gitignore"
+  ],
+  "WebMethods": [
+    "WebMethods.gitignore"
+  ],
+  "WebStorm": [
+    "JetBrains.gitignore",
+    "JetBrains.patch"
+  ],
+  "WebStorm+all": [
+    "JetBrains.gitignore",
+    "JetBrains.patch",
+    "JetBrains+all.patch"
+  ],
+  "WebStorm+iml": [
+    "JetBrains.gitignore",
+    "JetBrains.patch",
+    "JetBrains+iml.patch"
+  ],
+  "WerckerCLI": [
+    "WerckerCLI.gitignore"
+  ],
+  "Windows": [
+    "Windows.gitignore"
+  ],
+  "Wintersmith": [
+    "Wintersmith.gitignore"
+  ],
+  "WordPress": [
+    "WordPress.gitignore"
+  ],
+  "Wyam": [
+    "Wyam.gitignore"
+  ],
+  "XamarinStudio": [
+    "XamarinStudio.gitignore"
+  ],
+  "Xcode": [
+    "Xcode.gitignore",
+    "Xcode.patch"
+  ],
+  "XcodeInjection": [
+    "XcodeInjection.gitignore"
+  ],
+  "Xilinx": [
+    "Xilinx.gitignore"
+  ],
+  "XilinxISE": [
+    "XilinxISE.gitignore"
+  ],
+  "XilinxVivado": [
+    "XilinxVivado.gitignore"
+  ],
+  "Xill": [
+    "Xill.gitignore"
+  ],
+  "xmake": [
+    "xmake.gitignore"
+  ],
+  "Xojo": [
+    "Xojo.gitignore"
+  ],
+  "XText": [
+    "XText.gitignore"
+  ],
+  "Y86": [
+    "Y86.gitignore"
+  ],
+  "yalc": [
+    "yalc.gitignore"
+  ],
+  "yarn": [
+    "yarn.gitignore"
+  ],
+  "Yeoman": [
+    "Yeoman.gitignore"
+  ],
+  "Yii": [
+    "Yii.gitignore"
+  ],
+  "Yii2": [
+    "Yii2.gitignore"
+  ],
+  "ZendFramework": [
+    "ZendFramework.gitignore"
+  ],
+  "Zephir": [
+    "Zephir.gitignore"
+  ],
+  "zig": [
+    "zig.gitignore"
+  ],
+  "Zsh": [
+    "Zsh.gitignore"
+  ],
+  "ZukenCR8000": [
+    "ZukenCR8000.gitignore"
+  ]
+}
