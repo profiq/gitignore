@@ -8,7 +8,15 @@ jobs:
   update-tech-options:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.
+        with:
+          ref: update-tech-options
+
+      - name: Rebase to main
+        run: |
+          git fetch origin main:main
+          git rebase main
+
       - uses: actions/setup-node@v3
         with:
           node-version: '20'
@@ -33,11 +41,7 @@ jobs:
       - name: Commit changes
         if: steps.git-check.outputs.has_changes == 'true'
         run: |
-          git config --global user.name "FilipLunski"
-          git config --global user.email "f.lunski@gmail.com"
+          git add .
+          git commit -m "Update tech options according to the latest github templates - $(date +%Y-%m-%d_%H:%M:%S)"
 
-          git add -A
-          git commit -m "timestamp"
-          git push
 
-      
