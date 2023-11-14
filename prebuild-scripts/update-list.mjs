@@ -53,6 +53,7 @@ import techOptionsDict from "./techOptions.json" assert { type: 'json' };
     .forEach(function (key) {
       techOptionsDictSorted[key] = techOptionsDict[key];
     });
+    techOptionsDictSorted["timestamp"] = new Date().toISOString();
   return techOptionsDictSorted;
 }
 
