@@ -39,12 +39,5 @@ jobs:
           git add -A
           git commit -m "timestamp"
           git push
-      
-      - name: Commit changes
-        run: |
-          git config --global user.name "FilipLunski"
-          git config --global user.email "f.lunski@gmail.com"
 
-          git add -A
-          git commit -m "timestamp"
-          git push
+      
