@@ -46,5 +46,5 @@ jobs:
           git add .
           git commit -m "Update tech options according to the latest github templates - $(date +%Y-%m-%d_%H:%M:%S)"
           git push origin update-tech-options
-
-
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
