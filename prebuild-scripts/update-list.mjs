@@ -4,7 +4,6 @@ import techOptionsDict from "./techOptions.json" assert { type: 'json' };
 
 /**
  * Retrieves a list of available tech options from the gitignore templates directory.
- * @async
  * @function getTechoptionsList
  * @returns {Promise<Array<string>>} - A promise that resolves to an array of tech options.
  */
@@ -57,6 +56,14 @@ import techOptionsDict from "./techOptions.json" assert { type: 'json' };
   return techOptionsDictSorted;
 }
 
+/**
+ * Returns an array of file names for a given option.
+ * If the file is a symbolic link, it will recursively follow the link and return the file names for the target.
+ *
+ * @param {Array} files - An array of file objects.
+ * @param {string} option - The option to filter the files by.
+ * @returns {Array} An array of file names.
+ */
 function getFilesForLink(files, option)
 {
   return files
@@ -77,20 +84,29 @@ function getFilesForLink(files, option)
       }).flat();
 }
 
+
+/**
+ * Returns a dictionary of links for each gitignore option.
+ * @returns {Object} The dictionary of links for each gitignore option.
+ */
 function getLinksDict() {
   let linksDict = {};
 
+  // list files in the templates directory
   let files = fs.readdirSync(
     "./toptal.gitignoreTemplates/gitignore/templates",
     { withFileTypes: true },
   );
     files
+      // filter out files that are not gitignore files (.patch or .stack)
       .filter((option) => option.name.endsWith(".gitignore"))
       .map((o) => {
+
         let option = o.name.replace(".gitignore", "");
 
+        // get all real files (not links) for the option
         let filesForOption = (getFilesForLink(files, option))
-          .flat()
+          // remove duplicates
           .filter((value, index, array) => {
             return array.indexOf(value) === index;
           })
@@ -100,7 +116,9 @@ function getLinksDict() {
               return -1;
             } else if (!a.includes(option) && b.includes(option)) {
               return 1;
-            } else if (
+            }
+            // if both files have the same option name, sort by put .gitignore files first
+            else if (
               a.slice(0, a.indexOf(".")) ===
               b.slice(0, b.indexOf("."))
             ) {
@@ -116,8 +134,12 @@ function getLinksDict() {
             return a.localeCompare(b);
 
           });
+          
+        // add the option and corresponding files to the dictionary
         linksDict[option] = filesForOption;
       })
+
+  // Sort the dictionary alphabetically by the keys
   let linksDictSorted = {};
   Object.keys(linksDict)
     .sort((key1, key2) => key1.localeCompare(key2))
@@ -128,12 +150,13 @@ function getLinksDict() {
   return linksDictSorted;
 }
 
+
+// Writes both dictionaries to a files stored in the root directory.
 fs.writeFileSync(
   "./techOptionsFiles.json",
   JSON.stringify(getLinksDict(), null, 2),
 );
 
-// Writes the dictionary to a file stored in the root directory.
 fs.writeFileSync(
   "./techOptions.json",
   JSON.stringify(genTechOptionsDict(), null, 2),
