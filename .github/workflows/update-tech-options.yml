@@ -48,7 +48,7 @@ jobs:
           git branch
           git status
           ls -la
-          cat ./tech-options.json
+          cat ./techOptions.json
 
           git config --global user.name "FilipLunski"
           git config --global user.email "filip.lunski@profiq.com"
