@@ -56,14 +56,14 @@ jobs:
           git commit -m "Update tech options $(date +%Y-%m-%d_%H:%M:%S)"
           git push origin update-tech-options
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
-        with:
-          title: Updating tech options
-          body: |
-            Automatic update of tech options using github actions
-          branch: update-tech-options
-          base: main
-          reviewers: FilipLunski
+      # - name: Create Pull Request
+      #   uses: peter-evans/create-pull-request@v5
+      #   with:
+      #     title: Updating tech options
+      #     body: |
+      #       Automatic update of tech options using github actions
+      #     branch: update-tech-options
+      #     base: main
+      #     reviewers: FilipLunski
 
-          # if: steps.git-check.outputs.has_changes == 'true'
+      #     # if: steps.git-check.outputs.has_changes == 'true'
