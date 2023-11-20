@@ -45,11 +45,14 @@ jobs:
       - name: Commit changes
         run: |
           git remote -v
+<<<<<<< HEAD
           git branch
           git status
           ls -la
           cat ./techOptions.json
 
+=======
+>>>>>>> 392e24f (git actions - creating pull request)
           git config --global user.name "FilipLunski"
           git config --global user.email "filip.lunski@profiq.com"
           git add -A
