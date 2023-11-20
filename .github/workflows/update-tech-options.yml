@@ -15,9 +15,13 @@ jobs:
           node-version: '20'
 
 
-      - name: Recreate branch
+      - name: Delete branch
         run: |
           git push origin --delete update-tech-options
+        continue-on-error: true
+
+      - name: Recreate branch
+        run: |
           git checkout -b update-tech-options
 
 
