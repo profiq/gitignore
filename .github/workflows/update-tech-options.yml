@@ -47,7 +47,7 @@ jobs:
         run: |
           git config --global user.name "FilipLunski"
           git config --global user.email "filip.lunski@profiq.com"
-          git add .
+          git add -A
           git commit -m "Update tech options $(date +%Y-%m-%d_%H:%M:%S)"
           git push origin update-tech-options
 
