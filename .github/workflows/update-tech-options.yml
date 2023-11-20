@@ -46,37 +46,22 @@ jobs:
         if: steps.git-check.outputs.has_changes == 'true'
         run: |
           git remote -v
-<<<<<<< HEAD
           git branch
           git status
           ls -la
           cat ./techOptions.json
 
-=======
->>>>>>> 392e24f (git actions - creating pull request)
           git config --global user.name "FilipLunski"
           git config --global user.email "filip.lunski@profiq.com"
           git add -A
           git commit -m "Update tech options $(date +%Y-%m-%d_%H:%M:%S)"
           git push origin update-tech-options
 
-<<<<<<< HEAD
       - name: Create Pull Request
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh pr create --title "Update tech options $(date +%Y-%m-%d_%H:%M:%S)" --body "Automatic update of tech options using github actions" --base update-tech-options --head main
-=======
-      # - name: Create Pull Request
-      #   uses: peter-evans/create-pull-request@v5
-      #   with:
-      #     title: Updating tech options
-      #     body: |
-      #       Automatic update of tech options using github actions
-      #     branch: main
-      #     base: update-tech-options
-      #     reviewers: FilipLunski,hankadev
->>>>>>> ddf1db9 (git actions - creating pull request)
 
       # - name: Create Pull Request
       #   uses: peter-evans/create-pull-request@v5
