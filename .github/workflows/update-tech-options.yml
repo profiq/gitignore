@@ -9,17 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: update-tech-options
-
-      - name: Rebase to main
-        run: |
-          git fetch origin main:main
-          git rebase main
 
       - uses: actions/setup-node@v3
         with:
           node-version: '20'
+
+
+      - name: Recreate branch
+        run: |
+          git push origin --delete update-tech-options
+          git checkout -b update-tech-options
+
 
       - name: Clone toptal templates
         run: |
