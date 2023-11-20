@@ -650,18 +650,5 @@
   "zephir": "Zephir",
   "zig": "zig",
   "zsh": "Zsh",
-  "zukencr8000": "ZukenCR8000",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "timestamp": "2023-11-14T13:26:03.073Z"
-=======
-  "timestamp": "2023-11-14T12:52:23.841Z"
->>>>>>> 43776b4 (timestamp)
-=======
-  "timestamp": "2023-11-14T13:12:22.678Z"
->>>>>>> 2d7efe0 (timestamp)
-=======
-  "timestamp": "2023-11-14T13:47:56.681Z"
->>>>>>> 6033c50 (timestamp)
+  "zukencr8000": "ZukenCR8000"
 }

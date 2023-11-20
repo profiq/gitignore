@@ -58,6 +58,7 @@ jobs:
           git push origin update-tech-options
 
       - name: Create Pull Request
+        if: steps.git-check.outputs.has_changes == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
