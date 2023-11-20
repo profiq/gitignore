@@ -43,6 +43,7 @@ jobs:
           git diff --quiet || echo "::set-output name=has_changes::true"
 
       - name: Commit changes
+        if: steps.git-check.outputs.has_changes == 'true'
         run: |
           git remote -v
           git branch
@@ -64,6 +65,5 @@ jobs:
             Automatic update of tech options using github actions
           branch: main
           base: update-tech-options
-          reviewers: FilipLunski
+          reviewers: FilipLunski,hankadev
 
-          # if: steps.git-check.outputs.has_changes == 'true'
