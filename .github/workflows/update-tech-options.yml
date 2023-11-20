@@ -43,7 +43,7 @@ jobs:
           git diff --quiet || echo "::set-output name=has_changes::true"
 
       - name: Commit changes
-        if: steps.git-check.outputs.has_changes == 'true'
+        # if: steps.git-check.outputs.has_changes == 'true'
         run: |
           git remote -v
           git branch
