@@ -47,6 +47,7 @@ jobs:
           git remote -v
           git branch
           git status
+          ls -la
           cat ./tech-options.json
 
           git config --global user.name "FilipLunski"
