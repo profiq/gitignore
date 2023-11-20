@@ -53,6 +53,7 @@ import techOptionsDict from "./techOptions.json" assert { type: 'json' };
     .forEach(function (key) {
       techOptionsDictSorted[key] = techOptionsDict[key];
     });
+    // adding timestamp for debugging
     techOptionsDictSorted["timestamp"] = new Date().toISOString();
   return techOptionsDictSorted;
 }
@@ -135,7 +136,7 @@ function getLinksDict() {
             return a.localeCompare(b);
 
           });
-          
+
         // add the option and corresponding files to the dictionary
         linksDict[option] = filesForOption;
       })

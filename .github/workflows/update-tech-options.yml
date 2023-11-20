@@ -9,9 +9,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v3
         with:
           node-version: '20'
+
+
+      - name: Delete branch
+        run: |
+          git push origin --delete update-tech-options
+        continue-on-error: true
+
+      - name: Recreate branch
+        run: |
+          git checkout -b update-tech-options
+
 
       - name: Clone toptal templates
         run: |
@@ -33,11 +45,32 @@ jobs:
       - name: Commit changes
         if: steps.git-check.outputs.has_changes == 'true'
         run: |
+          git remote -v
+          git branch
+          git status
+          ls -la
+          cat ./techOptions.json
+
           git config --global user.name "FilipLunski"
-          git config --global user.email "f.lunski@gmail.com"
-
+          git config --global user.email "filip.lunski@profiq.com"
           git add -A
-          git commit -m "timestamp"
-          git push
+          git commit -m "Update tech options $(date +%Y-%m-%d_%H:%M:%S)"
+          git push origin update-tech-options
 
-      
+      - name: Create Pull Request
+        if: steps.git-check.outputs.has_changes == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr create --title "Update tech options $(date +%Y-%m-%d_%H:%M:%S)" --body "Automatic update of tech options using github actions" --base update-tech-options --head main
+
+      # - name: Create Pull Request
+      #   uses: peter-evans/create-pull-request@v5
+      #   with:
+      #     title: Updating tech options
+      #     body: |
+      #       Automatic update of tech options using github actions
+      #     branch: main
+      #     base: update-tech-options
+
+      #     # if: steps.git-check.outputs.has_changes == 'true'
