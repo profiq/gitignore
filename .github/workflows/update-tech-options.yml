@@ -45,6 +45,10 @@ jobs:
       - name: Commit changes
         run: |
           git remote -v
+          git branch
+          git status
+          cat ./tech-options.json
+
           git config --global user.name "FilipLunski"
           git config --global user.email "filip.lunski@profiq.com"
           git add -A
