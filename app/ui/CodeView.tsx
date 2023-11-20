@@ -24,7 +24,10 @@ export default function CodeView({ code, options }: Props) {
           "bg-[#EDEDED] rounded-t-lg sticky top-0 flex flex-row-reverse py-3",
         )}
       >
-        <a href={`/api/result?${params.toString()}`} download=".gitignore">
+        <a
+          href={`/api/result?${params.toString()}`}
+          download={`${options.join("_")}.gitignore`}
+        >
           <button className={clsx(classes.btn, btnClasses, "mr-2")}>
             Download
           </button>

@@ -34,11 +34,11 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       ? {
           "Content-Type": "application/json",
           "Content-Length": resultText.length.toString(),
-          "Content-Disposition": "attachment; filename=.gitignore",
+          "Content-Disposition": `filename=${techOptions.join("_")}.gitignore`,
         }
       : {
           "Content-Type": "text/json",
-          "Content-Disposition": "filename=.gitignore",
+          "Content-Disposition": `filename=${techOptions.join("_")}.gitignore`,
         },
   });
 }

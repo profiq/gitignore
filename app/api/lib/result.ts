@@ -7,12 +7,25 @@ import techOptFiles from "@/techOptionsFiles.json";
 const techOptionsFiles: { [key: string]: string[] } = techOptFiles;
 const allTechOptions: { [key: string]: string } = techOptions;
 
+function removeDuplicates(arr: string): string {
+  return arr
+    .split("\n")
+    .map((line, index, array) => {
+      if (array.indexOf(line) === index || line.length == 0) return line;
+      return `#${line} #duplicate rule`;
+    })
+    .join("\n");
+}
+
 /**
  * Retrieves the gitignore templates for multiple technology options.
  * @param techOptions - An array of technology option names to retrieve the gitignore templates for.
  * @returns A string containing the gitignore templates for the specified technology options.
  */
-export async function getResult(techOptions: string[]): Promise<string> {
+export async function getResult(
+  techOptions: string[],
+  duplicatesRem: boolean = true,
+): Promise<string> {
   let filesDict: { [key: string]: string[] } = {};
 
   // creating a dictionary of all needed files and their corresponding tech options
@@ -58,13 +71,7 @@ export async function getResult(techOptions: string[]): Promise<string> {
     .join("\n\n");
 
   // commenting all duplicate rules
-  result = result
-    .split("\n")
-    .map((line, index, array) => {
-      if (array.indexOf(line) === index || line.length == 0) return line;
-      return `#${line} #duplicate rule`;
-    })
-    .join("\n");
+  if (duplicatesRem) result = removeDuplicates(result);
 
   return result;
 }
