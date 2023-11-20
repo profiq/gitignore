@@ -63,14 +63,3 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh pr create --title "Update tech options $(date +%Y-%m-%d_%H:%M:%S)" --body "Automatic update of tech options using github actions" --base update-tech-options --head main
-
-      # - name: Create Pull Request
-      #   uses: peter-evans/create-pull-request@v5
-      #   with:
-      #     title: Updating tech options
-      #     body: |
-      #       Automatic update of tech options using github actions
-      #     branch: main
-      #     base: update-tech-options
-
-      #     # if: steps.git-check.outputs.has_changes == 'true'
