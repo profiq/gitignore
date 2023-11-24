@@ -1,7 +1,10 @@
 name: update-tech-options
 run-name: Updating tech options according to the latest github templates
 on:
+  workflow_dispatch:
   push:
+    branches:
+      - main
   schedule:
     - cron: '0 0 10 * *'
 jobs:
