@@ -65,4 +65,4 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh pr create --title "Update tech options $(date +%Y-%m-%d_%H:%M:%S)" --body "Automatic update of tech options using github actions" --base update-tech-options --head main
+          gh pr create --title "Update tech options $(date +%Y-%m-%d_%H:%M:%S)" --body "Automatic update of tech options using github actions" --base main --head update-tech-options
