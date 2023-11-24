@@ -15,7 +15,7 @@ import classes from "./SelectInput.module.css";
 import { searchTechOptions } from "@/app/api/lib/techOptions";
 import clsx from "clsx";
 
-export default function SelectInput() {
+export default function SelectInput({ className }: { className?: string }) {
   // state for currently searched tech options
   const [techOptions, setTechOptions] = useState<
     { value: string; label: string }[]
@@ -90,7 +90,12 @@ export default function SelectInput() {
   };
 
   return (
-    <div className="scale-150 flex flex-row w-2/3">
+    <div
+      className={clsx(
+        className,
+        "scale-150 flex flex-row w-2/3 m-20", // scaling and adjusting width
+      )}
+    >
       <Select
         className="flex-grow"
         // getting selected options from search params

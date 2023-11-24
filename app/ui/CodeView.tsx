@@ -18,26 +18,37 @@ export default function CodeView({ code, options }: Props) {
   params.append("download", "true");
 
   return (
-    <div className={clsx(classes.box, "w-full  rounded-lg mt-10")}>
+    <>
+      <div className="z-10 sticky top-0  [var(--background-end-rgb)]">
+        <div className="bg-white px-4 mx-[-1rem] h-24"></div>
+        <div
+          className={clsx(
+            "bg-[#EDEDED] rounded-t-lg flex flex-row-reverse py-3 mt-[-4rem] shadow-[0_-5px_10px_5px_rgba(0,0,0,0.2)]",
+          )}
+        >
+          <a
+            href={`/api/result?${params.toString()}`}
+            download={`${options.join("_")}.gitignore`}
+          >
+            <button className={clsx(classes.btn, btnClasses, "mr-2")}>
+              Download
+            </button>
+          </a>
+          <CopyButton code={code} className={clsx(classes.btn, btnClasses)} />
+
+          <a href={`/api/result?${params.toString()}`} target="_blank">
+            <button className={clsx(classes.btn, btnClasses)}>Raw view</button>
+          </a>
+          <div className="flex-grow flex flex-row p-2 ml-8">{`${options.join(
+            "_",
+          )}.gitignore`}</div>
+        </div>
+      </div>
       <div
         className={clsx(
-          "bg-[#EDEDED] rounded-t-lg sticky top-0 flex flex-row-reverse py-3",
+          "z-0 h-full w-full rounded-b-lg  mb-10  shadow-[0_0_10px_rgba(0,0,0,0.2)]",
         )}
       >
-        <a
-          href={`/api/result?${params.toString()}`}
-          download={`${options.join("_")}.gitignore`}
-        >
-          <button className={clsx(classes.btn, btnClasses, "mr-2")}>
-            Download
-          </button>
-        </a>
-        <CopyButton code={code} className={clsx(classes.btn, btnClasses)} />
-        <div className="flex-grow flex flex-row p-2 ml-8">{`${options.join(
-          "_",
-        )}.gitignore`}</div>
-      </div>
-      <div className={clsx("h-full max-h-[calc(100vh-15rem)]	overflow-y-auto")}>
         <div className="p-10">
           {code.split("\n").map((line, index) => {
             // console.log(line);
@@ -60,6 +71,6 @@ export default function CodeView({ code, options }: Props) {
           })}
         </div>
       </div>
-    </div>
+    </>
   );
 }

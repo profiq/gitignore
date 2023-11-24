@@ -9,21 +9,15 @@ import { clsx } from "clsx";
  */
 const Header: React.FC = () => {
   return (
-    <header className={classes.header + " "}>
-      <div className={clsx(classes.wrapper, "max-w-5xl mx-auto px-5")}>
-        <a
-          className={clsx(classes.logo)}
-          href="https://www.profiq.com/"
-          target="_blank"
-        ></a>
-        <span className={clsx("text-4xl float-left px-5 text-white	")}>|</span>
-        <a className={clsx(classes.label, "float-left")} href="/">
+    <header className={clsx(classes.header, "z-50")}>
+      <div className={clsx(classes.wrapper, "max-w-5xl mx-auto")}>
+        <a className={clsx(classes.label, "float-left px-5 ")} href="/">
           .gitignore HUB
         </a>
         <a
           className={clsx(
             classes.link,
-            "flex flex-row items-center float-right",
+            "flex flex-row items-center float-right px-5",
           )}
           href="https://github.com/profiq/gitignore"
           target="_blank"
