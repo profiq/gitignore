@@ -10,6 +10,7 @@ on:
 jobs:
   update-tech-options:
     runs-on: ubuntu-latest
+    if: github.head_ref != 'update-tech-options'
     steps:
       - uses: actions/checkout@v4
 
