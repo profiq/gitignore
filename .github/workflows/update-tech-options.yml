@@ -83,4 +83,4 @@ jobs:
 
       - name: Deploy to edgio
         run: |
-          edg deploy
+          npm run edgio:deploy
