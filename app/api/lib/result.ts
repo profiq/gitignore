@@ -24,7 +24,7 @@ function removeDuplicates(arr: string): string {
  */
 export async function getResult(
   techOptions: string[],
-  duplicatesRem: boolean = true,
+  remDupl: boolean = true,
 ): Promise<string> {
   let filesDict: { [key: string]: string[] } = {};
 
@@ -71,7 +71,7 @@ export async function getResult(
     .join("\n\n");
 
   // commenting all duplicate rules
-  if (duplicatesRem) result = removeDuplicates(result);
+  if (remDupl) result = removeDuplicates(result);
 
   return result;
 }

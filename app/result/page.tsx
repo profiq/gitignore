@@ -13,6 +13,7 @@ export default async function Result({
 }) {
   let code: string;
   let options: string[] = [];
+  let remDupl: boolean = true;
 
   if (
     !searchParams ||
@@ -27,12 +28,14 @@ export default async function Result({
     } else {
       options = searchParams.options.split(",");
     }
-    code = await getResult(options);
+
+    remDupl = searchParams.remDupl == "false" ? false : true;
+    code = await getResult(options, remDupl);
   }
 
   return (
     <div className={clsx("w-full")}>
-      <CodeView code={code} options={options} />
+      <CodeView code={code} options={options} remDupl={remDupl} />
     </div>
   );
 }

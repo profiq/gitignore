@@ -14,6 +14,11 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
   const download =
     req.nextUrl.searchParams.get("download") &&
     req.nextUrl.searchParams.get("download")?.toLowerCase() == "true";
+
+  const remDupl = req.nextUrl.searchParams.get("remDupl")
+    ? req.nextUrl.searchParams.get("remDupl")?.toLowerCase() == "true"
+    : true;
+
   if (
     !req.nextUrl.searchParams.has("options") &&
     req.nextUrl.searchParams.get("options")?.replace(",", "").length == 0
@@ -27,7 +32,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
   let techOptions = (req.nextUrl.searchParams.get("options") as string).split(
     ",",
   );
-  let resultText = await getResult(techOptions);
+  let resultText = await getResult(techOptions, remDupl);
   return new NextResponse(resultText, {
     status: 200,
     headers: download

@@ -5,9 +5,10 @@ import CopyButton from "./CopyButton";
 interface Props {
   code: string;
   options: string[];
+  remDupl: boolean;
 }
 
-export default function CodeView({ code, options }: Props) {
+export default function CodeView({ code, options, remDupl }: Props) {
   // console.log(code);
   // console.log(code.split("\n"));
 
@@ -15,6 +16,7 @@ export default function CodeView({ code, options }: Props) {
 
   let params = new URLSearchParams();
   params.append("options", options.join(","));
+  params.append("remDupl", remDupl.toString());
   params.append("download", "true");
 
   return (

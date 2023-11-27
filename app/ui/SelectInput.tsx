@@ -8,6 +8,7 @@
 import { useEffect, useRef, useState } from "react";
 import Select, { InputActionMeta, MultiValue } from "react-select";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { Checkbox } from "@mantine/core";
 
 import classes from "./SelectInput.module.css";
 
@@ -57,7 +58,9 @@ export default function SelectInput({ className }: { className?: string }) {
   }
 
   // function for changing search params on select change
-  function handleChange(value: MultiValue<{ value: string; label: string }>) {
+  function handleOptionsChange(
+    value: MultiValue<{ value: string; label: string }>,
+  ) {
     console.log(value);
 
     const params = new URLSearchParams(searchParams);
@@ -66,6 +69,14 @@ export default function SelectInput({ className }: { className?: string }) {
     } else {
       params.delete("options");
     }
+    router.replace(`${pathname}?${params.toString()}`);
+  }
+
+  function handleRemDuplChange(value: boolean) {
+    console.log(value);
+
+    const params = new URLSearchParams(searchParams);
+    params.set("remDupl", value.toString());
     router.replace(`${pathname}?${params.toString()}`);
   }
 
@@ -90,96 +101,113 @@ export default function SelectInput({ className }: { className?: string }) {
   };
 
   return (
-    <div
-      className={clsx(
-        className,
-        "scale-150 flex flex-row w-2/3 m-20", // scaling and adjusting width
-      )}
-    >
-      <Select
-        className="flex-grow"
-        // getting selected options from search params
-        value={
-          searchParams
-            .get("options")
-            ?.split(",")
-            .map((option) => ({ value: option, label: option })) || []
+    <div className={clsx(className, "w-full flex flex-col")}>
+      <Checkbox
+        checked={
+          searchParams.get("remDupl")
+            ? searchParams.get("remDupl")?.toLowerCase() != "false"
+            : true
         }
-        // searched tech options
-        options={techOptions}
-        // enabling multi select
-        isMulti
-        // connecting value to search state
-        inputValue={search}
-        // disabling built-in serch logic
-        filterOption={(option, search) => true}
-        onChange={handleChange}
-        onInputChange={handleSearchChange}
-        onKeyDown={handleKeyDown}
-        // disabling dropdown indicator
-        components={{
-          DropdownIndicator: null,
-        }}
-        // different messages if not found or no input
-        noOptionsMessage={(value) =>
-          value.inputValue.length === 0
-            ? "Enter at least one character"
-            : "No options found"
-        }
-        // custom styles
-        styles={{
-          // width: if all select element
-          container: (baseStyles, state) => ({
-            ...baseStyles,
-            width: "500px",
-          }),
-
-          // color of selected option in dropdown
-          option: (baseStyles, state) => ({
-            ...baseStyles,
-            backgroundColor: state.isFocused
-              ? "var(--profiq-blue-transparent)"
-              : "white",
-            color: state.isFocused ? "white" : "black",
-          }),
-          multiValue: (baseStyles, state) => ({
-            ...baseStyles,
-            backgroundColor: "var(--profiq-green-shaddow)",
-            color: "white",
-          }),
-          multiValueLabel: (baseStyles, state) => ({
-            ...baseStyles,
-            color: "white",
-          }),
-          multiValueRemove: (baseStyles, state) => ({
-            ...baseStyles,
-            ":hover": {
-              backgroundColor: "#ffbdadad",
-            },
-          }),
-          // styling of main component
-          control: (baseStyles, state) => ({
-            ...baseStyles,
-            boxShadow: "0",
-            borderRadius: "4px 0 0 4px",
-            borderColor: state.isFocused
-              ? "var(--profiq-blue)"
-              : "var(--profiq-green)",
-            ":hover": state.isFocused
-              ? {
-                  borderColor: "var(--profiq-blue-light)",
-                }
-              : {
-                  borderColor: "var(--profiq-blue-light)",
-                },
-            height: "100%",
-          }),
-        }}
+        onChange={(e) => handleRemDuplChange(e.currentTarget.checked)}
+        className="mt-10 flex flex-row justify-center items-center"
+        label="Remove dupplicate rules"
+        color="var(--profiq-green)"
+        styles={{ body: { zIndex: "0!important" } }}
       />
 
-      <button className={clsx(classes.button, "ml-0.5")} onClick={handleSubmit}>
-        Create
-      </button>
+      <div
+        className={clsx(
+          "mx-auto scale-150 flex flex-row w-2/3 m-20 mb-0 order-first", // scaling and adjusting width
+        )}
+      >
+        <Select
+          className="flex-grow"
+          // getting selected options from search params
+          value={
+            searchParams
+              .get("options")
+              ?.split(",")
+              .map((option) => ({ value: option, label: option })) || []
+          }
+          // searched tech options
+          options={techOptions}
+          // enabling multi select
+          isMulti
+          // connecting value to search state
+          inputValue={search}
+          // disabling built-in serch logic
+          filterOption={(option, search) => true}
+          onChange={handleOptionsChange}
+          onInputChange={handleSearchChange}
+          onKeyDown={handleKeyDown}
+          // disabling dropdown indicator
+          components={{
+            DropdownIndicator: null,
+          }}
+          // different messages if not found or no input
+          noOptionsMessage={(value) =>
+            value.inputValue.length === 0
+              ? "Enter at least one character"
+              : "No options found"
+          }
+          // custom styles
+          styles={{
+            // width: if all select element
+            container: (baseStyles, state) => ({
+              ...baseStyles,
+              width: "500px",
+            }),
+
+            // color of selected option in dropdown
+            option: (baseStyles, state) => ({
+              ...baseStyles,
+              backgroundColor: state.isFocused
+                ? "var(--profiq-blue-transparent)"
+                : "white",
+              color: state.isFocused ? "white" : "black",
+            }),
+            multiValue: (baseStyles, state) => ({
+              ...baseStyles,
+              backgroundColor: "var(--profiq-green-shaddow)",
+              color: "white",
+            }),
+            multiValueLabel: (baseStyles, state) => ({
+              ...baseStyles,
+              color: "white",
+            }),
+            multiValueRemove: (baseStyles, state) => ({
+              ...baseStyles,
+              ":hover": {
+                backgroundColor: "#ffbdadad",
+              },
+            }),
+            // styling of main component
+            control: (baseStyles, state) => ({
+              ...baseStyles,
+              boxShadow: "0",
+              borderRadius: "4px 0 0 4px",
+              borderColor: state.isFocused
+                ? "var(--profiq-blue)"
+                : "var(--profiq-green)",
+              ":hover": state.isFocused
+                ? {
+                    borderColor: "var(--profiq-blue-light)",
+                  }
+                : {
+                    borderColor: "var(--profiq-blue-light)",
+                  },
+              height: "100%",
+            }),
+          }}
+        />
+
+        <button
+          className={clsx(classes.button, "ml-0.5")}
+          onClick={handleSubmit}
+        >
+          Create
+        </button>
+      </div>
     </div>
   );
 }
