@@ -36,7 +36,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          yarn install --frozen-lockfile
+          yarn install
 
       - name: Deploy to edgio
         run: |
