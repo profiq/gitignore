@@ -70,6 +70,8 @@ jobs:
   deploy-to-edgio:
     needs: update-tech-options
     runs-on: ubuntu-latest
+    env:
+      EDGIO_DEPLOY_TOKEN: ${{ secrets.EDGIO_DEPLOY_TOKEN }}
     steps:
       - uses: actions/checkout@v4
 
