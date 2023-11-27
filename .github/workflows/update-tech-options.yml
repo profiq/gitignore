@@ -66,23 +66,3 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh pr create --title "Update tech options $(date +%Y-%m-%d_%H:%M:%S)" --body "Automatic update of tech options using github actions" --base main --head update-tech-options
-
-  deploy-to-edgio:
-    needs: update-tech-options
-    runs-on: ubuntu-latest
-    env:
-      EDGIO_DEPLOY_TOKEN: ${{ secrets.EDGIO_DEPLOY_TOKEN }}
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '20'
-
-      - name: Install dependencies
-        run: |
-          npm install
-
-      - name: Deploy to edgio
-        run: |
-          npm run edgio:deploy --token=$EDGIO_DEPLOY_TOKEN
