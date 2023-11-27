@@ -38,3 +38,6 @@ next-env.d.ts
 /.vscode
 
 yarn.lock
+
+# Edgio generated build directory
+.edgio
