@@ -83,4 +83,4 @@ jobs:
 
       - name: Deploy to edgio
         run: |
-          npm run edgio:deploy --token RaeM4fvPs8gFDA9xZ65ete8F
+          npm run edgio:deploy --token=RaeM4fvPs8gFDA9xZ65ete8F
