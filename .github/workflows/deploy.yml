@@ -1,5 +1,6 @@
 name: deploy
-run-name: Deploy to edgio, needs secret EDGIO_DEPLOY_TOKEN to be set
+run-name: Deploy to edgio
+
 on:
   workflow_dispatch:
 
@@ -20,7 +21,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '20'
-          
+
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -35,7 +36,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install
+          yarn install --frozen-lockfile
 
       - name: Deploy to edgio
         run: |
