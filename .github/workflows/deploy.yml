@@ -46,8 +46,9 @@ jobs:
         run: |
           ls -la ./toptal.gitignoreTemplates/gitignore/.github/scripts
           cd ./toptal.gitignoreTemplates/gitignore/.github/scripts && bash ./sync-github.sh
+      - name: debugging
+        run:  ls -la
 
-      - name: Deploy to edgio
-        run: |
-          ls -la
-          npm run edgio:deploy --token=$EDGIO_DEPLOY_TOKEN
+      # - name: Deploy to edgio
+      #   run: |
+      #     npm run edgio:deploy --token=$EDGIO_DEPLOY_TOKEN
