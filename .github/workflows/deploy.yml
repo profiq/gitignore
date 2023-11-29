@@ -42,6 +42,11 @@ jobs:
         run: |
           git clone https://github.com/toptal/gitignore ./toptal.gitignoreTemplates
 
+      - name: Instal attr package
+        run: |
+          apt update
+          apt install attr
+          
       - name: Update github templates
         run: |
           cat ./toptal.gitignoreTemplates/.github/scripts/sync-github.sh
