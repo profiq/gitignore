@@ -48,6 +48,9 @@ jobs:
           bash ./toptal.gitignoreTemplates/.github/scripts/sync-github.sh
       - name: debugging
         run:  |
+          which xattr
+      - name: debugging
+        run:  |
           cd toptal.gitignoreTemplates
 
           git clone --depth 1 https://github.com/github/gitignore ./temp-github-gitignore
