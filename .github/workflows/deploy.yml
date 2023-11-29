@@ -8,9 +8,6 @@ on:
     types: [closed]
     branches:
       - main
-  push:
-    branches:
-      - deployment
 jobs:
   deploy-to-edgio:
     runs-on: ubuntu-latest
@@ -68,6 +65,11 @@ jobs:
       #     ls -la
 
 
+
+
+      #npm run edgio:deploy --token=$EDGIO_DEPLOY_TOKEN
+
+
       - name: Deploy to edgio
         run: |
-          npm run edgio:deploy --token=$EDGIO_DEPLOY_TOKEN
+          npx edgio deploy --name gitignore --organization profiq -e default --token=$EDGIO_DEPLOY_TOKEN
