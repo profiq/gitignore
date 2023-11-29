@@ -47,7 +47,9 @@ jobs:
           ls -la ./toptal.gitignoreTemplates/gitignore/.github/scripts
           cd ./toptal.gitignoreTemplates/gitignore/.github/scripts && bash ./sync-github.sh
       - name: debugging
-        run:  ls -la
+        run:  |
+          cd toptal.gitignoreTemplates
+          ls -la
 
       # - name: Deploy to edgio
       #   run: |
