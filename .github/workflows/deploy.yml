@@ -42,9 +42,10 @@ jobs:
         run: |
           git clone https://github.com/toptal/gitignore ./toptal.gitignoreTemplates
 
-      - name: Instal attr package
-        run: |
-          sudo apt-get install attr
+      - uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: attr
+          version: 1.0
 
       - name: Update github templates
         run: |
