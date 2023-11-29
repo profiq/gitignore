@@ -51,15 +51,10 @@ jobs:
         run: |
           cat ./toptal.gitignoreTemplates/.github/scripts/sync-github.sh
           bash ./toptal.gitignoreTemplates/.github/scripts/sync-github.sh
-      - name: debugging
-        run:  |
-          which xattr
+
       - name: debugging
         run:  |
           cd toptal.gitignoreTemplates
-
-          git clone --depth 1 https://github.com/github/gitignore ./temp-github-gitignore
-
           ls -la
       - name: debugging
         run:  |
@@ -71,6 +66,6 @@ jobs:
           ls -la
 
 
-      # - name: Deploy to edgio
-      #   run: |
-      #     npm run edgio:deploy --token=$EDGIO_DEPLOY_TOKEN
+      - name: Deploy to edgio
+        run: |
+          npm run edgio:deploy --token=$EDGIO_DEPLOY_TOKEN
