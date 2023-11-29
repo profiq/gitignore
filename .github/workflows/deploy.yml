@@ -44,7 +44,7 @@ jobs:
 
       - name: Instal attr package
         run: |
-          sudo apt -get install attr
+          sudo apt-get install attr
 
       - name: Update github templates
         run: |
