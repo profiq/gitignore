@@ -34,9 +34,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      # - name: Install dependencies
-      #   run: |
-      #     yarn install
+      - name: Install dependencies
+        run: |
+          yarn install
 
       - name: Clone toptal templates
         run: |
@@ -49,4 +49,5 @@ jobs:
 
       - name: Deploy to edgio
         run: |
+          ls -la
           npm run edgio:deploy --token=$EDGIO_DEPLOY_TOKEN
