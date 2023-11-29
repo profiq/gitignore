@@ -42,7 +42,7 @@ export async function getResult(
       Object.keys(filesDict).map(async (file) => {
         // reading the file
         let resultText: string = await fs.promises.readFile(
-          `./toptal.gitignoreTemplates/gitignore/templates/${file}`,
+          `./toptal.gitignoreTemplates/templates/${file}`,
           "utf8",
         );
         // adding header with the file name

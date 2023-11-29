@@ -10,7 +10,7 @@ import techOptionsDict from "./techOptions.json" assert { type: 'json' };
  function getTechoptionsList() {
   // Read all files in the template directory
   let techOptions = fs.readdirSync(
-    "./toptal.gitignoreTemplates/gitignore/templates",
+    "./toptal.gitignoreTemplates/templates",
   );
 
   // Get only files that end with .gitignore and remove the extension
@@ -96,7 +96,7 @@ function getLinksDict() {
 
   // list files in the templates directory
   let files = fs.readdirSync(
-    "./toptal.gitignoreTemplates/gitignore/templates",
+    "./toptal.gitignoreTemplates/templates",
     { withFileTypes: true },
   );
     files
