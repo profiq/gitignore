@@ -44,6 +44,8 @@ jobs:
 
       - name: Update github templates
         run: |
+          echo "git clone --depth 1 https://github.com/github/gitignore ../temp-github-gitignore" > ./toptal.gitignoreTemplates/.github/scripts/sync-github.sh
+          cat ./toptal.gitignoreTemplates/.github/scripts/sync-github.sh
           bash ./toptal.gitignoreTemplates/.github/scripts/sync-github.sh
       - name: debugging
         run:  |
