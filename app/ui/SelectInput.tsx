@@ -22,6 +22,8 @@ export default function SelectInput({ className }: { className?: string }) {
     { value: string; label: string }[]
   >([]);
 
+  const inputRef = useRef<any>(null);
+
   // state for current search string
   const [search, setSearch] = useState<string>("");
 
@@ -48,6 +50,12 @@ export default function SelectInput({ className }: { className?: string }) {
 
     getTechOptions();
   }, [search]);
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
 
   // function for changing search state on search input change
   async function handleSearchChange(
@@ -121,6 +129,7 @@ export default function SelectInput({ className }: { className?: string }) {
         )}
       >
         <Select
+          ref={inputRef}
           className="flex-grow"
           // getting selected options from search params
           value={
