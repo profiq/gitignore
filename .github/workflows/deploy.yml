@@ -45,7 +45,7 @@ jobs:
       - name: Update github templates
         run: |
           ls -la ./toptal.gitignoreTemplates/gitignore/.github/scripts
-          cd ./toptal.gitignoreTemplates/gitignore/.github/scripts && bash ./sync-github.sh
+          bash ./toptal.gitignoreTemplates/gitignore/.github/scripts/sync-github.sh
       - name: debugging
         run:  |
           cd toptal.gitignoreTemplates
