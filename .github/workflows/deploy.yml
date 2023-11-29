@@ -40,18 +40,18 @@ jobs:
 
       - name: Clone toptal templates
         run: |
-          git clone https://github.com/toptal/gitignore ./toptal.gitignoreTemplates/gitignore
+          git clone https://github.com/toptal/gitignore ./toptal.gitignoreTemplates
 
       - name: Update github templates
         run: |
-          bash ./toptal.gitignoreTemplates/gitignore/.github/scripts/sync-github.sh
+          bash ./toptal.gitignoreTemplates/.github/scripts/sync-github.sh
       - name: debugging
         run:  |
-          cd toptal.gitignoreTemplates/gitignore
+          cd toptal.gitignoreTemplates
           ls -la
       - name: debugging
         run:  |
-          cd toptal.gitignoreTemplates/gitignore/.github
+          cd toptal.gitignoreTemplates/.github
           ls -la
 
 
