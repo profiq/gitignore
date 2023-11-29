@@ -40,7 +40,7 @@ jobs:
 
       - name: Clone toptal templates
         run: |
-          git clone https://github.com/toptal/gitignore ./toptal.gitignoreTemplates
+          git clone https://github.com/toptal/gitignore ./public/toptal.gitignoreTemplates
 
       - uses: awalsh128/cache-apt-pkgs-action@latest
         with:
@@ -49,8 +49,8 @@ jobs:
 
       - name: Update github templates
         run: |
-          cat ./toptal.gitignoreTemplates/.github/scripts/sync-github.sh
-          bash ./toptal.gitignoreTemplates/.github/scripts/sync-github.sh
+          cat ./public/toptal.gitignoreTemplates/.github/scripts/sync-github.sh
+          bash ./public/toptal.gitignoreTemplates/.github/scripts/sync-github.sh
 
       # - name: debugging
       #   run:  |
