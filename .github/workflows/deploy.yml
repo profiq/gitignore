@@ -72,4 +72,4 @@ jobs:
 
       - name: Deploy to edgio
         run: |
-          npx edgio deploy --name gitignore --organization profiq -e default --token=$EDGIO_DEPLOY_TOKEN
+          npx edgio deploy --property=gitignore --organization=profiq -e default --token=$EDGIO_DEPLOY_TOKEN
