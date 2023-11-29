@@ -54,6 +54,10 @@ jobs:
         run:  |
           cd toptal.gitignoreTemplates/.github
           ls -la
+      - name: debugging
+        run:  |
+          cd toptal.gitignoreTemplates/templates
+          ls -la
 
 
       # - name: Deploy to edgio
