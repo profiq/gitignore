@@ -49,6 +49,9 @@ jobs:
       - name: debugging
         run:  |
           cd toptal.gitignoreTemplates
+
+          git clone --depth 1 https://github.com/github/gitignore ./temp-github-gitignore
+
           ls -la
       - name: debugging
         run:  |
