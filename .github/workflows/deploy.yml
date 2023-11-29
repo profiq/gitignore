@@ -8,7 +8,9 @@ on:
     types: [closed]
     branches:
       - main
-
+  push:
+    branches:
+      - deploy
 jobs:
   deploy-to-edgio:
     runs-on: ubuntu-latest
