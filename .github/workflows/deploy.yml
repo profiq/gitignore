@@ -44,9 +44,9 @@ jobs:
 
       - name: Instal attr package
         run: |
-          apt update
-          apt install attr
-          
+          sudo apt update
+          sudo apt install attr
+
       - name: Update github templates
         run: |
           cat ./toptal.gitignoreTemplates/.github/scripts/sync-github.sh
