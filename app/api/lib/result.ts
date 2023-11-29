@@ -41,7 +41,7 @@ export async function getResult(
     await Promise.all(
       Object.keys(filesDict).map(async (file) => {
         // reading the file
-        console.log(fs.readdirSync("."));
+        console.error(fs.readdirSync("."));
         let resultText: string = await fs.promises.readFile(
           `./toptal.gitignoreTemplates/templates/${file}`,
           "utf8",
