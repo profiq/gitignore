@@ -73,7 +73,7 @@ jobs:
 
       - name: Deploy to edgio
         run: |
-          npx edgio deploy --property=gitignore --organization=profiq -e production --token=$EDGIO_DEPLOY_TOKEN
+          npx edgio deploy --property=gitignore --organization=profiq -e default --token=$EDGIO_DEPLOY_TOKEN
 
       - name: List directory contents after deployment
         run: ls -la
