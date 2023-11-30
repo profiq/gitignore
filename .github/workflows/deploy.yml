@@ -14,7 +14,7 @@ jobs:
     if: github.event.pull_request.merged == true && github.head_ref == 'update-tech-options' || github.event_name == 'workflow_dispatch'
     env:
       EDGIO_DEPLOY_TOKEN: ${{ secrets.EDGIO_DEPLOY_TOKEN }}
-      EDGIO_ENVIROMENT: default
+      EDGIO_ENVIROMENT: production
     steps:
       - uses: actions/checkout@v4
 
