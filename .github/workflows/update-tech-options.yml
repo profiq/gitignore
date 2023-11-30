@@ -35,8 +35,8 @@ jobs:
 
       - name: Update github templates
         run: |
-          ls -la ./toptal.gitignoreTemplates/scripts
-          cd ./toptal.gitignoreTemplates/scripts && bash ./sync-github.sh
+          ls -la ./toptal.gitignoreTemplates/.github/scripts
+          cd ./toptal.gitignoreTemplates/.github/scripts && bash ./sync-github.sh
 
       - name: Run the prebuild script
         run: node ./prebuild-scripts/update-list.mjs
