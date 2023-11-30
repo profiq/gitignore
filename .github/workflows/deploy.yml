@@ -17,6 +17,8 @@ jobs:
       EDGIO_ENVIROMENT: ${{github.event_name == 'workflow_dispatch'&& 'production' || 'default'}}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
 
       - uses: actions/setup-node@v3
         with:
