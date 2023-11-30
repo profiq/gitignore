@@ -2,7 +2,6 @@ name: update-tech-options
 run-name: Updating tech options according to the latest github templates
 on:
   workflow_dispatch:
-  push:
   schedule:
     - cron: '0 3 * * 1'
 jobs:
@@ -46,12 +45,6 @@ jobs:
       - name: Commit changes
         if: steps.git-check.outputs.has_changes == 'true'
         run: |
-          git remote -v
-          git branch
-          git status
-          ls -la
-          cat ./techOptions.json
-
           git config --global user.name "FilipLunski"
           git config --global user.email "filip.lunski@profiq.com"
           git add -A
@@ -64,3 +57,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh pr create --title "Update tech options $(date +%Y-%m-%d_%H:%M:%S)" --body "Automatic update of tech options using github actions" --base main --head update-tech-options
+
+
+      - name: Create Empty Pull Request
+        if: steps.git-check.outputs.has_changes == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr create --title "Tech options without change $(date +%Y-%m-%d_%H:%M:%S)" --body "Automatic update of tech options using github actions, nothing changed" --base main --head update-tech-options

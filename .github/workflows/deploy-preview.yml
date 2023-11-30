@@ -1,20 +1,18 @@
-name: deploy
-run-name: Deploy to edgio
+name: deploy-preview
+run-name: Deploy to edgio - preview
 
 on:
   workflow_dispatch:
 
   pull_request:
-    types: [closed]
     branches:
       - main
 jobs:
   deploy-to-edgio:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true && github.head_ref == 'update-tech-options' || github.event_name == 'workflow_dispatch'
     env:
       EDGIO_DEPLOY_TOKEN: ${{ secrets.EDGIO_DEPLOY_TOKEN }}
-      EDGIO_ENVIROMENT: production
+      EDGIO_ENVIROMENT: preview
     steps:
       - uses: actions/checkout@v4
 
@@ -52,23 +50,6 @@ jobs:
           cat ./toptal.gitignoreTemplates/.github/scripts/sync-github.sh
           bash ./toptal.gitignoreTemplates/.github/scripts/sync-github.sh
 
-      # - name: debugging
-      #   run:  |
-      #     cd toptal.gitignoreTemplates
-      #     ls -la
-      # - name: debugging
-      #   run:  |
-      #     cd toptal.gitignoreTemplates/.github
-      #     ls -la
-      # - name: debugging
-      #   run:  |
-      #     cd toptal.gitignoreTemplates/templates
-      #     ls -la
-
-
-
-
-      #npm run edgio:deploy --token=$EDGIO_DEPLOY_TOKEN
 
 
       - name: Deploy to edgio
