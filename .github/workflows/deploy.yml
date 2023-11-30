@@ -14,7 +14,7 @@ jobs:
     if: github.event.pull_request.merged == true && github.head_ref == 'update-tech-options' || github.event_name == 'workflow_dispatch'
     env:
       EDGIO_DEPLOY_TOKEN: ${{ secrets.EDGIO_DEPLOY_TOKEN }}
-      EDGIO_ENVIROMENT: ${{github.event_name == 'workflow_dispatch' && 'default' || 'production'}}
+      EDGIO_ENVIROMENT: default
     steps:
       - uses: actions/checkout@v4
 
@@ -73,7 +73,7 @@ jobs:
 
       - name: Deploy to edgio
         run: |
-          npx edgio deploy --property=gitignore --organization=profiq -e default --token=$EDGIO_DEPLOY_TOKEN
+          npx edgio deploy --property=gitignore --organization=profiq -e $EDGIO_ENVIROMENT --token=$EDGIO_DEPLOY_TOKEN
 
       - name: List directory contents after deployment
         run: ls -la
