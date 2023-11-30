@@ -57,3 +57,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh pr create --title "Update tech options $(date +%Y-%m-%d_%H:%M:%S)" --body "Automatic update of tech options using github actions" --base main --head update-tech-options
+
+
+      - name: Create Empty Pull Request
+        if: steps.git-check.outputs.has_changes == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr create --title "Tech options without change $(date +%Y-%m-%d_%H:%M:%S)" --body "Automatic update of tech options using github actions, nothing changed" --base main --head update-tech-options
