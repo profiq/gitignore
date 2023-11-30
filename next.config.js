@@ -12,4 +12,9 @@ const _preEdgioExport = nextConfig;
 module.exports = (phase, config) =>
   withEdgio({
     ..._preEdgioExport,
+    experimental: {
+      outputFileTracingIncludes: {
+        "/": ["./toptal.gitignoreTemplates/**/*"],
+      },
+    },
   });
