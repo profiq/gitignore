@@ -1,4 +1,3 @@
-import Image from "next/image";
 import classes from "./Result.module.css";
 import CodeView from "../ui/CodeView";
 import clsx from "clsx";
@@ -15,12 +14,7 @@ export default async function Result({
   let options: string[] = [];
   let remDupl: boolean = true;
 
-  if (
-    !searchParams ||
-    searchParams == undefined ||
-    !searchParams?.options ||
-    !searchParams?.options == undefined
-  ) {
+  if (!searchParams || !searchParams?.options) {
     code = `no options specified`;
   } else {
     if (Array.isArray(searchParams.options)) {
@@ -29,7 +23,11 @@ export default async function Result({
       options = searchParams.options.split(",");
     }
 
-    remDupl = searchParams.remDupl == "false" ? false : true;
+    remDupl =
+      searchParams.remDupl &&
+      (searchParams.remDupl as String).toLowerCase() === "false"
+        ? false
+        : true;
     code = await getResult(options, remDupl);
   }
 

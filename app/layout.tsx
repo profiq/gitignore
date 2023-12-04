@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { GeistSans, GeistMono } from "geist/font";
 import Header from "./ui/Header";
 import { Roboto_Slab } from "next/font/google";
 import Footer from "./ui/Footer";

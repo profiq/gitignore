@@ -13,15 +13,15 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
   // Check if options query parameter is present
   const download =
     req.nextUrl.searchParams.get("download") &&
-    req.nextUrl.searchParams.get("download")?.toLowerCase() == "true";
+    req.nextUrl.searchParams.get("download")?.toLowerCase() === "true";
 
   const remDupl = req.nextUrl.searchParams.get("remDupl")
-    ? req.nextUrl.searchParams.get("remDupl")?.toLowerCase() == "true"
+    ? req.nextUrl.searchParams.get("remDupl")?.toLowerCase() === "true"
     : true;
 
   if (
     !req.nextUrl.searchParams.has("options") &&
-    req.nextUrl.searchParams.get("options")?.replace(",", "").length == 0
+    req.nextUrl.searchParams.get("options")?.replace(",", "").length === 0
   ) {
     return NextResponse.json(
       { error: "No query parameters provided" },

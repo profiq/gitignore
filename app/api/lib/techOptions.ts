@@ -12,7 +12,7 @@ export async function searchTechOptions(searchQuery: string) {
   const keys = techOptions.filter((element) => element.includes(searchQuery));
 
   // If no keys were found, remove the last character from the search query and try again
-  while (keys.length == 0 && searchQuery.length > 0) {
+  while (keys.length === 0 && searchQuery.length > 0) {
     searchQuery = searchQuery.slice(0, -1);
     keys.push(
       ...techOptions.filter((element) => element.includes(searchQuery)),

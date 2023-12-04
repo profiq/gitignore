@@ -198,13 +198,9 @@ export default function SelectInput({ className }: { className?: string }) {
               borderColor: state.isFocused
                 ? "var(--profiq-blue)"
                 : "var(--profiq-green)",
-              ":hover": state.isFocused
-                ? {
-                    borderColor: "var(--profiq-blue-light)",
-                  }
-                : {
-                    borderColor: "var(--profiq-blue-light)",
-                  },
+              ":hover": {
+                borderColor: "var(--profiq-blue-light)",
+              },
               height: "100%",
             }),
           }}
