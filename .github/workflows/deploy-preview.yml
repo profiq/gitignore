@@ -71,4 +71,4 @@ jobs:
           header: preview
           message: |
             🌐 Branch deployed as preview to:
-            https://coh-stats-coh3-stats-${{ env.LINK_SAFE_BRANCH_NAME }}.alt.free.edgio-perma.link
+            https://profiq-gitignore-${{ env.LINK_SAFE_BRANCH_NAME }}.alt.free.edgio-perma.link
