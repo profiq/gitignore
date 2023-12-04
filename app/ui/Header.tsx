@@ -2,6 +2,7 @@ import React from "react";
 import { FaGithub } from "react-icons/fa";
 import classes from "./Header.module.css";
 import { clsx } from "clsx";
+import Link from "next/link";
 
 /**
  * Header component that displays the .gitignore HUB logo, label and a link to the source codes on GitHub.
@@ -11,9 +12,9 @@ const Header: React.FC = () => {
   return (
     <header className={clsx(classes.header, "z-50")}>
       <div className={clsx(classes.wrapper, "max-w-5xl mx-auto")}>
-        <a className={clsx(classes.label, "float-left px-5 ")} href="/">
+        <Link className={clsx(classes.label, "float-left px-5 ")} href="/">
           .gitignore HUB
-        </a>
+        </Link>
         <a
           className={clsx(
             classes.link,
