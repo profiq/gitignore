@@ -13,6 +13,10 @@
   "name": "gitignore",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=18.17.0",
+    "npm": "please-use-yarn"
+  },
   "dependencies": {
     "@mantine/core": "7.2.2",
     "@mantine/hooks": "7.2.2",
