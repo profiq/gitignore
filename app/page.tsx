@@ -1,3 +1,4 @@
+"use client";
 import SelectInput from "./ui/SelectInput";
 import classes from "./Home.module.css";
 import clsx from "clsx";
