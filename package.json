@@ -8,6 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint:eslint": "eslint **/*.{ts,tsx,js}",
+    "lint:prettier": "prettier --check .",
     "prepare": "husky install"
   },
   "name": "gitignore",

@@ -18,3 +18,11 @@
   margin-top: 100px;
 
 }
+
+.checkbox-inner{
+  height: 1.25rem;
+    /* order: var(--_checkbox-inner-order,1); */
+    position: relative;
+    width: 1.25rem;
+}
+
