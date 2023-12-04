@@ -11,7 +11,7 @@ function removeDuplicates(arr: string): string {
   return arr
     .split("\n")
     .map((line, index, array) => {
-      if (array.indexOf(line) === index || line.length == 0) return line;
+      if (array.indexOf(line) === index || line.length === 0) return line;
       return `#${line} #duplicate rule`;
     })
     .join("\n");
