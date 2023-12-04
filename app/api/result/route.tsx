@@ -37,12 +37,14 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     status: 200,
     headers: download
       ? {
-          "Content-Type": "application/json",
+          "Content-Type": "text/plain",
+          "Content-Disposition": `attachment; filename=${techOptions.join(
+            "_",
+          )}.gitignore`,
           "Content-Length": resultText.length.toString(),
-          "Content-Disposition": `filename=${techOptions.join("_")}.gitignore`,
         }
       : {
-          "Content-Type": "text/json",
+          "Content-Type": "text/plain",
           "Content-Disposition": `filename=${techOptions.join("_")}.gitignore`,
         },
   });

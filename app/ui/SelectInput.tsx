@@ -117,7 +117,7 @@ export default function SelectInput({ className }: { className?: string }) {
             : true
         }
         onChange={(e) => handleRemDuplChange(e.currentTarget.checked)}
-        className="mt-10 flex flex-row justify-center items-center"
+        className="mt-10 flex flex-row justify-center items-center -z-10"
         label="Remove dupplicate rules"
         color="var(--profiq-green)"
         styles={{ body: { zIndex: "0!important" } }}
