@@ -1,7 +1,12 @@
+"use client";
 import Image from "next/image";
 import SelectInput from "./ui/SelectInput";
 import classes from "./Home.module.css";
 import clsx from "clsx";
+import { Suspense } from "react";
+function SelectInputFallback() {
+  return <div></div>;
+}
 
 export default function Home() {
   return (
@@ -18,7 +23,9 @@ export default function Home() {
           tech stack
         </h4>
       </div>
-      <SelectInput className="mx-auto" />
+      <Suspense fallback={<SelectInputFallback />}>
+        <SelectInput className="mx-auto" />
+      </Suspense>
     </>
   );
 }
