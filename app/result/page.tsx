@@ -14,12 +14,7 @@ export default async function Result({
   let options: string[] = [];
   let remDupl: boolean = true;
 
-  if (
-    !searchParams ||
-    searchParams === undefined ||
-    !searchParams?.options ||
-    !searchParams?.options === undefined
-  ) {
+  if (!searchParams || !searchParams?.options) {
     code = `no options specified`;
   } else {
     if (Array.isArray(searchParams.options)) {
