@@ -8,9 +8,8 @@
   z-index: 99999;
 }
 .footer * {
-
   line-height: 80px;
- }
+}
 
 .wrapper {
 }
@@ -25,21 +24,20 @@
   background: transparent url(/logo.png) left center no-repeat;
 }
 
-.logo:hover{
+.logo:hover {
   background: transparent url(/logoHover.png) left center no-repeat;
 }
 
-.label{
-
+.label {
   color: white;
   font-size: x-large;
 }
 
-.label:hover{
+.label:hover {
   color: var(--profiq-green);
 }
 
-.icon svg{
+.icon svg {
   margin: 5px;
   width: 30px;
   height: 30px;
@@ -57,6 +55,6 @@
   color: var(--profiq-green);
 }
 
-.linkLabel{
+.linkLabel {
   position: relative;
 }

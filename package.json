@@ -4,10 +4,12 @@
     "edgio:build": "edgio build",
     "edgio:deploy": "edgio deploy",
     "dev": "next dev",
-    "prebuild": "node ./prebuild-scripts/update-list.mjs",
+    "update-tech-options": "node ./prebuild-scripts/update-list.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint:eslint": "eslint **/*.{ts,tsx,js}",
+    "lint:prettier": "prettier --check .",
     "prepare": "husky install"
   },
   "name": "gitignore",
@@ -52,7 +54,7 @@
     "typescript": "5.3.2"
   },
   "lint-staged": {
-    "*.{js,ts,jsx,tsx,yml}": [
+    "*.{js,ts,jsx,tsx,yml,css,json,mjs}": [
       "prettier --loglevel warn --write"
     ],
     "*.md": [
