@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       EDGIO_DEPLOY_TOKEN: ${{ secrets.EDGIO_DEPLOY_TOKEN }}
+      BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
       EDGIO_ENVIROMENT: preview
     steps:
       - uses: actions/checkout@v4
@@ -51,10 +52,25 @@ jobs:
           bash ./toptal.gitignoreTemplates/.github/scripts/sync-github.sh
 
 
+      - name: Run the build
+        run: yarn build
 
       - name: Deploy to edgio
         run: |
-          npx edgio deploy --property=gitignore --organization=profiq -e $EDGIO_ENVIROMENT --token=$EDGIO_DEPLOY_TOKEN
+          npx edgio deploy --skip-build --property=gitignore --organization=profiq --environment=$EDGIO_ENVIROMENT --token=$EDGIO_DEPLOY_TOKEN --branch=$BRANCH_NAME
 
-      - name: List directory contents after deployment
-        run: ls -la
+
+      - name: Replace Slashes in Branch Name
+        run: echo "LINK_SAFE_BRANCH_NAME=$(echo $BRANCH_NAME | sed 's|/|-|g' | sed 's|\.|-|g')" >> $GITHUB_ENV
+
+      - uses: jwalton/gh-find-current-pr@v1
+        id: finder
+
+      - name: Publish Preview Link
+        uses: marocchino/sticky-pull-request-comment@v2.8.0
+        with:
+          number: ${{ steps.finder.outputs.pr }}
+          header: preview
+          message: |
+            🌐 Branch deployed as preview to:
+            https://coh-stats-coh3-stats-${{ env.LINK_SAFE_BRANCH_NAME }}.alt.free.edgio-perma.link
