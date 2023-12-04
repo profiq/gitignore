@@ -24,7 +24,10 @@ export default async function Result({
     }
 
     remDupl =
-      (searchParams.remDupl as String).toLowerCase() === "false" ? false : true;
+      searchParams.remDupl &&
+      (searchParams.remDupl as String).toLowerCase() === "false"
+        ? false
+        : true;
     code = await getResult(options, remDupl);
   }
 
