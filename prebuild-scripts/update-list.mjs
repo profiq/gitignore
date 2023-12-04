@@ -1,17 +1,15 @@
 import fs from "fs";
 
-import techOptionsDict from "./techOptions.json" assert { type: 'json' };
+import techOptionsDict from "./techOptions.json" assert { type: "json" };
 
 /**
  * Retrieves a list of available tech options from the gitignore templates directory.
  * @function getTechoptionsList
  * @returns {Promise<Array<string>>} - A promise that resolves to an array of tech options.
  */
- function getTechoptionsList() {
+function getTechoptionsList() {
   // Read all files in the template directory
-  let techOptions = fs.readdirSync(
-    "./toptal.gitignoreTemplates/templates",
-  );
+  let techOptions = fs.readdirSync("./toptal.gitignoreTemplates/templates");
 
   // Get only files that end with .gitignore and remove the extension
   techOptions = techOptions
@@ -28,7 +26,7 @@ import techOptionsDict from "./techOptions.json" assert { type: 'json' };
  * Also keys with removed special characters are added. The dictionary is sorted alphabetically by the values.
  * @returns {Object} A sorted dictionary of technology options.
  */
- function genTechOptionsDict() {
+function genTechOptionsDict() {
   // Get the list of tech options from the gitignore templates directory
   let techOptions = getTechoptionsList();
 
@@ -53,8 +51,8 @@ import techOptionsDict from "./techOptions.json" assert { type: 'json' };
     .forEach(function (key) {
       techOptionsDictSorted[key] = techOptionsDict[key];
     });
-    // adding timestamp for debugging
-    techOptionsDictSorted["timestamp"] = new Date().toISOString();
+  // adding timestamp for debugging
+  techOptionsDictSorted["timestamp"] = new Date().toISOString();
   return techOptionsDictSorted;
 }
 
@@ -66,26 +64,23 @@ import techOptionsDict from "./techOptions.json" assert { type: 'json' };
  * @param {string} option - The option to filter the files by.
  * @returns {Array} An array of file names.
  */
-function getFilesForLink(files, option)
-{
+function getFilesForLink(files, option) {
   return files
-      .filter((file) => {
-        let name = file.name.slice(0, file.name.indexOf("."));
-        return name === option;
-      })
-      .map((file) => {
-        if (file.isSymbolicLink()) {
-          const target = fs.readlinkSync(
-            `${file.path}/${file.name}`,
-          );
+    .filter((file) => {
+      let name = file.name.slice(0, file.name.indexOf("."));
+      return name === option;
+    })
+    .map((file) => {
+      if (file.isSymbolicLink()) {
+        const target = fs.readlinkSync(`${file.path}/${file.name}`);
 
-          return getFilesForLink(files, target.slice(0, target.indexOf(".")));
-        } else {
-          return [file.name];
-        }
-      }).flat();
+        return getFilesForLink(files, target.slice(0, target.indexOf(".")));
+      } else {
+        return [file.name];
+      }
+    })
+    .flat();
 }
-
 
 /**
  * Returns a dictionary of links for each gitignore option.
@@ -95,51 +90,42 @@ function getLinksDict() {
   let linksDict = {};
 
   // list files in the templates directory
-  let files = fs.readdirSync(
-    "./toptal.gitignoreTemplates/templates",
-    { withFileTypes: true },
-  );
-    files
-      // filter out files that are not gitignore files (.patch or .stack)
-      .filter((option) => option.name.endsWith(".gitignore"))
-      .map((o) => {
+  let files = fs.readdirSync("./toptal.gitignoreTemplates/templates", {
+    withFileTypes: true,
+  });
+  files
+    // filter out files that are not gitignore files (.patch or .stack)
+    .filter((option) => option.name.endsWith(".gitignore"))
+    .map((o) => {
+      let option = o.name.replace(".gitignore", "");
 
-        let option = o.name.replace(".gitignore", "");
-
-        // get all real files (not links) for the option
-        let filesForOption = (getFilesForLink(files, option))
-          // remove duplicates
-          .filter((value, index, array) => {
-            return array.indexOf(value) === index;
-          })
-          // sorting files so first will be main files (contains option name) and and also prioritizing .gitignore files
-          .sort((a, b) => {
-            if (a.includes(option) && !b.includes(option)) {
+      // get all real files (not links) for the option
+      let filesForOption = getFilesForLink(files, option)
+        // remove duplicates
+        .filter((value, index, array) => {
+          return array.indexOf(value) === index;
+        })
+        // sorting files so first will be main files (contains option name) and and also prioritizing .gitignore files
+        .sort((a, b) => {
+          if (a.includes(option) && !b.includes(option)) {
+            return -1;
+          } else if (!a.includes(option) && b.includes(option)) {
+            return 1;
+          }
+          // if both files have the same option name, sort by put .gitignore files first
+          else if (a.slice(0, a.indexOf(".")) === b.slice(0, b.indexOf("."))) {
+            if (a.includes(".gitignore") && !b.includes(".gitignore")) {
               return -1;
-            } else if (!a.includes(option) && b.includes(option)) {
+            } else if (!a.includes(".gitignore") && b.includes(".gitignore")) {
               return 1;
             }
-            // if both files have the same option name, sort by put .gitignore files first
-            else if (
-              a.slice(0, a.indexOf(".")) ===
-              b.slice(0, b.indexOf("."))
-            ) {
-              if (a.includes(".gitignore") && !b.includes(".gitignore")) {
-                return -1;
-              } else if (
-                !a.includes(".gitignore") &&
-                b.includes(".gitignore")
-              ) {
-                return 1;
-              }
-            }
-            return a.localeCompare(b);
+          }
+          return a.localeCompare(b);
+        });
 
-          });
-
-        // add the option and corresponding files to the dictionary
-        linksDict[option] = filesForOption;
-      })
+      // add the option and corresponding files to the dictionary
+      linksDict[option] = filesForOption;
+    });
 
   // Sort the dictionary alphabetically by the keys
   let linksDictSorted = {};
@@ -151,7 +137,6 @@ function getLinksDict() {
   // console.log(linksDictSorted);
   return linksDictSorted;
 }
-
 
 // Writes both dictionaries to a files stored in the root directory.
 fs.writeFileSync(
