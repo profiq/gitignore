@@ -52,12 +52,10 @@ jobs:
           bash ./toptal.gitignoreTemplates/.github/scripts/sync-github.sh
 
 
-      - name: Run the build
-        run: yarn build
 
       - name: Deploy to edgio
         run: |
-          npx edgio deploy --skip-build --property=gitignore --organization=profiq --environment=$EDGIO_ENVIROMENT --token=$EDGIO_DEPLOY_TOKEN --branch=$BRANCH_NAME
+          npx edgio deploy --property=gitignore --organization=profiq --environment=$EDGIO_ENVIROMENT --token=$EDGIO_DEPLOY_TOKEN --branch=$BRANCH_NAME
 
 
       - name: Replace Slashes in Branch Name
