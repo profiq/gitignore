@@ -35,7 +35,7 @@ jobs:
           cd ./toptal.gitignoreTemplates/.github/scripts && bash ./sync-github.sh
 
       - name: Run the prebuild script
-        run: node ./prebuild-scripts/update-list.mjs
+        run: node ./update-tech-options/update-list.mjs
 
       - name: Check for changes
         id: git-check

@@ -27,7 +27,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "prebuild-scripts/update-list.mjs"
+    "update-tech-options/update-list.mjs"
   ],
   "exclude": ["node_modules"],
   "ts-node": {
