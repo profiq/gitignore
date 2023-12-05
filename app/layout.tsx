@@ -27,7 +27,11 @@ export default function RootLayout({
       </head>
       <body className={roboto.className}>
         <Header />
-        <main className="max-w-5xl mx-auto px-5 relative min-h-[calc(100vh-160px)]  py-5 ">
+        <main
+          className={clsx(
+            "mx-auto px-5 py-5 relative min-h-[calc(100vh-160px)] max-w-5xl",
+          )}
+        >
           {children}
         </main>
         <Footer />
