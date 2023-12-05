@@ -30,9 +30,6 @@
 .checkbox {
   --bs-form-check-bg-image: url('/check.svg');
   flex-shrink: 0;
-  /* width: 1em;
-  height: 1em; */
-  /* margin-top: 0.25em; */
   vertical-align: top;
   -webkit-appearance: none;
   -moz-appearance: none;
