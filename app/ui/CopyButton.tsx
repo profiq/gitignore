@@ -5,6 +5,12 @@ interface Props {
   className?: string;
 }
 
+/**
+ * A button component that copies the provided code to the clipboard when clicked.
+ *
+ * @param code - The code to be copied.
+ * @param className - The CSS class name for styling the button.
+ */
 export default function CopyButton({ code, className }: Props) {
   console.log("client");
 
@@ -14,7 +20,7 @@ export default function CopyButton({ code, className }: Props) {
 
   return (
     <button onClick={handleCopy} className={className}>
-      Copy to clippboard
+      Copy to clipboard
     </button>
   );
 }

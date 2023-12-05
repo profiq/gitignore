@@ -14,8 +14,10 @@ jobs:
       EDGIO_ENVIROMENT: dev
     steps:
       - uses: actions/checkout@v4
+        name: Checkout
 
       - uses: actions/setup-node@v3
+        name: Setup node
         with:
           node-version: '18.x'
 
@@ -24,7 +26,8 @@ jobs:
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - uses: actions/cache@v3
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        name: Restore yarn cache
+        id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
@@ -40,20 +43,12 @@ jobs:
           git clone https://github.com/toptal/gitignore ./toptal.gitignoreTemplates
 
       - uses: awalsh128/cache-apt-pkgs-action@latest
+        name: Cache apt packages
         with:
           packages: attr
           version: 1.0
-
-      - name: Update github templates
-        run: |
-          cat ./toptal.gitignoreTemplates/.github/scripts/sync-github.sh
-          bash ./toptal.gitignoreTemplates/.github/scripts/sync-github.sh
-
-
 
       - name: Deploy to edgio
         run: |
           npx edgio deploy --property=gitignore --organization=profiq -e $EDGIO_ENVIROMENT --token=$EDGIO_DEPLOY_TOKEN
 
-      - name: List directory contents after deployment
-        run: ls -la

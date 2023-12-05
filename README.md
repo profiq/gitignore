@@ -128,6 +128,13 @@ yarn format
 
 # CI/CD Workflows and Deployment
 
+## tests
+
+- runs on PR and push to the main branch
+- tests building the project
+- checks prettier
+- runs unit tests
+
 ## update-tech-options
 
 - Runs weekly to update `techOptions.json` and `techOptionsFiles.json` files if the template structure changed

@@ -29,11 +29,6 @@ jobs:
         run: |
           git clone https://github.com/toptal/gitignore ./toptal.gitignoreTemplates
 
-      - name: Update github templates
-        run: |
-          ls -la ./toptal.gitignoreTemplates/.github/scripts
-          cd ./toptal.gitignoreTemplates/.github/scripts && bash ./sync-github.sh
-
       - name: Run the prebuild script
         run: node ./update-tech-options/update-list.mjs
 

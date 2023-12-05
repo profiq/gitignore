@@ -1,4 +1,4 @@
-name: Tests
+name: tests
 on:
   pull_request:
     branches:
@@ -19,10 +19,12 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "18.x"
+
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -34,10 +36,13 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
+
       - name: Install
         run: yarn --prefer-offline --frozen-lockfile install
+
       - name: Build
         run: yarn build
+        
       - name: Run prettier
         run: |
           yarn lint:prettier

@@ -1,3 +1,9 @@
+/**
+ * Footer component.
+ * contains the logo and link to profiq website
+ *
+ * @component
+ */
 import React from "react";
 import classes from "./Footer.module.css";
 import { clsx } from "clsx";
@@ -11,23 +17,6 @@ const Footer: React.FC = () => {
           href="https://www.profiq.com/"
           target="_blank"
         ></a>
-        {/* <span className={clsx("text-4xl float-left px-5 text-white	")}>|</span>
-        <a className={clsx(classes.label, "float-left")} href="/">
-          .gitignore HUB
-        </a>
-        <a
-          className={clsx(
-            classes.link,
-            "flex flex-row items-center float-right",
-          )}
-          href="https://github.com/profiq/gitignore"
-          target="_blank"
-        >
-          <span className={clsx(classes.linkLabel)}>Source codes</span>
-          <div className={classes.icon}>
-            <FaGithub />
-          </div>
-        </a> */}
       </div>
     </footer>
   );

@@ -13,6 +13,7 @@ module.exports = (phase, config) =>
   withEdgio({
     ..._preEdgioExport,
     experimental: {
+      // templates included into deployment
       outputFileTracingIncludes: {
         "/": ["./toptal.gitignoreTemplates/**/*"],
       },
