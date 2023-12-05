@@ -9,9 +9,6 @@ interface Props {
 }
 
 export default function CodeView({ code, options, remDupl }: Props) {
-  // console.log(code);
-  // console.log(code.split("\n"));
-
   const btnClasses = "bg-[var(--profiq-green)] text-white p-2 rounded-md ml-2";
 
   let params = new URLSearchParams();
@@ -62,8 +59,8 @@ export default function CodeView({ code, options, remDupl }: Props) {
                   line.startsWith("#!# No results found #!#")
                     ? "text-red-600"
                     : line.startsWith("#")
-                    ? classes.comment
-                    : "",
+                      ? classes.comment
+                      : "",
                   "text-sm",
                 )}
               >

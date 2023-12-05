@@ -9,7 +9,6 @@
 
 .button:hover {
   background-color: var(--profiq-blue);
-  /* color: var(--profiq-blue) */
 }
 
 .wrapper {
