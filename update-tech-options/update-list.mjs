@@ -5,7 +5,7 @@ import techOptionsDict from "./techOptions.json" assert { type: "json" };
 /**
  * Retrieves a list of available tech options from the gitignore templates directory.
  * @function getTechoptionsList
- * @returns {Promise<Array<string>>} - A promise that resolves to an array of tech options.
+ * @returns {string[]} - A promise that resolves to an array of tech options.
  */
 function getTechoptionsList() {
   // Read all files in the template directory

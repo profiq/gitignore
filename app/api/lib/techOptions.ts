@@ -1,6 +1,11 @@
 // 'use server'
 import techOptionsDict from "@/techOptions.json";
 
+/**
+ * Searches for technology options based on a search query.
+ * @param {string} searchQuery The search query to match against technology options.
+ * @returns {string[]} An array of technology names that match the search query.
+ */
 export async function searchTechOptions(searchQuery: string) {
   // Get the keys from the techOptionsDict to search for the query
   const techOptions = Object.keys(techOptionsDict);
@@ -30,10 +35,6 @@ export async function searchTechOptions(searchQuery: string) {
     if (!results.includes(techOptionsDict[key as keyof typeof techOptionsDict]))
       results.push(techOptionsDict[key as keyof typeof techOptionsDict]);
   });
-
-  // console.log(`searching for "${searchQuery}" with`);
-  // console.log("keys found: ", keys);
-  // console.log("Results: ", results);
 
   return results;
 }

@@ -4,13 +4,14 @@
     "edgio:build": "edgio build",
     "edgio:deploy": "edgio deploy",
     "dev": "next dev",
-    "update-tech-options": "node ./prebuild-scripts/update-list.mjs",
+    "update-tech-options": "node ./update-tech-options/update-list.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "lint:eslint": "eslint **/*.{ts,tsx,js}",
     "lint:prettier": "prettier --check .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "format": "yarn prettier --loglevel warn --write ."
   },
   "name": "gitignore",
   "version": "0.1.0",

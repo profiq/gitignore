@@ -3,10 +3,17 @@ import SelectInput from "./ui/SelectInput";
 import classes from "./Home.module.css";
 import clsx from "clsx";
 import { Suspense } from "react";
+
+// fallback component, while SelectInput is loading
 function SelectInputFallback() {
   return <div></div>;
 }
 
+/**
+ * Renders the Home component with the SelectInput component.
+ *
+ * @returns The rendered Home component.
+ */
 export default function Home() {
   return (
     <>
