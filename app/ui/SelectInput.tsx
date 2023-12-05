@@ -110,54 +110,6 @@ export default function SelectInput({ className }: { className?: string }) {
 
   return (
     <div className={clsx(className, "w-full flex flex-col")}>
-      <div className={clsx("flex m-10")}>
-        <div className={clsx("h-5 w-5 relative")} data-label-position="right">
-          <input
-            className={clsx(
-              "appearance-none	bg-white checked:bg-[var(--profiq-green)] block h-5 w-5 m-0 p-0 mantine-Checkbox-input mantine-focus-auto",
-            )}
-            id="chbx-rmeDupl"
-            type="checkbox"
-          />
-          <svg
-            viewBox="0 0 10 7"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-            className={clsx(
-              "text-white absolute w-2/3 top-0 left-0 right-0 bottom-0 m-auto mantine-Checkbox-icon",
-            )}
-          >
-            <path
-              d="M4 4.586L1.707 2.293A1 1 0 1 0 .293 3.707l3 3a.997.997 0 0 0 1.414 0l5-5A1 1 0 1 0 8.293.293L4 4.586z"
-              fill="currentColor"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-            ></path>
-          </svg>
-        </div>
-        <div className={clsx(" mantine-Checkbox-labelWrapper")}>
-          <label
-            className={clsx("px-3 mantine-Checkbox-label")}
-            htmlFor="chbx-rmeDupl"
-          >
-            Remove dupplicate rules
-          </label>
-        </div>
-      </div>
-      <Checkbox
-        checked={
-          searchParams.get("remDupl")
-            ? searchParams.get("remDupl")?.toLowerCase() != "false"
-            : true
-        }
-        onChange={(e) => handleRemDuplChange(e.currentTarget.checked)}
-        className="mt-10 flex flex-row justify-center items-center -z-10"
-        label="Remove dupplicate rules"
-        color="var(--profiq-green)"
-        styles={{ body: { zIndex: "0!important" } }}
-      />
-
       <div
         className={clsx(
           "mx-auto scale-150 flex flex-row w-2/3 m-20 mb-0 order-first", // scaling and adjusting width
@@ -247,6 +199,29 @@ export default function SelectInput({ className }: { className?: string }) {
         >
           Create
         </button>
+      </div>
+      <div className={clsx("mt-10 flex flex-row justify-center items-center")}>
+        <input
+          className={clsx(
+            classes.checkbox,
+            "float-left appearance-none	 block h-5 w-5 m-0 p-0  cursor-pointer",
+          )}
+          id="chbx-rmeDupl"
+          type="checkbox"
+          checked={
+            searchParams.get("remDupl")
+              ? searchParams.get("remDupl")?.toLowerCase() != "false"
+              : true
+          }
+          onChange={(e) => handleRemDuplChange(e.currentTarget.checked)}
+        />
+
+        <label
+          className={clsx("px-3 leading-4 h-4 cursor-pointer")}
+          htmlFor="chbx-rmeDupl"
+        >
+          Remove dupplicate rules
+        </label>
       </div>
     </div>
   );

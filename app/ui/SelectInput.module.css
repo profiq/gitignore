@@ -18,3 +18,32 @@
   margin-top: 100px;
 
 }
+
+.checkbox:checked {
+  background-color: var(--profiq-green-shaddow);
+  border-color: var(--profiq-green);
+  background-size: 1.25rem;
+  background-position: center;
+
+}
+
+.checkbox {
+  --bs-form-check-bg-image: url('/check.svg');
+  flex-shrink: 0;
+  /* width: 1em;
+  height: 1em; */
+  /* margin-top: 0.25em; */
+  vertical-align: top;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: white;
+  background-image: var(--bs-form-check-bg-image);
+  background-repeat: no-repeat;
+  border: 1px solid #002c623d;
+  border-radius: 0.25em;
+  transition: border-color .2s ease,background-color .2s ease,background-position .15s ease, background-size .15s ease;
+  background-position-y: bottom;
+    background-position-x: center;
+    background-size: 0.5rem;
+}
