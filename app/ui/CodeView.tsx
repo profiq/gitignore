@@ -61,33 +61,31 @@ export default function CodeView({ code, options, remDupl }: Props) {
       </div>
       <div
         className={clsx(
-          "z-0 h-full w-full rounded-b-lg  mb-10  shadow-[0_0_10px_rgba(0,0,0,0.2)]",
+          "z-0 h-full w-full bg-white rounded-b-lg  mb-10  shadow-[0_0_10px_rgba(0,0,0,0.2)]",
         )}
       >
         <div className="p-10">
-          {
+          {code.split("\n").map((line, index) => {
             // Split code by new line and map each line to a paragraph
             // Style lines starting with # as comments
             // Style lines starting with #!# No results found #!# as error
-            code.split("\n").map((line, index) => {
-              return (
-                <p
-                  key={index}
-                  className={clsx(
-                    classes.line,
-                    line.startsWith("#!# No results found #!#")
-                      ? "text-red-600"
-                      : line.startsWith("#")
-                        ? classes.comment
-                        : "",
-                    "text-sm",
-                  )}
-                >
-                  {line}
-                </p>
-              );
-            })
-          }
+            return (
+              <p
+                key={index}
+                className={clsx(
+                  classes.line,
+                  line.startsWith("#!# No results found #!#")
+                    ? "text-red-600"
+                    : line.startsWith("#")
+                      ? classes.comment
+                      : "",
+                  "text-sm",
+                )}
+              >
+                {line}
+              </p>
+            );
+          })}
         </div>
       </div>
     </>

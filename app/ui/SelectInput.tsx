@@ -8,7 +8,6 @@
 import { useEffect, useRef, useState } from "react";
 import Select, { InputActionMeta, MultiValue } from "react-select";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Checkbox } from "@mantine/core";
 
 import classes from "./SelectInput.module.css";
 
@@ -200,18 +199,29 @@ export default function SelectInput({ className }: { className?: string }) {
           Create
         </button>
       </div>
-      <Checkbox
-        checked={
-          searchParams.get("remDupl")
-            ? searchParams.get("remDupl")?.toLowerCase() != "false"
-            : true
-        }
-        onChange={(e) => handleRemDuplChange(e.currentTarget.checked)}
-        className="mt-10 flex flex-row justify-center items-center"
-        label="Remove dupplicate rules"
-        color="var(--profiq-green)"
-        styles={{ body: { zIndex: "0!important" } }}
-      />
+      <div className={clsx("mt-10 flex flex-row justify-center items-center")}>
+        <input
+          className={clsx(
+            classes.checkbox,
+            "float-left appearance-none	 block h-5 w-5 m-0 p-0  cursor-pointer",
+          )}
+          id="chbx-rmeDupl"
+          type="checkbox"
+          checked={
+            searchParams.get("remDupl")
+              ? searchParams.get("remDupl")?.toLowerCase() != "false"
+              : true
+          }
+          onChange={(e) => handleRemDuplChange(e.currentTarget.checked)}
+        />
+
+        <label
+          className={clsx("px-3 leading-4 h-4 cursor-pointer")}
+          htmlFor="chbx-rmeDupl"
+        >
+          Remove dupplicate rules
+        </label>
+      </div>
     </div>
   );
 }
