@@ -8,7 +8,6 @@
 import { useEffect, useRef, useState } from "react";
 import Select, { InputActionMeta, MultiValue } from "react-select";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Checkbox } from "@mantine/core";
 
 import classes from "./SelectInput.module.css";
 
