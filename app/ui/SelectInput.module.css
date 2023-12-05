@@ -30,11 +30,10 @@
   border-color: var(--profiq-green);
   background-size: 1.25rem;
   background-position: center;
-
 }
 
 .checkbox {
-  --bs-form-check-bg-image: url('/check.svg');
+  --bs-form-check-bg-image: url("/check.svg");
   flex-shrink: 0;
   vertical-align: top;
   -webkit-appearance: none;
@@ -45,8 +44,12 @@
   background-repeat: no-repeat;
   border: 1px solid #002c623d;
   border-radius: 0.25em;
-  transition: border-color .2s ease,background-color .2s ease,background-position .15s ease, background-size .15s ease;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    background-position 0.15s ease,
+    background-size 0.15s ease;
   background-position-y: bottom;
-    background-position-x: center;
-    background-size: 0.5rem;
+  background-position-x: center;
+  background-size: 0.5rem;
 }
