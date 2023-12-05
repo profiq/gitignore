@@ -48,7 +48,7 @@ export default function CodeView({ code, options, remDupl }: Props) {
       </div>
       <div
         className={clsx(
-          "z-0 h-full w-full rounded-b-lg  mb-10  shadow-[0_0_10px_rgba(0,0,0,0.2)]",
+          "z-0 h-full w-full bg-white rounded-b-lg  mb-10  shadow-[0_0_10px_rgba(0,0,0,0.2)]",
         )}
       >
         <div className="p-10">
