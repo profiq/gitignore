@@ -22,7 +22,7 @@ export default function Home() {
           tech stack
         </h4>
       </div>
-      <Suspense fallback={<div></div>}>
+      <Suspense fallback={<div />}>
         <SelectInput className="mx-auto" />
       </Suspense>
     </>
