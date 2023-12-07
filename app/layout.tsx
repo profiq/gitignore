@@ -25,7 +25,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.png" />
       </head>
-      <body className={roboto.className}>
+      <body className={clsx(roboto.className, "text-profiq-blue")}>
         <Header />
         <main
           className={clsx(

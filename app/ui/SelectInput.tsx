@@ -9,8 +9,6 @@ import { useEffect, useRef, useState } from "react";
 import Select, { InputActionMeta, MultiValue } from "react-select";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-import classes from "./SelectInput.module.css";
-
 // function for searching tech options
 import { searchTechOptions } from "@/app/api/lib/techOptions";
 import clsx from "clsx";
@@ -111,7 +109,7 @@ export default function SelectInput({ className }: { className?: string }) {
     <div className={clsx(className, "w-full flex flex-col")}>
       <div
         className={clsx(
-          "mx-auto scale-150 flex flex-row w-2/3 m-20 mb-0 order-first", // scaling and adjusting width
+          "mx-auto scale-150 flex flex-row w-2/3 m-20 mb-4 order-first", // scaling and adjusting width
         )}
       >
         <Select
@@ -189,20 +187,28 @@ export default function SelectInput({ className }: { className?: string }) {
               },
               height: "100%",
             }),
+            menuList: (baseStyles, state) => ({
+              ...baseStyles,
+              maxHeight: "270px",
+            }),
           }}
         />
 
         <button
-          className={clsx(classes.button, "ml-0.5")}
+          className={clsx(
+            "ml-0.5 bg-profiq-green rounded-r text-white py-2 px-4 border-0 cursor-pointer hover:bg-profiq-blue",
+          )}
           onClick={handleSubmit}
         >
           Create
         </button>
       </div>
-      <div className={clsx("mt-10 flex flex-row justify-center items-center")}>
+      <div className={clsx("mt-5 flex flex-row justify-center items-center")}>
         <input
           className={clsx(
-            classes.checkbox,
+            "bg-checkbox bg-white checked:bg-profiq-green bg-bottom checked:bg-center bg-[length:0.5rem] checked:bg-[length:1.25rem] bg-no-repeat ",
+            "transition-all duration-200",
+            "rounded border border-gray-300 checked:border-profiq-green outline-none",
             "float-left appearance-none	 block h-5 w-5 m-0 p-0  cursor-pointer",
           )}
           id="chbx-rmeDupl"

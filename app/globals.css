@@ -3,10 +3,6 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-end-rgb: 220, 220, 220;
-  --background-start-rgb: 255, 255, 255;
-
   --profiq-green: #8ec549;
   --profiq-green-shaddow: #a3b889;
   --profiq-blue: #002c62;
@@ -14,16 +10,4 @@
   --profiq-blue-transparent: #002c62c4;
   --profiq-white: #ffffff;
   --profiq-grey: #e6e6e6;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 5, 5, 5;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: var(--profiq-blue);
 }

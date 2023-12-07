@@ -1,13 +1,7 @@
 "use client";
 import SelectInput from "./ui/SelectInput";
-import classes from "./Home.module.css";
 import clsx from "clsx";
 import { Suspense } from "react";
-
-// fallback component, while SelectInput is loading
-function SelectInputFallback() {
-  return <div></div>;
-}
 
 /**
  * Renders the Home component with the SelectInput component.
@@ -19,7 +13,6 @@ export default function Home() {
     <>
       <div
         className={clsx(
-          classes.h,
           "mt-16 mb-16 flex flex-col items-center justify-center",
         )}
       >
@@ -29,7 +22,7 @@ export default function Home() {
           tech stack
         </h4>
       </div>
-      <Suspense fallback={<SelectInputFallback />}>
+      <Suspense fallback={<div></div>}>
         <SelectInput className="mx-auto" />
       </Suspense>
     </>
