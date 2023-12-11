@@ -1111,10 +1111,61 @@
     yauzl "^2.10.0"
     yazl "^2.5.1"
 
-"@edgio/core@7.4.2", "@edgio/core@^7.4.2":
+"@edgio/core@7.4.2":
   version "7.4.2"
   resolved "https://registry.npmjs.org/@edgio/core/-/core-7.4.2.tgz"
   integrity sha512-zaGfOF37gtMd4wkfIBrTyYRDVZY2oZ8Fj6lV7SQ91YAEJx3EBjs8o3MeAPJD1RsZmdO82m97NJFTuz64AH7ulw==
+  dependencies:
+    "@babel/parser" "^7.18.9"
+    "@babel/traverse" "^7.22.19"
+    "@types/lodash.clonedeep" "^4.5.6"
+    "@vercel/ncc" "^0.34.0"
+    abort-controller "^3.0.0"
+    ajv "^8.12.0"
+    babel-loader "^8.2.2"
+    buffer "^6.0.3"
+    cache-control-parser "^2.0.2"
+    chai-as-promised "^7.1.1"
+    chalk "^4.1.2"
+    chardet "^1.4.0"
+    chokidar "^3.5.1"
+    cls-hooked "^4.2.2"
+    content-type "^1.0.4"
+    cookie "^0.4.1"
+    cross-spawn "^7.0.3"
+    decode-uri-component "^0.2.0"
+    deepmerge "^4.2.2"
+    esbuild "^0.14.49"
+    express "^4.17.3"
+    fluentvalidation-ts "^2.2.2"
+    fs-extra "^8.1.0"
+    globby "^11.0.2"
+    http-proxy "^1.18.1"
+    lodash.clonedeep "^4.5.0"
+    lodash.debounce "^4.0.8"
+    lodash.escaperegexp "^4.1.2"
+    lru-cache "^7.14.0"
+    mime-types "^2.1.35"
+    node-fetch "^2.6.7"
+    path-to-regexp "^6.2.0"
+    pino "^6.13.3"
+    qs "^6.11.0"
+    resolve-package-path "^4.0.3"
+    semver "^7.3.5"
+    shelljs "^0.8.5"
+    slash "^3.0.0"
+    stream-buffers "^3.0.2"
+    tcp-port-used "^1.0.2"
+    ts-loader "^8.2.0"
+    unixify "^1.0.0"
+    uuid "^8.3.2"
+    workbox-build "^6.5.4"
+    yaml-validator "^4.0.0"
+
+"@edgio/core@^7.4.4":
+  version "7.4.4"
+  resolved "https://registry.yarnpkg.com/@edgio/core/-/core-7.4.4.tgz#875a5fc468a740d24ef550c445dc8d5482e57f58"
+  integrity sha512-ioAhaXOk0pDq4yYbaacU8IircHQ1xpCp9MjGuRD7Wow0jpEOhIkRnxjUpTui8DO7pBGGL7fEU051N80sKfVAJg==
   dependencies:
     "@babel/parser" "^7.18.9"
     "@babel/traverse" "^7.22.19"
@@ -1192,12 +1243,12 @@
     webpack "^4.0.0"
     webpack-sources "^2.2.0"
 
-"@edgio/prefetch@7.4.2":
-  version "7.4.2"
-  resolved "https://registry.npmjs.org/@edgio/prefetch/-/prefetch-7.4.2.tgz"
-  integrity sha512-xlCN6aYM6cJHokSCySx6jsIpbefnx2sxAApHLjfw1Besd3ujYGHkQAcGKkGJGBvo4bZO5OZrW6WOnQXID9Bihw==
+"@edgio/prefetch@7.4.4":
+  version "7.4.4"
+  resolved "https://registry.yarnpkg.com/@edgio/prefetch/-/prefetch-7.4.4.tgz#ef730f38a8573da0321d944165478f8f5f42701c"
+  integrity sha512-S7n65GhRnggALoSFKVVciVn6YKmokWHiND9FnpFxb2h4//E3zpyU819g0vZoZ86EMphqaIsX1+eJgqtkL6YLiA==
   dependencies:
-    "@edgio/core" "^7.4.2"
+    "@edgio/core" "^7.4.4"
     cheerio "^1.0.0-rc.3"
     json-query "^2.2.2"
     workbox-cacheable-response "^5.1.2"
