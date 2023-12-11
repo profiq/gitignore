@@ -1,0 +1,92 @@
+### C ###
+## file: C.gitignore ##
+
+# Prerequisites
+*.d
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+
+
+### C++ ###
+## file: C++.gitignore ##
+
+## Prerequisites #duplicate rule
+#*.d #duplicate rule
+
+# Compiled Object files
+*.slo
+#*.lo #duplicate rule
+#*.o #duplicate rule
+#*.obj #duplicate rule
+
+## Precompiled Headers #duplicate rule
+#*.gch #duplicate rule
+#*.pch #duplicate rule
+
+# Compiled Dynamic libraries
+#*.so #duplicate rule
+#*.dylib #duplicate rule
+#*.dll #duplicate rule
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+#*.la #duplicate rule
+#*.a #duplicate rule
+#*.lib #duplicate rule
+
+## Executables #duplicate rule
+#*.exe #duplicate rule
+#*.out #duplicate rule
+#*.app #duplicate rule

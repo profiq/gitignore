@@ -1,16 +1,17 @@
 "use server";
 import fs from "fs";
 
-import techOptions from "@/techOptions.json";
-import techOptFiles from "@/techOptionsFiles.json";
+import techOptions from "../../../techOptions.json";
+import techOptFiles from "../../../techOptionsFiles.json";
 
 const techOptionsFiles: { [key: string]: string[] } = techOptFiles;
 const allTechOptions: { [key: string]: string } = techOptions;
 
-function removeDuplicates(arr: string): string {
+export async function removeDuplicates(arr: string): Promise<string> {
   return arr
     .split("\n")
     .map((line, index, array) => {
+      console.log(index+line)
       if (array.indexOf(line) === index || line.length === 0) return line;
       return `#${line} #duplicate rule`;
     })
@@ -71,7 +72,7 @@ export async function getResult(
     .join("\n\n");
 
   // commenting all duplicate rules
-  if (remDupl) result = removeDuplicates(result);
+  if (remDupl) result = await removeDuplicates(result);
 
   return result;
 }
