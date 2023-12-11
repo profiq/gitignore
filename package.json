@@ -33,7 +33,7 @@
     "@edgio/cli": "7.4.2",
     "@edgio/core": "7.4.2",
     "@edgio/devtools": "7.4.2",
-    "@edgio/next": "7.4.2",
+    "@edgio/next": "7.4.4",
     "@edgio/prefetch": "7.4.2",
     "@edgio/react": "7.4.2",
     "@types/node": "20",

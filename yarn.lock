@@ -1171,10 +1171,10 @@
     lodash "^4.17.20"
     sirv-cli "^1.0.0"
 
-"@edgio/next@7.4.2":
-  version "7.4.2"
-  resolved "https://registry.npmjs.org/@edgio/next/-/next-7.4.2.tgz"
-  integrity sha512-hlmbtZNJWsJKpZaGnx+RFiW1jChkmHvOhoOssg+6hqoVlpg/PT3HnzkIUYwjQelfQBseAEYzITeYM1fRdMBoAw==
+"@edgio/next@7.4.4":
+  version "7.4.4"
+  resolved "https://registry.yarnpkg.com/@edgio/next/-/next-7.4.4.tgz#1dfd954524dbee1a747957bb579ae018e7b3f9d7"
+  integrity sha512-xtHDF4PKKPDBQb30BFOgBN9cdJiQz9TfnQgBrh7o6jD3VkGjtTzMJuLWEsK+XvWBFmnZsItpAEhVB4DUo11oYQ==
   dependencies:
     "@vercel/nft" "^0.13.1"
     chalk "^4.1.2"
