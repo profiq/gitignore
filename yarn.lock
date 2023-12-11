@@ -1063,10 +1063,10 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@edgio/cli@7.4.2":
-  version "7.4.2"
-  resolved "https://registry.npmjs.org/@edgio/cli/-/cli-7.4.2.tgz"
-  integrity sha512-e0U1WwIGUkV9mf9i1hwbW4emyTdiW2aHhNrf4b+J9zP2hLEYVFm8mkD2N0K5jULpYdB3UOtBTiuh/QLRqncEpQ==
+"@edgio/cli@7.4.4":
+  version "7.4.4"
+  resolved "https://registry.yarnpkg.com/@edgio/cli/-/cli-7.4.4.tgz#8826308b2c73fc6a6431ee082c6aee24f44bb952"
+  integrity sha512-UAeKmimwwXIedbt5Fym89kJ5U6U3LMXvx22wifYjE/dYJvFbsZ5mjwAcNY8BHvuxZg0MU12CC6xSwDPoC+6XKA==
   dependencies:
     axios "^1.6.0"
     chalk "^4.1.2"
