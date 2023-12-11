@@ -4,7 +4,7 @@
     "edgio:build": "edgio build",
     "edgio:deploy": "edgio deploy",
     "dev": "next dev",
-    "update-tech-options": "node ./update-tech-options/update-list.mjs",
+    "update-tech-options": "node ./update-tech-options/update-list.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

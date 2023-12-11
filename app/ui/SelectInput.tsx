@@ -12,7 +12,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import classes from "./SelectInput.module.css";
 
 // function for searching tech options
-import { searchTechOptions } from "@/app/api/lib/techOptions";
+import { searchTechOptions } from "@/app/api/lib/search";
 import clsx from "clsx";
 
 export default function SelectInput({ className }: { className?: string }) {

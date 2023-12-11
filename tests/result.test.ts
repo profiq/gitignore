@@ -106,7 +106,7 @@ test("generate file header: ReactNative.gitignore", async () => {
 
 `;
 
-  expect(result).toBe(expectedHeader);
+  expect(result).toEqual(expectedHeader);
 });
 
 test("generate file header: Gradle.gitignore", async () => {
@@ -119,7 +119,7 @@ test("generate file header: Gradle.gitignore", async () => {
 
 `;
 
-  expect(result).toBe(expectedHeader);
+  expect(result).toEqual(expectedHeader);
 });
 
 test("generate file header: Gradle.patch", async () => {
@@ -131,7 +131,7 @@ test("generate file header: Gradle.patch", async () => {
 
 `;
 
-  expect(result).toBe(expectedHeader);
+  expect(result).toEqual(expectedHeader);
 });
 
 //-------------------------------------------------------------------------------
