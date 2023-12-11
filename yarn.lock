@@ -1162,10 +1162,10 @@
     workbox-build "^6.5.4"
     yaml-validator "^4.0.0"
 
-"@edgio/devtools@7.4.2":
-  version "7.4.2"
-  resolved "https://registry.npmjs.org/@edgio/devtools/-/devtools-7.4.2.tgz"
-  integrity sha512-KCm1QxSqI2CSNHQOJnw15OeNiULsbuvIVFqZT5vNJKcI9NpfHKzK4M1On6mbK1Orlq5yBva3bR0f/vqFUM3HNw==
+"@edgio/devtools@7.4.4":
+  version "7.4.4"
+  resolved "https://registry.yarnpkg.com/@edgio/devtools/-/devtools-7.4.4.tgz#0972e51938caaca7dcb25e5cb06514023615f7d2"
+  integrity sha512-7D56djJLdEgs488oR2GrGLeeP4Uhbxf7T6uV02tlr2fyX1O05ktKvQI+dCjyIj1EwCbI3x2SavFVFk2uBglxjw==
   dependencies:
     clsx "^1.1.1"
     lodash "^4.17.20"
