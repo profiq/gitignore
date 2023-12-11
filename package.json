@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@edgio/cli": "7.4.2",
-    "@edgio/core": "7.4.2",
+    "@edgio/core": "7.4.4",
     "@edgio/devtools": "7.4.2",
     "@edgio/next": "7.4.2",
     "@edgio/prefetch": "7.4.2",
