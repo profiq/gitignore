@@ -7,9 +7,9 @@ import techOptionsDict from "./techOptions.json" assert { type: "json" };
  * @function getTechoptionsList
  * @returns {string[]} - A promise that resolves to an array of tech options.
  */
-function getTechoptionsList() {
+export function getTechoptionsList() {
   // Read all files in the template directory
-  let techOptions = fs.readdirSync("./toptal.gitignoreTemplates/templates");
+  let techOptions = fs.readdirSync("./templates");
 
   // Get only files that end with .gitignore and remove the extension
   techOptions = techOptions
@@ -26,7 +26,7 @@ function getTechoptionsList() {
  * Also keys with removed special characters are added. The dictionary is sorted alphabetically by the values.
  * @returns {Object} A sorted dictionary of technology options.
  */
-function genTechOptionsDict() {
+export function genTechOptionsDict() {
   // Get the list of tech options from the gitignore templates directory
   let techOptions = getTechoptionsList();
 
@@ -64,7 +64,7 @@ function genTechOptionsDict() {
  * @param {string} option - The option to filter the files by.
  * @returns {Array} An array of file names.
  */
-function getFilesForLink(files, option) {
+export function getFilesForLink(files, option) {
   return files
     .filter((file) => {
       let name = file.name.slice(0, file.name.indexOf("."));
@@ -86,11 +86,11 @@ function getFilesForLink(files, option) {
  * Returns a dictionary of links for each gitignore option.
  * @returns {Object} The dictionary of links for each gitignore option.
  */
-function getLinksDict() {
+export function getLinksDict() {
   let linksDict = {};
 
   // list files in the templates directory
-  let files = fs.readdirSync("./toptal.gitignoreTemplates/templates", {
+  let files = fs.readdirSync("./templates", {
     withFileTypes: true,
   });
   files

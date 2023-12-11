@@ -28,7 +28,7 @@ export async function createNeededFilesDict(techOptions: string[], allTechOption
   techOptions.forEach((option) => {
     techOptionsFiles[allTechOptions[option.toLowerCase()]].map((file) => {
       filesDict[file] = filesDict[file] || [];
-      filesDict[file].push(option);
+      filesDict[file].push(allTechOptions[option.toLowerCase()]);
     });
   });
 
@@ -83,7 +83,7 @@ export async function getResult(
       Object.keys(filesDict).map(async (file) => {
         // reading the file
         let resultText: string = await fs.promises.readFile(
-          `./toptal.gitignoreTemplates/templates/${file}`,
+          `./templates/${file}`,
           "utf8",
         );
 

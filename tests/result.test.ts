@@ -2,6 +2,7 @@ import {
   removeDuplicates,
   createNeededFilesDict,
   fileHeader,
+  getResult,
 } from "../app/api/lib/result";
 import fs from "fs";
 
@@ -35,10 +36,10 @@ const sortArrays = (obj: {
 };
 
 test("create needed files dictionary: c, c++", async () => {
-  const techOptions = ["c++", "c"];
+  const techOptions = ["C++", "C"];
   const expectedDict = {
-    "C++.gitignore": ["c++"],
-    "C.gitignore": ["c"],
+    "C++.gitignore": ["C++"],
+    "C.gitignore": ["C"],
   };
   const result = await createNeededFilesDict(
     techOptions,
@@ -48,22 +49,22 @@ test("create needed files dictionary: c, c++", async () => {
   expect(result).toEqual(expectedDict);
 });
 
-test("create needed files dictionary: react, android", async () => {
+test("create needed files dictionary: reactnative, android", async () => {
   const techOptions = ["reactnative", "android", "Gradle"];
   const expectedDict = {
-    "Android.gitignore": ["android", "reactnative"],
-    "Android.patch": ["reactnative", "android"],
-    "Buck.gitignore": ["reactnative"],
-    "Gradle.gitignore": ["reactnative", "Gradle"],
-    "Gradle.patch": ["Gradle", "reactnative"],
-    "Linux.gitignore": ["reactnative"],
-    "Node.gitignore": ["reactnative"],
-    "Node.patch": ["reactnative"],
-    "ReactNative.gitignore": ["reactnative"],
-    "Xcode.gitignore": ["reactnative"],
-    "Xcode.patch": ["reactnative"],
-    "macOS.gitignore": ["reactnative"],
-    "macOS.patch": ["reactnative"],
+    "Android.gitignore": ["Android", "ReactNative"],
+    "Android.patch": ["ReactNative", "Android"],
+    "Buck.gitignore": ["ReactNative"],
+    "Gradle.gitignore": ["ReactNative", "Gradle"],
+    "Gradle.patch": ["Gradle", "ReactNative"],
+    "Linux.gitignore": ["ReactNative"],
+    "Node.gitignore": ["ReactNative"],
+    "Node.patch": ["ReactNative"],
+    "ReactNative.gitignore": ["ReactNative"],
+    "Xcode.gitignore": ["ReactNative"],
+    "Xcode.patch": ["ReactNative"],
+    "macOS.gitignore": ["ReactNative"],
+    "macOS.patch": ["ReactNative"],
   };
 
   const result = await createNeededFilesDict(
@@ -131,4 +132,32 @@ test("generate file header: Gradle.patch", async () => {
 `;
 
   expect(result).toBe(expectedHeader);
+});
+
+//-------------------------------------------------------------------------------
+
+// 4. getResult
+
+test("getResult: c, c++, remdupl=false", async () => {
+  const techOptions = ["c", "c++"];
+
+  const result = await getResult(techOptions);
+
+  const expected = fs.readFileSync("./tests/C_C++.gitignore", "utf8");
+
+  expect(result).toBe(expected);
+});
+
+test("getResult: ReactNative, Android", async () => {
+  const techOptions = ["ReactNative", "Android"];
+  const remDupl = false;
+
+  const result = await getResult(techOptions, remDupl);
+
+  const expected = fs.readFileSync(
+    "./tests/ReactNative_Android.gitignore",
+    "utf8",
+  );
+
+  expect(result).toBe(expected);
 });

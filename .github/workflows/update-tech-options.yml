@@ -27,7 +27,7 @@ jobs:
 
       - name: Clone toptal templates
         run: |
-          git clone https://github.com/toptal/gitignore ./toptal.gitignoreTemplates
+          yarn clone-templates
 
       - name: Run the prebuild script
         run: node ./update-tech-options/update-list.mjs
