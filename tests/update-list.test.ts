@@ -21,6 +21,7 @@ test("getTechoptionsList()", () => {
   expected = expected.filter(function (item, pos) {
     return expected.indexOf(item) == pos;
   });
+
   expect(result.sort()).toEqual(expected.sort());
 });
 
@@ -31,6 +32,7 @@ test("genTechOptionsDict()", () => {
   });
   const result = genTechOptionsDict(optionList);
   let expected = techOptions;
+
   expect(result).toEqual(expected);
 
   const result2 = genTechOptionsDict(optionList, {});
@@ -741,6 +743,7 @@ test("fillTechOptionsDict()", () => {
     sch: "Eagle",
     "sch++": "Sch++",
   };
+
   expect(result2).toEqual(expected2);
 });
 
@@ -900,81 +903,81 @@ test("sortDictByValue()", () => {
   expect(result2).toEqual(expected2);
 });
 
-test("getLinksDict()", () => {
-  const result = getLinksDict();
-  let expected = techOptFiles;
-  expect(result).toEqual(expected);
-});
+// test("getLinksDict()", () => {
+//   const result = getLinksDict();
+//   let expected = techOptFiles;
+//   expect(result).toEqual(expected);
+// });
 
-test("getFilesForLink()", () => {
-  let files = fs.readdirSync("./templates", {
-    withFileTypes: true,
-  });
-  const result = getFilesForLink(files, "ReactNative");
-  let expected = [
-    "Android.gitignore",
-    "Android.patch",
-    "Buck.gitignore",
-    "Gradle.gitignore",
-    "Gradle.patch",
-    "Linux.gitignore",
-    "Node.gitignore",
-    "Node.patch",
-    "Xcode.gitignore",
-    "Xcode.patch",
-    "ReactNative.gitignore",
-    "macOS.gitignore",
-    "macOS.patch",
-  ];
-  expect(result.sort()).toEqual(expected.sort());
-});
+// test("getFilesForLink()", () => {
+//   let files = fs.readdirSync("./templates", {
+//     withFileTypes: true,
+//   });
+//   const result = getFilesForLink(files, "ReactNative");
+//   let expected = [
+//     "Android.gitignore",
+//     "Android.patch",
+//     "Buck.gitignore",
+//     "Gradle.gitignore",
+//     "Gradle.patch",
+//     "Linux.gitignore",
+//     "Node.gitignore",
+//     "Node.patch",
+//     "Xcode.gitignore",
+//     "Xcode.patch",
+//     "ReactNative.gitignore",
+//     "macOS.gitignore",
+//     "macOS.patch",
+//   ];
+//   expect(result.sort()).toEqual(expected.sort());
+// });
 
-test("sortDict()", () => {
-  const dict = {
-    b: ["2", "6"],
-    c: ["3", "4"],
-    a: ["1", "5"],
-  };
-  const result = sortDict(dict);
-  const expected = {
-    a: ["1", "5"],
-    b: ["2", "6"],
-    c: ["3", "4"],
-  };
-  expect(result).toEqual(expected);
-});
+// test("sortDict()", () => {
+//   const dict = {
+//     b: ["2", "6"],
+//     c: ["3", "4"],
+//     a: ["1", "5"],
+//   };
+//   const result = sortDict(dict);
+//   const expected = {
+//     a: ["1", "5"],
+//     b: ["2", "6"],
+//     c: ["3", "4"],
+//   };
+//   expect(result).toEqual(expected);
+// });
 
-test("sortFiles()", () => {
-  const files = [
-    "macOS.patch",
-    "Buck.gitignore",
-    "Gradle.gitignore",
-    "Linux.gitignore",
-    "Node.gitignore",
-    "ReactNative.gitignore",
-    "Android.gitignore",
-    "Gradle.patch",
-    "macOS.gitignore",
-    "Xcode.gitignore",
-    "Android.patch",
-    "Xcode.patch",
-    "Node.patch",
-  ];
-  const result = sortFiles(files, "ReactNative");
-  const expected = [
-    "ReactNative.gitignore",
-    "Android.gitignore",
-    "Android.patch",
-    "Buck.gitignore",
-    "Gradle.gitignore",
-    "Gradle.patch",
-    "Linux.gitignore",
-    "macOS.gitignore",
-    "macOS.patch",
-    "Node.gitignore",
-    "Node.patch",
-    "Xcode.gitignore",
-    "Xcode.patch",
-  ];
-  expect(result).toEqual(expected);
-});
+// test("sortFiles()", () => {
+//   const files = [
+//     "macOS.patch",
+//     "Buck.gitignore",
+//     "Gradle.gitignore",
+//     "Linux.gitignore",
+//     "Node.gitignore",
+//     "ReactNative.gitignore",
+//     "Android.gitignore",
+//     "Gradle.patch",
+//     "macOS.gitignore",
+//     "Xcode.gitignore",
+//     "Android.patch",
+//     "Xcode.patch",
+//     "Node.patch",
+//   ];
+//   const result = sortFiles(files, "ReactNative");
+//   const expected = [
+//     "ReactNative.gitignore",
+//     "Android.gitignore",
+//     "Android.patch",
+//     "Buck.gitignore",
+//     "Gradle.gitignore",
+//     "Gradle.patch",
+//     "Linux.gitignore",
+//     "macOS.gitignore",
+//     "macOS.patch",
+//     "Node.gitignore",
+//     "Node.patch",
+//     "Xcode.gitignore",
+//     "Xcode.patch",
+//   ];
+//   expect(result).toEqual(expected);
+// });

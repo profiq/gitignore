@@ -13,10 +13,19 @@ const techOptionsFiles: { [key: string]: string[] } = techOptFiles;
 const allTechOptions: { [key: string]: string } = techOptions;
 
 // 1. removeDuplicates
-test("remove (comment) duplicate lines", async () => {
-  const input = fs.readFileSync("./tests/remDupl_input.gitignore", "utf8");
-  const output = fs.readFileSync("./tests/remDupl_output.gitignore", "utf8");
-  expect(await removeDuplicates(input)).toBe(output);
+
+describe("removeDuplicates", () => {
+  test("remove (comment) duplicate lines", async () => {
+    const input = fs.readFileSync("./tests/remDupl_input.gitignore", "utf8");
+    const output = fs.readFileSync("./tests/remDupl_output.gitignore", "utf8");
+    expect(await removeDuplicates(input)).toBe(output);
+  });
+
+  test("remove (comment) duplicate lines: empty file", async () => {
+    const input = "";
+    const output = "";
+    expect(await removeDuplicates(input)).toBe(output);
+  });
 });
 
 //-------------------------------------------------------------------------------
