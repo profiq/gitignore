@@ -30,12 +30,12 @@
     "react-select": "5.7.7"
   },
   "devDependencies": {
-    "@edgio/cli": "7.4.2",
-    "@edgio/core": "7.4.2",
-    "@edgio/devtools": "7.4.2",
-    "@edgio/next": "7.4.2",
-    "@edgio/prefetch": "7.4.2",
-    "@edgio/react": "7.4.2",
+    "@edgio/cli": "7.4.4",
+    "@edgio/core": "7.4.4",
+    "@edgio/devtools": "7.4.4",
+    "@edgio/next": "7.4.4",
+    "@edgio/prefetch": "7.4.4",
+    "@edgio/react": "7.4.4",
     "@types/node": "20",
     "@types/react": "18.2.28",
     "@types/react-dom": "18.2.13",
