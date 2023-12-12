@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-let techOptionsDict = JSON.parse(
+let optionsDictPrep = JSON.parse(
   fs.readFileSync("./techOptionsPrep.json", "utf8"),
 );
 /**
@@ -19,23 +19,70 @@ function getTechoptionsList() {
 
   // console.log(techOptions)
 
-  return techOptions;
+  return techOptions.sort();
 }
+
+const clean = (word) => {
+  return word.toLowerCase().replace(/[!@#$%^&*()_+{}[\]:;<>,.?\/\\| \-]/g, "");
+};
 
 /**
  * Generates a dictionary of technology options. The keys are the lowercase versions of the technology options, and the values are the original technology options.
  * Also keys with removed special characters are added. The dictionary is sorted alphabetically by the values.
- * @returns {Object} A sorted dictionary of technology options.
+ * @param {string[]} alTechOptions - The list of tech options to add to the dictionary
+ * @param {{ [key: string]: string }} techOptionsDictPrep - The pre-created dictionary of tech options.
+ * @returns {{ [key: string]: string }} - The generated dictionary of tech options.
  */
-function genTechOptionsDict(alTechOptions) {
+function genTechOptionsDict(
+  alTechOptions,
+  techOptionsDictPrep = optionsDictPrep,
+) {
+  // Create a dictionary of tech options from the tech options precreated in the techOptionsPrep.json file
+  let techOptionsDict = filterPrep(techOptionsDictPrep, alTechOptions);
+
+  // Add the tech options to the dictionary
+  techOptionsDict = fillTechOptionsDict(techOptionsDict, alTechOptions);
+
+  // Sort the dictionary alphabetically by the values
+  techOptionsDict = sortDictByValue(techOptionsDict);
+
+  return techOptionsDict;
+}
+
+/**
+ * Filters the techOptionsDictPrep object based on the provided alTechOptions array.
+ * Values that are not included in alTechOptions means there is no corresponding template, so they are not included.
+ * As cleaned techOption has higher priority than prepared keys, keys that are included in the cleaned alTechOptions array are not included
+ * @param {{ [key: string]: string }} techOptionsDictPrep - The original techOptionsDictPrep object.
+ * @param {string[]} alTechOptions - The array of tech options to filter against.
+ * @returns {{ [key: string]: string }} - The filtered techOptionsDict object.
+ */
+function filterPrep(techOptionsDictPrep, alTechOptions) {
+  let techOptionsDict = {};
+  let allTechOptionsClean = alTechOptions.map(clean);
+  for (const [key, value] of Object.entries(techOptionsDictPrep)) {
+    if (alTechOptions.includes(value) && !allTechOptionsClean.includes(key)) {
+      techOptionsDict[key] = value;
+    }
+  }
+  return techOptionsDict;
+}
+
+/**
+ * Fills a dictionary of tech options with the given array of tech options.
+ *
+ * @param {{ [key: string]: string }} techOptionsDict - The dictionary to be filled with tech options.
+ * @param {string[]} alTechOptions - The array of tech options.
+ * @returns {{ [key: string]: string }} - The filled tech options dictionary.
+ */
+function fillTechOptionsDict(techOptionsDict, alTechOptions) {
   // Create a dictionary of tech options
   alTechOptions.forEach((techOption) => {
     // Add the tech option to the dictionary
-    techOptionsDict[techOption.toLowerCase()] = techOption;
+    let key = techOption.toLowerCase();
+    techOptionsDict[key] = techOption;
     // Add the tech option to the dictionary with special characters removed
-    let key = techOption
-      .replace(/[!@#$%^&*()_+{}[\]:;<>,.?\/\\| \-]/g, "")
-      .toLowerCase();
+    key = clean(techOption);
     if (!Object.keys(techOptionsDict).includes(key)) {
       techOptionsDict[key] = techOption;
     }
@@ -44,17 +91,32 @@ function genTechOptionsDict(alTechOptions) {
   // adding timestamp for debugging
   // techOptionsDict["timestamp"] = new Date().toISOString();
 
-  // Sort the dictionary alphabetically by the values
-  return sortDictByValue(techOptionsDict);
+  return techOptionsDict;
+}
+
+/**
+ * Sorts a dictionary by its values in ascending order.
+ *
+ * @param {{ [key: string]: string }} dict - The dictionary to be sorted.
+ * @returns {{ [key: string]: string }} - The sorted dictionary.
+ */
+function sortDictByValue(dict) {
+  let dictSorted = {};
+  Object.keys(dict)
+    .sort((key1, key2) => dict[key1].localeCompare(dict[key2]))
+    .forEach(function (key) {
+      dictSorted[key] = dict[key];
+    });
+  return dictSorted;
 }
 
 /**
  * Returns an array of file names for a given option.
  * If the file is a symbolic link, it will recursively follow the link and return the file names for the target.
  *
- * @param {Array} files - An array of file objects.
+ * @param {fs.Dirent[]} files - An array of file objects.
  * @param {string} option - The option to filter the files by.
- * @returns {Array} An array of file names.
+ * @returns {string[]} An array of file names.
  */
 function getFilesForLink(files, option) {
   return files
@@ -76,7 +138,7 @@ function getFilesForLink(files, option) {
 
 /**
  * Returns a dictionary of links for each gitignore option.
- * @returns {Object} The dictionary of links for each gitignore option.
+ * @returns {{ [key: string]: string[] }} The dictionary of links for each gitignore option.
  */
 function getLinksDict() {
   let linksDict = {};
@@ -123,20 +185,16 @@ function getLinksDict() {
   return sortDict(linksDict);
 }
 
+/**
+ * Sorts a dictionary object alphabetically by its keys.
+ *
+ * @param {{ [key: string]: string[] }} dict - The dictionary object to be sorted.
+ * @returns {{ [key: string]: string[] }} - The sorted dictionary object.
+ */
 function sortDict(dict) {
   let dictSorted = {};
   Object.keys(dict)
     .sort((key1, key2) => key1.localeCompare(key2))
-    .forEach(function (key) {
-      dictSorted[key] = dict[key];
-    });
-  return dictSorted;
-}
-
-function sortDictByValue(dict) {
-  let dictSorted = {};
-  Object.keys(dict)
-    .sort((key1, key2) => dict[key1].localeCompare(dict[key2]))
     .forEach(function (key) {
       dictSorted[key] = dict[key];
     });
@@ -160,4 +218,8 @@ module.exports = {
   getFilesForLink,
   getLinksDict,
   sortDict,
+  clean,
+  fillTechOptionsDict,
+  filterPrep,
+  sortDictByValue,
 };

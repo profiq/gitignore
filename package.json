@@ -12,7 +12,7 @@
     "lint:prettier": "prettier --check .",
     "prepare": "husky install",
     "format": "yarn prettier --loglevel warn --write .",
-    "test:prepare": "cp -r ./tests/templates ./",
+    "test:prepare": "cp -r ./tests/templates ./ && cp -t ./ ./tests/techOptions.json ./tests/techOptionsFiles.json ./tests/techOptionsPrep.json",
     "test": "yarn test:prepare && jest --coverage",
     "clone-templates": "git clone https://github.com/toptal/gitignore ./toptal.gitignoreTemplates && cp -r ./toptal.gitignoreTemplates/templates ./templates && rm -rf ./toptal.gitignoreTemplates"
   },
