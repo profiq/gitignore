@@ -22,6 +22,11 @@ function getTechoptionsList() {
   return techOptions.sort();
 }
 
+/**
+ * Converts word to lowercase and removes all special characters.
+ * @param {string} word - The word to be cleaned.
+ * @returns {string} The cleaned word.
+ */
 const clean = (word) => {
   return word.toLowerCase().replace(/[!@#$%^&*()_+{}[\]:;<>,.?\/\\| \-]/g, "");
 };
@@ -127,13 +132,38 @@ function getFilesForLink(files, option) {
     .map((file) => {
       if (file.isSymbolicLink()) {
         const target = fs.readlinkSync(`${file.path}/${file.name}`);
-
         return getFilesForLink(files, target.slice(0, target.indexOf(".")));
       } else {
         return [file.name];
       }
     })
     .flat();
+}
+
+/**
+ * Sorts files so first will be main files (contains option name) and also prioritizing .gitignore files
+ *
+ * @param {string[]} files - The array of files to be sorted.
+ * @param {string} option - The option to prioritize in the sorting process.
+ * @returns {string[]} - The sorted array of files.
+ */
+function sortFiles(files, option) {
+  return files.sort((a, b) => {
+    if (a.includes(option) && !b.includes(option)) {
+      return -1;
+    } else if (!a.includes(option) && b.includes(option)) {
+      return 1;
+    }
+    // if both files have the same option name, sort put .gitignore files first
+    else if (a.slice(0, a.indexOf(".")) === b.slice(0, b.indexOf("."))) {
+      if (a.includes(".gitignore") && !b.includes(".gitignore")) {
+        return -1;
+      } else if (!a.includes(".gitignore") && b.includes(".gitignore")) {
+        return 1;
+      }
+    }
+    return a.localeCompare(b);
+  });
 }
 
 /**
@@ -158,27 +188,10 @@ function getLinksDict() {
         // remove duplicates
         .filter((value, index, array) => {
           return array.indexOf(value) === index;
-        })
-        // sorting files so first will be main files (contains option name) and and also prioritizing .gitignore files
-        .sort((a, b) => {
-          if (a.includes(option) && !b.includes(option)) {
-            return -1;
-          } else if (!a.includes(option) && b.includes(option)) {
-            return 1;
-          }
-          // if both files have the same option name, sort by put .gitignore files first
-          else if (a.slice(0, a.indexOf(".")) === b.slice(0, b.indexOf("."))) {
-            if (a.includes(".gitignore") && !b.includes(".gitignore")) {
-              return -1;
-            } else if (!a.includes(".gitignore") && b.includes(".gitignore")) {
-              return 1;
-            }
-          }
-          return a.localeCompare(b);
         });
 
       // add the option and corresponding files to the dictionary
-      linksDict[option] = filesForOption;
+      linksDict[option] = sortFiles(filesForOption, option);
     });
 
   // Sort the dictionary alphabetically by the keys
@@ -222,4 +235,5 @@ module.exports = {
   fillTechOptionsDict,
   filterPrep,
   sortDictByValue,
+  sortFiles,
 };
