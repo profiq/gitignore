@@ -1,6 +1,5 @@
 import React from "react";
 import { FaGithub } from "react-icons/fa";
-import classes from "./Header.module.css";
 import { clsx } from "clsx";
 import Link from "next/link";
 
@@ -10,22 +9,27 @@ import Link from "next/link";
  */
 const Header: React.FC = () => {
   return (
-    <header className={clsx(classes.header, "z-50")}>
-      <div className={clsx(classes.wrapper, "max-w-5xl mx-auto")}>
-        <Link className={clsx(classes.label, "float-left px-5 ")} href="/">
+    <header className={clsx("z-50 bg-profiq-blue h-20 ")}>
+      <div className={clsx("max-w-5xl mx-auto")}>
+        <Link
+          className={clsx(
+            "text-white hover:text-profiq-green float-left px-5 leading-[80px] text-2xl",
+          )}
+          href="/"
+        >
           .gitignore HUB
         </Link>
         <a
           className={clsx(
-            classes.link,
-            "flex flex-row items-center float-right px-5",
+            "flex flex-row items-center float-right px-5 text-white no-underline leading-[80px] text-base ",
+            "font-semibold hover:text-profiq-green",
           )}
           href="https://github.com/profiq/gitignore"
           target="_blank"
         >
-          <span className={clsx(classes.linkLabel)}>Source codes</span>
-          <div className={classes.icon}>
-            <FaGithub />
+          <span className={clsx("relative")}>Source codes</span>
+          <div className={clsx("")}>
+            <FaGithub className="m-1.5 w-8 h-8" />
           </div>
         </a>
       </div>
