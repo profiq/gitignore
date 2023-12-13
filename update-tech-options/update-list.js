@@ -81,13 +81,17 @@ function filterPrep(techOptionsDictPrep, alTechOptions) {
  * @returns {{ [key: string]: string }} - The filled tech options dictionary.
  */
 function fillTechOptionsDict(techOptionsDict, alTechOptions) {
-  // Create a dictionary of tech options
+  // Fill the dictionary with all tech options
   alTechOptions.forEach((techOption) => {
     // Add the tech option to the dictionary
     let key = techOption.toLowerCase();
     techOptionsDict[key] = techOption;
+  });
+
+  // Add the tech options to the dictionary with special characters removed, only if the key does not already exist
+  alTechOptions.forEach((techOption) => {
     // Add the tech option to the dictionary with special characters removed
-    key = clean(techOption);
+    let key = clean(techOption);
     if (!Object.keys(techOptionsDict).includes(key)) {
       techOptionsDict[key] = techOption;
     }
@@ -124,20 +128,26 @@ function sortDictByValue(dict) {
  * @returns {string[]} An array of file names.
  */
 function getFilesForLink(files, option) {
-  return files
-    .filter((file) => {
-      let name = file.name.slice(0, file.name.indexOf("."));
-      return name === option;
-    })
-    .map((file) => {
-      if (file.isSymbolicLink()) {
-        const target = fs.readlinkSync(`${file.path}/${file.name}`);
-        return getFilesForLink(files, target.slice(0, target.indexOf(".")));
-      } else {
-        return [file.name];
-      }
-    })
-    .flat();
+  return (
+    files
+      .filter((file) => {
+        let name = file.name.slice(0, file.name.indexOf("."));
+        return name === option;
+      })
+      .map((file) => {
+        if (file.isSymbolicLink()) {
+          const target = fs.readlinkSync(`${file.path}/${file.name}`);
+          return getFilesForLink(files, target.slice(0, target.indexOf(".")));
+        } else {
+          return [file.name];
+        }
+      })
+      .flat()
+      // remove duplicates
+      .filter((value, index, array) => {
+        return array.indexOf(value) === index;
+      })
+  );
 }
 
 /**
@@ -184,11 +194,7 @@ function getLinksDict() {
       let option = o.name.replace(".gitignore", "");
 
       // get all real files (not links) for the option
-      let filesForOption = getFilesForLink(files, option)
-        // remove duplicates
-        .filter((value, index, array) => {
-          return array.indexOf(value) === index;
-        });
+      let filesForOption = getFilesForLink(files, option);
 
       // add the option and corresponding files to the dictionary
       linksDict[option] = sortFiles(filesForOption, option);
