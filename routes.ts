@@ -6,17 +6,27 @@ import { nextRoutes } from "@edgio/next";
 export default new Router()
   // NextRoutes automatically adds routes for all Next.js pages and their assets
   .use(nextRoutes)
-  .match("/api/(.*)", {
+  .always({
     caching: {
-      max_age: "86400s",
-      stale_while_revalidate: "31536000s",
-      ignore_origin_no_cache: [200],
-    },
-  })
-  .match("/result/(.*)", {
-    caching: {
+      cache_key: {
+        include_headers: ["Content-Type"],
+      },
       max_age: "86400s",
       stale_while_revalidate: "31536000s",
       ignore_origin_no_cache: [200],
     },
   });
+// .match("/api/(.*)", {
+//   caching: {
+//     max_age: "86400s",
+//     stale_while_revalidate: "31536000s",
+//     ignore_origin_no_cache: [200],
+//   },
+// })
+// .match("/result/(.*)", {
+//   caching: {
+//     max_age: "86400s",
+//     stale_while_revalidate: "31536000s",
+//     ignore_origin_no_cache: [200],
+//   },
+// });
