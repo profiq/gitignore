@@ -5,15 +5,17 @@
  * @component
  */
 import React from "react";
-import classes from "./Footer.module.css";
 import { clsx } from "clsx";
 
 const Footer: React.FC = () => {
   return (
-    <footer className={clsx(classes.footer, "z-50")}>
-      <div className={clsx(classes.wrapper, "max-w-5xl mx-auto px-5")}>
+    <footer className={clsx("z-50 bg-profiq-blue h-20 ")}>
+      <div className={clsx("max-w-5xl mx-auto px-5 ")}>
         <a
-          className={clsx(classes.logo)}
+          className={clsx(
+            "h-20 w-36 block float-right my-0 mx-auto",
+            "bg-profiq-logo hover:bg-profiq-logo-hover bg-no-repeat bg-center bg-contain",
+          )}
           href="https://www.profiq.com/"
           target="_blank"
         ></a>

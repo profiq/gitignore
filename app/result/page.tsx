@@ -1,4 +1,3 @@
-import classes from "./Result.module.css";
 import CodeView from "../ui/CodeView";
 import clsx from "clsx";
 import { getResult } from "../api/lib/result";

@@ -1075,10 +1075,10 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@edgio/cli@7.4.2":
-  version "7.4.2"
-  resolved "https://registry.npmjs.org/@edgio/cli/-/cli-7.4.2.tgz"
-  integrity sha512-e0U1WwIGUkV9mf9i1hwbW4emyTdiW2aHhNrf4b+J9zP2hLEYVFm8mkD2N0K5jULpYdB3UOtBTiuh/QLRqncEpQ==
+"@edgio/cli@7.6.0":
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/@edgio/cli/-/cli-7.6.0.tgz#4d0a730c4c4322353746047ac11db625197e596f"
+  integrity sha512-NOWR8+CIZnv+rTepCbMDz4Ee+Pu6AVLXLKz/X+qTx1jrXJGsxcSCZOmR2Bc9UFXYab9EFb8cBwbU1g4MSMpBZQ==
   dependencies:
     axios "^1.6.0"
     chalk "^4.1.2"
@@ -1123,10 +1123,10 @@
     yauzl "^2.10.0"
     yazl "^2.5.1"
 
-"@edgio/core@7.4.2", "@edgio/core@^7.4.2":
-  version "7.4.2"
-  resolved "https://registry.npmjs.org/@edgio/core/-/core-7.4.2.tgz"
-  integrity sha512-zaGfOF37gtMd4wkfIBrTyYRDVZY2oZ8Fj6lV7SQ91YAEJx3EBjs8o3MeAPJD1RsZmdO82m97NJFTuz64AH7ulw==
+"@edgio/core@7.6.0", "@edgio/core@^7.6.0":
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/@edgio/core/-/core-7.6.0.tgz#87ba7ed541e32122b2890aa3611a61ad27a50dbb"
+  integrity sha512-wFoSeosz8KGPte/AwOut3VEcyGUCN/b4+to6kU+1Je22mrdAJ4PCHp9qUNenNxjiRLKDrXEi5sRZ2SfbSiJGIg==
   dependencies:
     "@babel/parser" "^7.18.9"
     "@babel/traverse" "^7.22.19"
@@ -1174,19 +1174,19 @@
     workbox-build "^6.5.4"
     yaml-validator "^4.0.0"
 
-"@edgio/devtools@7.4.2":
-  version "7.4.2"
-  resolved "https://registry.npmjs.org/@edgio/devtools/-/devtools-7.4.2.tgz"
-  integrity sha512-KCm1QxSqI2CSNHQOJnw15OeNiULsbuvIVFqZT5vNJKcI9NpfHKzK4M1On6mbK1Orlq5yBva3bR0f/vqFUM3HNw==
+"@edgio/devtools@7.6.0":
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/@edgio/devtools/-/devtools-7.6.0.tgz#0377749baa63506680d4318e65e79efdd687d76b"
+  integrity sha512-QgeoV391j9ifQ5m1QLsigGaS406dGkAASsUPVN5QklhjX6+8e65gjFmGdUUspQwB7v9hhyNA5SkXPAAtCRAFRQ==
   dependencies:
     clsx "^1.1.1"
     lodash "^4.17.20"
     sirv-cli "^1.0.0"
 
-"@edgio/next@7.4.2":
-  version "7.4.2"
-  resolved "https://registry.npmjs.org/@edgio/next/-/next-7.4.2.tgz"
-  integrity sha512-hlmbtZNJWsJKpZaGnx+RFiW1jChkmHvOhoOssg+6hqoVlpg/PT3HnzkIUYwjQelfQBseAEYzITeYM1fRdMBoAw==
+"@edgio/next@7.6.0":
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/@edgio/next/-/next-7.6.0.tgz#28aeb8f44e24fc5904fa88a18d930d941ad20335"
+  integrity sha512-1UEEBETGtkbyAgQ9ON53x3fGgq4u7FryEvSQll5Hd+DzslFD4Q3fzBagm8SeO3P3tnKRmBCyazOCybIbZkKK0w==
   dependencies:
     "@vercel/nft" "^0.13.1"
     chalk "^4.1.2"
@@ -1204,12 +1204,12 @@
     webpack "^4.0.0"
     webpack-sources "^2.2.0"
 
-"@edgio/prefetch@7.4.2":
-  version "7.4.2"
-  resolved "https://registry.npmjs.org/@edgio/prefetch/-/prefetch-7.4.2.tgz"
-  integrity sha512-xlCN6aYM6cJHokSCySx6jsIpbefnx2sxAApHLjfw1Besd3ujYGHkQAcGKkGJGBvo4bZO5OZrW6WOnQXID9Bihw==
+"@edgio/prefetch@7.6.0":
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/@edgio/prefetch/-/prefetch-7.6.0.tgz#c607932a9a9b83252902f9065d2b865dbf4311df"
+  integrity sha512-YjqIWF7PyU7mO2zgewuqwKQHF34/KV2W9ZqejZTp8P9qRW1QUkYL7mN+ob8Brs6Jr3zwGof78Q/O3Jdyuzzbqg==
   dependencies:
-    "@edgio/core" "^7.4.2"
+    "@edgio/core" "^7.6.0"
     cheerio "^1.0.0-rc.3"
     json-query "^2.2.2"
     workbox-cacheable-response "^5.1.2"
@@ -1219,10 +1219,10 @@
     workbox-routing "^5.1.2"
     workbox-strategies "^5.1.2"
 
-"@edgio/react@7.4.2":
-  version "7.4.2"
-  resolved "https://registry.npmjs.org/@edgio/react/-/react-7.4.2.tgz"
-  integrity sha512-WI43nSnbvtyJEPLyRdrtCcPblyQInHr1qGftYdAArTOUuTYe7YoJZKF5irYLPh49yZxBDNGR9xKEAFSfBbz/QQ==
+"@edgio/react@7.6.0":
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/@edgio/react/-/react-7.6.0.tgz#afb2f4602d03b50c00d187d1b76b8338c74b4a27"
+  integrity sha512-EvqsuGfnOAHWYbNvhgbkvYnjk/xsvwVfGFyoCAqpxbS/7xMX0x/aKh0YxlAqRLTNE4aDaj1aHDkeaAZ/Qe0pRQ==
   dependencies:
     prop-types "^15.8.1"
     react-merge-refs "^1.1.0"
@@ -2002,9 +2002,9 @@
   resolved "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.8.tgz"
   integrity sha512-kMpQpfZKSCBqltAJwskgePRaYRFukDkm1oItcAbC3gNELR20XIBcN9VRgg4+m8DKsTfkWeA4m4Imp4DDuWy7FQ==
 
-"@types/react-dom@18":
+"@types/react-dom@18.2.13":
   version "18.2.13"
-  resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-18.2.13.tgz"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-18.2.13.tgz#89cd7f9ec8b28c8b6f0392b9591671fb4a9e96b7"
   integrity sha512-eJIUv7rPP+EC45uNYp/ThhSpE16k22VJUknt5OLoH9tbXoi8bMhwLf5xRuWMywamNbWzhrSmU7IBJfPup1+3fw==
   dependencies:
     "@types/react" "*"
@@ -2016,7 +2016,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@18":
+"@types/react@*", "@types/react@18.2.28":
   version "18.2.28"
   resolved "https://registry.npmjs.org/@types/react/-/react-18.2.28.tgz"
   integrity sha512-ad4aa/RaaJS3hyGz0BGegdnSRXQBkd1CCYDCdNjBPg90UUpLgo+WlJqb9fMYUxtehmzF3PJaTWqRZjko6BRzBg==
@@ -2699,9 +2699,9 @@ atomic-sleep@^1.0.0:
   resolved "https://registry.npmjs.org/atomic-sleep/-/atomic-sleep-1.0.0.tgz"
   integrity sha512-kNOjDqAh7px0XWNI+4QbzoiR/nTkHAWNud2uvnJquD1/x5a7EQZMJT0AczqK0Qn67oY/TTQ1LbUKajZpp3I9tQ==
 
-autoprefixer@10:
+autoprefixer@10.4.16:
   version "10.4.16"
-  resolved "https://registry.npmjs.org/autoprefixer/-/autoprefixer-10.4.16.tgz"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.4.16.tgz#fad1411024d8670880bdece3970aa72e3572feb8"
   integrity sha512-7vd3UC6xKp0HLfua5IjZlcXvGAGy7cBAXTg2lyQ/8WpNhd6SiZ8Be+xm3FyBSYJx5GKcpRCzBh7RH4/0dnY+uQ==
   dependencies:
     browserslist "^4.21.10"
@@ -7508,6 +7508,11 @@ nanoid@^3.3.6:
   resolved "https://registry.npmjs.org/nanoid/-/nanoid-3.3.6.tgz"
   integrity sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==
 
+nanoid@^3.3.7:
+  version "3.3.7"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.7.tgz#d0c301a691bc8d54efa0a2226ccf3fe2fd656bd8"
+  integrity sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==
+
 nanomatch@^1.2.9:
   version "1.2.13"
   resolved "https://registry.npmjs.org/nanomatch/-/nanomatch-1.2.13.tgz"
@@ -8305,6 +8310,15 @@ postcss@8.4.31, postcss@^8.4.23:
   integrity sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==
   dependencies:
     nanoid "^3.3.6"
+    picocolors "^1.0.0"
+    source-map-js "^1.0.2"
+
+postcss@8.4.32:
+  version "8.4.32"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.32.tgz#1dac6ac51ab19adb21b8b34fd2d93a86440ef6c9"
+  integrity sha512-D/kj5JNu6oo2EIy+XL/26JEDTlIbB8hw85G8StOE6L74RQAVVP5rej6wxCNqyMbR4RkPfqvezVbPw81Ngd6Kcw==
+  dependencies:
+    nanoid "^3.3.7"
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
