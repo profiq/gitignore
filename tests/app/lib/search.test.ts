@@ -1,7 +1,6 @@
 import searchTechOptions, { search, sort, getOptionsFromKeys } from "../../../app/api/lib/search";
 
 import techOptions from "../../assets/techOptions.json";
-import techOptFiles from "../../assets/techOptionsFiles.json";
 
 const allTechOptions: { [key: string]: string } = techOptions;
 
