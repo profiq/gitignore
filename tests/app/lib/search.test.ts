@@ -3,7 +3,6 @@ import searchTechOptions, { search, sort, getOptionsFromKeys } from "../../../ap
 import techOptions from "../../assets/techOptions.json";
 import techOptFiles from "../../assets/techOptionsFiles.json";
 
-const techOptionsFiles: { [key: string]: string[] } = techOptFiles;
 const allTechOptions: { [key: string]: string } = techOptions;
 
 
@@ -103,7 +102,7 @@ describe("searchTechOptions", () => {
     const result = await searchTechOptions(searchQuery);
     expect(result).toEqual(["PureScript", "Actionscript", "CoffeeScript", "NativeScript",]);
   });
-  
+
   it("should return an array of technology names that match the search query", async () => {
     const searchQuery = "cs";
     const result = await searchTechOptions(searchQuery);
