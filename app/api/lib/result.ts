@@ -70,7 +70,7 @@ export async function fileHeader(file: string, filesDict: { [key: string]: strin
  * @param techOptions - An array of technology option names to retrieve the gitignore templates for.
  * @returns A string containing the gitignore templates for the specified technology options.
  */
-export async function getResult(
+export default async function getResult(
   techOptions: string[],
   remDupl: boolean = true,
 ): Promise<string> {

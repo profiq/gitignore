@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { searchTechOptions } from "../lib/search";
+import searchTechOptions from "../lib/search";
 
 /**
  * Handles GET requests to search for technology options based on a query string.

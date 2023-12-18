@@ -3,7 +3,7 @@
  */
 
 import { NextRequest, NextResponse } from "next/server";
-import { getResult } from "../lib/result";
+import getResult from "../lib/result";
 
 /**
  * Handles GET requests for the result route.

@@ -1,8 +1,7 @@
-import {
+import getResult, {
   removeDuplicates,
   createNeededFilesDict,
   fileHeader,
-  getResult,
 } from "../../../app/api/lib/result";
 import fs from "fs";
 
