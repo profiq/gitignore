@@ -15,7 +15,7 @@ module.exports = (phase, config) =>
     experimental: {
       // templates included into deployment
       outputFileTracingIncludes: {
-        "/": ["./toptal.gitignoreTemplates/**/*"],
+        "/": ["./templates/**/*"],
       },
     },
   });

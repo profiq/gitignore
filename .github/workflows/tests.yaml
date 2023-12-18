@@ -40,9 +40,12 @@ jobs:
       - name: Install
         run: yarn --prefer-offline --frozen-lockfile install
 
+      - name: "Run tests"
+        run: yarn test
+
       - name: Build
         run: yarn build
-        
+
       - name: Run prettier
         run: |
           yarn lint:prettier

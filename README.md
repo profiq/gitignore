@@ -58,7 +58,7 @@ cd gitignore
 - Clone Toptal templates using
 
 ```sh
-git clone https://github.com/toptal/gitignore ./toptal.gitignoreTemplates
+yarn clone-templates
 ```
 
 - Install project dependencies using

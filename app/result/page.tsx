@@ -1,6 +1,6 @@
 import CodeView from "../ui/CodeView";
 import clsx from "clsx";
-import { getResult } from "../api/lib/result";
+import getResult from "../api/lib/result";
 
 /**
  * Renders the Result component.

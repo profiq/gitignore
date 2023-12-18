@@ -10,7 +10,7 @@ import Select, { InputActionMeta, MultiValue } from "react-select";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 // function for searching tech options
-import { searchTechOptions } from "@/app/api/lib/techOptions";
+import searchTechOptions from "@/app/api/lib/search";
 import clsx from "clsx";
 
 export default function SelectInput({ className }: { className?: string }) {

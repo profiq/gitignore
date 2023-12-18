@@ -1,5 +1,9 @@
+/**
+ * @jest-environment node
+ */
+
 import { NextRequest, NextResponse } from "next/server";
-import { getResult } from "@/app/api/lib/result";
+import getResult from "../lib/result";
 
 /**
  * Handles GET requests for the result route.
