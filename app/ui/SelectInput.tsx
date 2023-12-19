@@ -29,9 +29,15 @@ export default function SelectInput({
 
   // state for current search string
   const [search, setSearch] = useState<string>("");
+
+  // state for currently selected options
   const [val, setValue] = useState<string[]>(
-    searchParams.options ? (searchParams.options as string).split(",") : [],
+    searchParams.options
+      ? [searchParams.options].flat().join(",").split(",")
+      : [],
   );
+
+  // state for remove duplicate rules checkbox
   const [remDupl, setRemDupl] = useState<boolean>(
     searchParams.remDupl
       ? (searchParams.remDupl as string).toLowerCase() != "false"
@@ -41,6 +47,7 @@ export default function SelectInput({
   // next.js navigation hooks for working with params
   const router = useRouter();
 
+  // syncing search params with state
   useEffect(() => {
     setValue(
       searchParams.options ? (searchParams.options as string).split(",") : [],
@@ -71,6 +78,7 @@ export default function SelectInput({
     getTechOptions();
   }, [search]);
 
+  // focus on input on mount
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
@@ -92,50 +100,64 @@ export default function SelectInput({
     console.log(val);
     console.log(value);
 
+    // creating URLSearchParams object from search searchParams
     const params = new URLSearchParams();
     Object.keys(searchParams).forEach((key) => {
       params.append(key, [searchParams[key]].flat().join(","));
     });
 
+    // setting options param
     if (value.length > 0) {
       params.set("options", value.map((option) => option.value).join(","));
     } else {
       params.delete("options");
     }
+
+    // setting selected options state
     setValue(value.map((option) => option.value));
-    // console.log(searchParams)
-    // let params = Object.keys(searchParams).map((key) => `${key}=${searchParams[key]}`).join("&")
-    // console.log(pathname)
+
+    // replacing current url with new params
     router.replace(`/?${params.toString()}`);
+
+    // prefetching result page
     router.prefetch(`/result?${params.toString()}`);
   }
 
   function handleRemDuplChange(value: boolean) {
     console.log(value);
 
+    // creating URLSearchParams object from search searchParams
     const params = new URLSearchParams();
     Object.keys(searchParams).forEach((key) => {
       params.append(key, [searchParams[key]].flat().join(","));
     });
+
+    // setting remDupl param
     params.set("remDupl", value.toString());
+
+    // setting remDupl state
     setRemDupl(value);
+
+    // replacing current url with new params
     router.replace(`/?${params.toString()}`);
+
+    // prefetching result page
     router.prefetch(`/result?${params.toString()}`);
   }
 
   // function for handling submit on enter or button click
   const handleSubmit = () => {
+    // if no options are selected, do nothing
     if (!searchParams.options) {
       return;
     }
-    console.log("submit");
 
+    // creating URLSearchParams object from search searchParams
     const params = new URLSearchParams();
     Object.keys(searchParams).forEach((key) => {
       params.append(key, [searchParams[key]].flat().join(","));
     });
 
-    //let paramss = Object.keys(searchParams).map((key) => `${key}=${searchParams[key]}`).join("&")
     // redirecting to result page
     router.push(`/result?${params.toString()}`);
   };
@@ -156,7 +178,7 @@ export default function SelectInput({
         <Select
           ref={inputRef}
           className="flex-grow"
-          // getting selected options from search params
+          // selected options
           value={val.map((option) => ({ value: option, label: option }))}
           // searched tech options
           options={techOptions}
@@ -239,6 +261,7 @@ export default function SelectInput({
           Create
         </button>
       </div>
+      {/* remove duplicates checkbox */}
       <div className={clsx("mt-5 flex flex-row justify-center items-center")}>
         <input
           className={clsx(
