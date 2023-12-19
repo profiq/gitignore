@@ -11,8 +11,12 @@ const roboto = Roboto_Slab({
 });
 
 export const metadata: Metadata = {
-  title: "profiq.gitignore",
-  description: "Creating .gitignore files has never been easier.",
+  title: {
+    default: ".gitignore HUB",
+    template: `%s | .gitignore HUB`,
+  },
+  description:
+    "Creating your project-specific .gitignore files has never been easier.",
 };
 
 export default function RootLayout({
