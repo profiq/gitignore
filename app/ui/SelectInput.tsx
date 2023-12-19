@@ -29,9 +29,28 @@ export default function SelectInput({
 
   // state for current search string
   const [search, setSearch] = useState<string>("");
+  const [val, setValue] = useState<string[]>(
+    searchParams.options ? (searchParams.options as string).split(",") : [],
+  );
+  const [remDupl, setRemDupl] = useState<boolean>(
+    searchParams.remDupl
+      ? (searchParams.remDupl as string).toLowerCase() != "false"
+      : true,
+  );
 
   // next.js navigation hooks for working with params
   const router = useRouter();
+
+  useEffect(() => {
+    setValue(
+      searchParams.options ? (searchParams.options as string).split(",") : [],
+    );
+    setRemDupl(
+      searchParams.remDupl
+        ? (searchParams.remDupl as string).toLowerCase() != "false"
+        : true,
+    );
+  }, [searchParams]);
 
   // get tech options on search change
   useEffect(() => {
@@ -70,6 +89,7 @@ export default function SelectInput({
   function handleOptionsChange(
     value: MultiValue<{ value: string; label: string }>,
   ) {
+    console.log(val);
     console.log(value);
 
     const params = new URLSearchParams();
@@ -82,10 +102,11 @@ export default function SelectInput({
     } else {
       params.delete("options");
     }
+    setValue(value.map((option) => option.value));
     // console.log(searchParams)
     // let params = Object.keys(searchParams).map((key) => `${key}=${searchParams[key]}`).join("&")
     // console.log(pathname)
-    router.push(`/?${params.toString()}`);
+    router.replace(`/?${params.toString()}`);
     router.prefetch(`/result?${params.toString()}`);
   }
 
@@ -97,7 +118,9 @@ export default function SelectInput({
       params.append(key, [searchParams[key]].flat().join(","));
     });
     params.set("remDupl", value.toString());
+    setRemDupl(value);
     router.replace(`/?${params.toString()}`);
+    router.prefetch(`/result?${params.toString()}`);
   }
 
   // function for handling submit on enter or button click
@@ -134,14 +157,7 @@ export default function SelectInput({
           ref={inputRef}
           className="flex-grow"
           // getting selected options from search params
-          value={
-            [searchParams.options]
-              .flat()
-              .join(",")
-              .split(",")
-              .filter((option) => option.length > 0)
-              .map((option) => ({ value: option, label: option })) || []
-          }
+          value={val.map((option) => ({ value: option, label: option }))}
           // searched tech options
           options={techOptions}
           // enabling multi select
@@ -233,11 +249,7 @@ export default function SelectInput({
           )}
           id="chbx-rmeDupl"
           type="checkbox"
-          checked={
-            searchParams.remDupl
-              ? (searchParams.remDupl as string).toLowerCase() != "false"
-              : true
-          }
+          checked={remDupl}
           onChange={(e) => handleRemDuplChange(e.currentTarget.checked)}
         />
 

@@ -1,6 +1,6 @@
 import SelectInput from "./ui/SelectInput";
 import clsx from "clsx";
-import { Suspense } from "react";
+// import { Suspense } from "react";
 
 /**
  * Renders the Home component with the SelectInput component.
