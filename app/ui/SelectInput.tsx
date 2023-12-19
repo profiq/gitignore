@@ -7,13 +7,19 @@
 
 import { useEffect, useRef, useState } from "react";
 import Select, { InputActionMeta, MultiValue } from "react-select";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 // function for searching tech options
 import searchTechOptions from "@/app/api/lib/search";
 import clsx from "clsx";
 
-export default function SelectInput({ className }: { className?: string }) {
+export default function SelectInput({
+  className,
+  searchParams,
+}: {
+  className?: string;
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
   // state for currently searched tech options
   const [techOptions, setTechOptions] = useState<
     { value: string; label: string }[]
@@ -25,8 +31,6 @@ export default function SelectInput({ className }: { className?: string }) {
   const [search, setSearch] = useState<string>("");
 
   // next.js navigation hooks for working with params
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
   const router = useRouter();
 
   // get tech options on search change
@@ -68,32 +72,47 @@ export default function SelectInput({ className }: { className?: string }) {
   ) {
     console.log(value);
 
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams();
+    Object.keys(searchParams).forEach((key) => {
+      params.append(key, [searchParams[key]].flat().join(","));
+    });
+
     if (value.length > 0) {
       params.set("options", value.map((option) => option.value).join(","));
     } else {
       params.delete("options");
     }
-    router.replace(`${pathname}?${params.toString()}`);
+    // console.log(searchParams)
+    // let params = Object.keys(searchParams).map((key) => `${key}=${searchParams[key]}`).join("&")
+    // console.log(pathname)
+    router.push(`/?${params.toString()}`);
+    router.prefetch(`/result?${params.toString()}`);
   }
 
   function handleRemDuplChange(value: boolean) {
     console.log(value);
 
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams();
+    Object.keys(searchParams).forEach((key) => {
+      params.append(key, [searchParams[key]].flat().join(","));
+    });
     params.set("remDupl", value.toString());
-    router.replace(`${pathname}?${params.toString()}`);
+    router.replace(`/?${params.toString()}`);
   }
 
   // function for handling submit on enter or button click
   const handleSubmit = () => {
-    if (!searchParams.get("options")) {
+    if (!searchParams.options) {
       return;
     }
     console.log("submit");
 
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams();
+    Object.keys(searchParams).forEach((key) => {
+      params.append(key, [searchParams[key]].flat().join(","));
+    });
 
+    //let paramss = Object.keys(searchParams).map((key) => `${key}=${searchParams[key]}`).join("&")
     // redirecting to result page
     router.push(`/result?${params.toString()}`);
   };
@@ -104,7 +123,6 @@ export default function SelectInput({ className }: { className?: string }) {
       handleSubmit();
     }
   };
-
   return (
     <div className={clsx(className, "w-full flex flex-col")}>
       <div
@@ -117,9 +135,11 @@ export default function SelectInput({ className }: { className?: string }) {
           className="flex-grow"
           // getting selected options from search params
           value={
-            searchParams
-              .get("options")
-              ?.split(",")
+            [searchParams.options]
+              .flat()
+              .join(",")
+              .split(",")
+              .filter((option) => option.length > 0)
               .map((option) => ({ value: option, label: option })) || []
           }
           // searched tech options
@@ -214,8 +234,8 @@ export default function SelectInput({ className }: { className?: string }) {
           id="chbx-rmeDupl"
           type="checkbox"
           checked={
-            searchParams.get("remDupl")
-              ? searchParams.get("remDupl")?.toLowerCase() != "false"
+            searchParams.remDupl
+              ? (searchParams.remDupl as string).toLowerCase() != "false"
               : true
           }
           onChange={(e) => handleRemDuplChange(e.currentTarget.checked)}

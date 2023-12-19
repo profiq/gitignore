@@ -32,6 +32,19 @@ export default new Router()
   })
   .match("/result", {
     caching: {
+      cache_key: {
+        include_headers: ["Content-Type"],
+      },
+      max_age: "86400s",
+      stale_while_revalidate: "31536000s",
+      ignore_origin_no_cache: [200],
+    },
+  })
+  .match("/home", {
+    caching: {
+      cache_key: {
+        include_headers: ["Content-Type"],
+      },
       max_age: "86400s",
       stale_while_revalidate: "31536000s",
       ignore_origin_no_cache: [200],
