@@ -13,7 +13,7 @@ export async function generateMetadata({
     title: `Result file`,
     description: `Creating .gitignore for: ${[searchParams?.["options"]]
       .flat()
-      ?.map((option) => option?.split(","))
+      .map((option) => option?.split(","))
       .flat()
       .join(", ")}.`,
   };
