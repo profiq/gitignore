@@ -2,6 +2,23 @@ import CodeView from "../ui/CodeView";
 import clsx from "clsx";
 import getResult from "../api/lib/result";
 
+export async function generateMetadata({
+  params,
+  searchParams,
+}: {
+  params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
+  return {
+    title: `Result file`,
+    description: `Creating .gitignore for: ${[searchParams?.["options"]]
+      .flat()
+      .map((option) => option?.split(","))
+      .flat()
+      .join(", ")}.`,
+  };
+}
+
 /**
  * Renders the Result component.
  *
