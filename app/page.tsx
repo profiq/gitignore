@@ -1,14 +1,18 @@
-"use client";
 import SelectInput from "./ui/SelectInput";
 import clsx from "clsx";
-import { Suspense } from "react";
 
 /**
  * Renders the Home component with the SelectInput component.
  *
  * @returns The rendered Home component.
  */
-export default function Home() {
+export default function Home({
+  params,
+  searchParams,
+}: {
+  params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
   return (
     <>
       <div
@@ -22,9 +26,7 @@ export default function Home() {
           tech stack
         </h4>
       </div>
-      <Suspense fallback={<div />}>
-        <SelectInput className="mx-auto" />
-      </Suspense>
+      <SelectInput className="mx-auto" searchParams={searchParams} />
     </>
   );
 }

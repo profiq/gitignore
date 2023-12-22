@@ -51,9 +51,9 @@ export default function CodeView({ code, options, remDupl }: Props) {
           <a href={`/api/result?${params.toString()}`} target="_blank">
             <button className={clsx(btnClasses)}>Raw view</button>
           </a>
-          <div className="flex-grow flex flex-row p-2 ml-8">{`${options.join(
+          <p className="flex-grow flex flex-row text-ellipsis truncate  w-[5px] overflow-hidden p-2 ml-8">{`${options.join(
             "_",
-          )}.gitignore`}</div>
+          )}.gitignore`}</p>
         </div>
       </div>
       <div

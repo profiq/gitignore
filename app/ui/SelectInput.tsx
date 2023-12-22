@@ -7,13 +7,19 @@
 
 import { useEffect, useRef, useState } from "react";
 import Select, { InputActionMeta, MultiValue } from "react-select";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 // function for searching tech options
 import searchTechOptions from "@/app/api/lib/search";
 import clsx from "clsx";
 
-export default function SelectInput({ className }: { className?: string }) {
+export default function SelectInput({
+  className,
+  searchParams,
+}: {
+  className?: string;
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
   // state for currently searched tech options
   const [techOptions, setTechOptions] = useState<
     { value: string; label: string }[]
@@ -24,10 +30,34 @@ export default function SelectInput({ className }: { className?: string }) {
   // state for current search string
   const [search, setSearch] = useState<string>("");
 
+  // state for currently selected options
+  const [val, setValue] = useState<string[]>(
+    searchParams.options
+      ? [searchParams.options].flat().join(",").split(",")
+      : [],
+  );
+
+  // state for remove duplicate rules checkbox
+  const [remDupl, setRemDupl] = useState<boolean>(
+    searchParams.remDupl
+      ? (searchParams.remDupl as string).toLowerCase() != "false"
+      : true,
+  );
+
   // next.js navigation hooks for working with params
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
   const router = useRouter();
+
+  // syncing search params with state
+  useEffect(() => {
+    setValue(
+      searchParams.options ? (searchParams.options as string).split(",") : [],
+    );
+    setRemDupl(
+      searchParams.remDupl
+        ? (searchParams.remDupl as string).toLowerCase() != "false"
+        : true,
+    );
+  }, [searchParams]);
 
   // get tech options on search change
   useEffect(() => {
@@ -48,9 +78,22 @@ export default function SelectInput({ className }: { className?: string }) {
     getTechOptions();
   }, [search]);
 
+  // focus on input on mount
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
+    }
+
+    // if options are selected, prefetch result page
+    if (val.length > 0) {
+      // creating URLSearchParams object from search searchParams
+      const params = new URLSearchParams();
+      Object.keys(searchParams).forEach((key) => {
+        params.append(key, [searchParams[key]].flat().join(","));
+      });
+
+      // prefetching result page
+      router.prefetch(`/result?${params.toString()}`);
     }
   }, []);
 
@@ -66,33 +109,66 @@ export default function SelectInput({ className }: { className?: string }) {
   function handleOptionsChange(
     value: MultiValue<{ value: string; label: string }>,
   ) {
+    console.log(val);
     console.log(value);
 
-    const params = new URLSearchParams(searchParams);
+    // creating URLSearchParams object from search searchParams
+    const params = new URLSearchParams();
+    Object.keys(searchParams).forEach((key) => {
+      params.append(key, [searchParams[key]].flat().join(","));
+    });
+
+    // setting options param
     if (value.length > 0) {
       params.set("options", value.map((option) => option.value).join(","));
     } else {
       params.delete("options");
     }
-    router.replace(`${pathname}?${params.toString()}`);
+
+    // setting selected options state
+    setValue(value.map((option) => option.value));
+
+    // replacing current url with new params
+    router.replace(`/?${params.toString()}`);
+
+    // prefetching result page
+    if (value.length > 0) router.prefetch(`/result?${params.toString()}`);
   }
 
   function handleRemDuplChange(value: boolean) {
     console.log(value);
 
-    const params = new URLSearchParams(searchParams);
+    // creating URLSearchParams object from search searchParams
+    const params = new URLSearchParams();
+    Object.keys(searchParams).forEach((key) => {
+      params.append(key, [searchParams[key]].flat().join(","));
+    });
+
+    // setting remDupl param
     params.set("remDupl", value.toString());
-    router.replace(`${pathname}?${params.toString()}`);
+
+    // setting remDupl state
+    setRemDupl(value);
+
+    // replacing current url with new params
+    router.replace(`/?${params.toString()}`);
+
+    // prefetching result page
+    if (val.length > 0) router.prefetch(`/result?${params.toString()}`);
   }
 
   // function for handling submit on enter or button click
   const handleSubmit = () => {
-    if (!searchParams.get("options")) {
+    // if no options are selected, do nothing
+    if (!searchParams.options) {
       return;
     }
-    console.log("submit");
 
-    const params = new URLSearchParams(searchParams);
+    // creating URLSearchParams object from search searchParams
+    const params = new URLSearchParams();
+    Object.keys(searchParams).forEach((key) => {
+      params.append(key, [searchParams[key]].flat().join(","));
+    });
 
     // redirecting to result page
     router.push(`/result?${params.toString()}`);
@@ -104,7 +180,6 @@ export default function SelectInput({ className }: { className?: string }) {
       handleSubmit();
     }
   };
-
   return (
     <div className={clsx(className, "w-full flex flex-col")}>
       <div
@@ -115,13 +190,8 @@ export default function SelectInput({ className }: { className?: string }) {
         <Select
           ref={inputRef}
           className="flex-grow"
-          // getting selected options from search params
-          value={
-            searchParams
-              .get("options")
-              ?.split(",")
-              .map((option) => ({ value: option, label: option })) || []
-          }
+          // selected options
+          value={val.map((option) => ({ value: option, label: option }))}
           // searched tech options
           options={techOptions}
           // enabling multi select
@@ -196,13 +266,17 @@ export default function SelectInput({ className }: { className?: string }) {
 
         <button
           className={clsx(
-            "ml-0.5 bg-profiq-green rounded-r text-white py-2 px-4 border-0 cursor-pointer hover:bg-profiq-blue",
+            "ml-0.5 rounded-r text-white py-2 px-4 border-0 cursor-pointer",
+            val.length > 0
+              ? " bg-profiq-green hover:bg-profiq-blue"
+              : "bg-gray-400 cursor-not-allowed",
           )}
           onClick={handleSubmit}
         >
           Create
         </button>
       </div>
+      {/* remove duplicates checkbox */}
       <div className={clsx("mt-5 flex flex-row justify-center items-center")}>
         <input
           className={clsx(
@@ -213,11 +287,7 @@ export default function SelectInput({ className }: { className?: string }) {
           )}
           id="chbx-rmeDupl"
           type="checkbox"
-          checked={
-            searchParams.get("remDupl")
-              ? searchParams.get("remDupl")?.toLowerCase() != "false"
-              : true
-          }
+          checked={remDupl}
           onChange={(e) => handleRemDuplChange(e.currentTarget.checked)}
         />
 
