@@ -254,7 +254,10 @@ export default function SelectInput({
 
         <button
           className={clsx(
-            "ml-0.5 bg-profiq-green rounded-r text-white py-2 px-4 border-0 cursor-pointer hover:bg-profiq-blue",
+            "ml-0.5 rounded-r text-white py-2 px-4 border-0 cursor-pointer",
+            val.length > 0
+              ? " bg-profiq-green hover:bg-profiq-blue"
+              : "bg-gray-400 cursor-not-allowed",
           )}
           onClick={handleSubmit}
         >
