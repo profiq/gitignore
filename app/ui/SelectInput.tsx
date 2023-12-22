@@ -83,6 +83,18 @@ export default function SelectInput({
     if (inputRef.current) {
       inputRef.current.focus();
     }
+
+    // if options are selected, prefetch result page
+    if (val.length > 0) {
+      // creating URLSearchParams object from search searchParams
+      const params = new URLSearchParams();
+      Object.keys(searchParams).forEach((key) => {
+        params.append(key, [searchParams[key]].flat().join(","));
+      });
+
+      // prefetching result page
+      router.prefetch(`/result?${params.toString()}`);
+    }
   }, []);
 
   // function for changing search state on search input change
