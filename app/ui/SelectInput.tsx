@@ -120,7 +120,7 @@ export default function SelectInput({
     router.replace(`/?${params.toString()}`);
 
     // prefetching result page
-    router.prefetch(`/result?${params.toString()}`);
+    if (value.length > 0) router.prefetch(`/result?${params.toString()}`);
   }
 
   function handleRemDuplChange(value: boolean) {
@@ -142,7 +142,7 @@ export default function SelectInput({
     router.replace(`/?${params.toString()}`);
 
     // prefetching result page
-    router.prefetch(`/result?${params.toString()}`);
+    if (val.length > 0) router.prefetch(`/result?${params.toString()}`);
   }
 
   // function for handling submit on enter or button click
