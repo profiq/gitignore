@@ -30,7 +30,7 @@ jobs:
           yarn clone-templates
 
       - name: Run the prebuild script
-        run: node ./update-tech-options/update-list.mjs
+        run: yarn update-tech-options
 
       - name: Check for changes
         id: git-check
