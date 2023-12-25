@@ -1704,11 +1704,6 @@
   dependencies:
     glob "7.1.7"
 
-"@next/font@^13.5.6":
-  version "13.5.6"
-  resolved "https://registry.npmjs.org/@next/font/-/font-13.5.6.tgz"
-  integrity sha512-urmUq05uCVJsBqAAJEV+xK5OTTodrSxdiG+351SOSjlWctywdBM6qX+K9pIe3K48RxjfnxlBbXjGyOJAji+pfw==
-
 "@next/swc-darwin-arm64@14.0.4":
   version "14.0.4"
   resolved "https://registry.yarnpkg.com/@next/swc-darwin-arm64/-/swc-darwin-arm64-14.0.4.tgz#27b1854c2cd04eb1d5e75081a1a792ad91526618"
@@ -5402,12 +5397,10 @@ gauge@~2.7.3:
     strip-ansi "^3.0.1"
     wide-align "^1.1.0"
 
-geist@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/geist/-/geist-1.0.0.tgz"
-  integrity sha512-7hqXZqIdSiFbXjlMZ8Ag0fBAW8RzUjIXPkh160rT4m4ECMtsKdFX+06e0mK28oRCpU+lOB1C5Es8qxzvv7H2Hg==
-  dependencies:
-    "@next/font" "^13.5.6"
+geist@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/geist/-/geist-1.2.0.tgz#2cbd1bdb3daff44b7ef9078aca0ec3c5bd97e917"
+  integrity sha512-RZsgCkGnSi1IV1Ozg3s6Ou4r/jzLff9+47ChjpJ5yX8ncEC/RwdStGwhdFzDcnSv0xU0+9J/fTX5Kht0NajTXA==
 
 gensync@^1.0.0-beta.2:
   version "1.0.0-beta.2"
