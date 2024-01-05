@@ -4,6 +4,8 @@
 
 ## Best .gitignore generator
 
+https://profiq-gitignore-production.glb.edgio.link/
+
 Generate your project-specific .gitignore: Perfectly crafted for your tech stack
 
 Simple webpage and api to generate .gitignore files for your project.
@@ -165,7 +167,9 @@ edg build && edg run -p
 ## deploy-production
 
 - runs on release to deploy the production environment
+- https://profiq-gitignore-production.glb.edgio.link/
 
 ## deploy-dev
 
 - runs on every push to the main branch to deploy preview of current state of the main branch
+- https://profiq-gitignore-dev.glb.edgio.link
