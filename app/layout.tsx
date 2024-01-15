@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: ".gitignore HUB",
     description:
       "Creating your project-specific .gitignore files has never been easier.",
-    images: "https://cdn.join.com/5ccc27e11ae4600006a12d88/profiq-logo-l.png",
+    images: "/squareLogo.png",
   },
 };
 
