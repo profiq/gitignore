@@ -18,6 +18,10 @@ const roboto = Roboto_Slab({
 });
 
 export async function generateMetadata(): Promise<Metadata> {
+  const domain = `${headers().get("x-forwarded-proto") ?? "https"}://${
+    headers().get("host") ?? ""
+  }`;
+
   return {
     metadataBase: new URL(headers().get("host") ?? ""),
     title: {
@@ -30,7 +34,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: ".gitignore HUB",
       description:
         "Creating your project-specific .gitignore files has never been easier.",
-      images: "/squareLogo.png",
+      images: `${domain}/squareLogo.png`,
     },
   };
 }
