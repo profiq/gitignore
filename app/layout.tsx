@@ -4,26 +4,36 @@ import Header from "./ui/Header";
 import { Roboto_Slab } from "next/font/google";
 import Footer from "./ui/Footer";
 import clsx from "clsx";
+import { ResolvingMetadata } from "next";
+import { headers } from "next/headers";
+
+type Props = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
 
 const roboto = Roboto_Slab({
   subsets: ["latin"],
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: ".gitignore HUB",
-    template: `%s | .gitignore HUB`,
-  },
-  description:
-    "Creating your project-specific .gitignore files has never been easier.",
-  openGraph: {
-    title: ".gitignore HUB",
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    metadataBase: new URL(headers().get("host") ?? ""),
+    title: {
+      default: ".gitignore HUB",
+      template: `%s | .gitignore HUB`,
+    },
     description:
       "Creating your project-specific .gitignore files has never been easier.",
-    images: "/squareLogo.png",
-  },
-};
+    openGraph: {
+      title: ".gitignore HUB",
+      description:
+        "Creating your project-specific .gitignore files has never been easier.",
+      images: "/squareLogo.png",
+    },
+  };
+}
 
 export default function RootLayout({
   children,
