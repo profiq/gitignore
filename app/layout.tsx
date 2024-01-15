@@ -4,7 +4,6 @@ import Header from "./ui/Header";
 import { Roboto_Slab } from "next/font/google";
 import Footer from "./ui/Footer";
 import clsx from "clsx";
-import { ResolvingMetadata } from "next";
 import { headers } from "next/headers";
 
 type Props = {
