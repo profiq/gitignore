@@ -4,6 +4,7 @@ import Header from "./ui/Header";
 import { Roboto_Slab } from "next/font/google";
 import Footer from "./ui/Footer";
 import clsx from "clsx";
+import { headers } from "next/headers";
 
 type Props = {
   params: { id: string };
@@ -16,6 +17,10 @@ const roboto = Roboto_Slab({
 });
 
 export async function generateMetadata(): Promise<Metadata> {
+  const domain = `${headers().get("x-forwarded-proto") ?? "https"}://${
+    headers().get("host") ?? ""
+  }`;
+
   return {
     title: {
       default: ".gitignore HUB",
@@ -27,7 +32,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: ".gitignore HUB",
       description:
         "Creating your project-specific .gitignore files has never been easier.",
-      images: `squareLogo.png`,
+      images: `${domain}/squareLogo.png`,
     },
   };
 }
