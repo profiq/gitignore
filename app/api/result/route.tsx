@@ -42,14 +42,10 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     headers: download
       ? {
           "Content-Type": "text/plain",
-          "Content-Disposition": `attachment; filename=${techOptions.join(
-            "_",
-          )}.gitignore`,
           "Content-Length": resultText.length.toString(),
         }
       : {
           "Content-Type": "text/plain",
-          "Content-Disposition": `filename=${techOptions.join("_")}.gitignore`,
         },
   });
 }
