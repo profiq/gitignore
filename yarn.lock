@@ -5403,10 +5403,10 @@ gauge@~2.7.3:
     strip-ansi "^3.0.1"
     wide-align "^1.1.0"
 
-geist@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/geist/-/geist-1.2.0.tgz#2cbd1bdb3daff44b7ef9078aca0ec3c5bd97e917"
-  integrity sha512-RZsgCkGnSi1IV1Ozg3s6Ou4r/jzLff9+47ChjpJ5yX8ncEC/RwdStGwhdFzDcnSv0xU0+9J/fTX5Kht0NajTXA==
+geist@1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/geist/-/geist-1.2.1.tgz#0cf801709e2b7064c1f62f71660d83785b45930c"
+  integrity sha512-xCl7zWfnWqc+TbCG5qqyeT5tnVlOO4pSJsT3Ei59DN1SR4N2VlauF8Fv0D1pPFXGUJgu6RMoeZX+wsR4T9bMhg==
 
 gensync@^1.0.0-beta.2:
   version "1.0.0-beta.2"
