@@ -183,98 +183,102 @@ export default function SelectInput({
   return (
     <div className={clsx(className, "w-full flex flex-col")}>
       <div
-        className={clsx(
-          "mx-auto scale-150 flex flex-row w-2/3 m-20 mb-4 order-first", // scaling and adjusting width
-        )}
+        className="mx-auto scale-125 flex flex-col w-2/3 m-20 mb-4 order-first" // scaling and adjusting width
       >
-        <Select
-          ref={inputRef}
-          className="flex-grow"
-          // selected options
-          value={val.map((option) => ({ value: option, label: option }))}
-          // searched tech options
-          options={techOptions}
-          // enabling multi select
-          isMulti
-          // connecting value to search state
-          inputValue={search}
-          // disabling built-in serch logic
-          filterOption={(option, search) => true}
-          onChange={handleOptionsChange}
-          onInputChange={handleSearchChange}
-          onKeyDown={handleKeyDown}
-          // disabling dropdown indicator
-          components={{
-            DropdownIndicator: null,
-          }}
-          // different messages if not found or no input
-          noOptionsMessage={(value) =>
-            value.inputValue.length === 0
-              ? "Enter at least one character"
-              : "No options found"
-          }
-          // custom styles
-          styles={{
-            // width: if all select element
-            container: (baseStyles, state) => ({
-              ...baseStyles,
-              width: "500px",
-            }),
+        <div className="flex flex-row">
+          <Select
+            ref={inputRef}
+            className="flex-grow"
+            // selected options
+            value={val.map((option) => ({ value: option, label: option }))}
+            // searched tech options
+            options={techOptions}
+            // enabling multi select
+            isMulti
+            // connecting value to search state
+            inputValue={search}
+            // disabling built-in search logic
+            filterOption={(option, search) => true}
+            onChange={handleOptionsChange}
+            onInputChange={handleSearchChange}
+            onKeyDown={handleKeyDown}
+            // disabling dropdown indicator
+            components={{
+              DropdownIndicator: null,
+            }}
+            // different messages if not found or no input
+            noOptionsMessage={(value) =>
+              value.inputValue.length === 0
+                ? "Enter at least one character"
+                : "No options found"
+            }
+            // custom styles
+            styles={{
+              // width: if all select element
+              container: (baseStyles, state) => ({
+                ...baseStyles,
+                width: "500px",
+              }),
 
-            // color of selected option in dropdown
-            option: (baseStyles, state) => ({
-              ...baseStyles,
-              backgroundColor: state.isFocused
-                ? "var(--profiq-blue-transparent)"
-                : "white",
-              color: state.isFocused ? "white" : "black",
-            }),
-            multiValue: (baseStyles, state) => ({
-              ...baseStyles,
-              backgroundColor: "var(--profiq-green-shaddow)",
-              color: "white",
-            }),
-            multiValueLabel: (baseStyles, state) => ({
-              ...baseStyles,
-              color: "white",
-            }),
-            multiValueRemove: (baseStyles, state) => ({
-              ...baseStyles,
-              ":hover": {
-                backgroundColor: "#ffbdadad",
-              },
-            }),
-            // styling of main component
-            control: (baseStyles, state) => ({
-              ...baseStyles,
-              boxShadow: "0",
-              borderRadius: "4px 0 0 4px",
-              borderColor: state.isFocused
-                ? "var(--profiq-blue)"
-                : "var(--profiq-green)",
-              ":hover": {
-                borderColor: "var(--profiq-blue-light)",
-              },
-              height: "100%",
-            }),
-            menuList: (baseStyles, state) => ({
-              ...baseStyles,
-              maxHeight: "270px",
-            }),
-          }}
-        />
+              // color of selected option in dropdown
+              option: (baseStyles, state) => ({
+                ...baseStyles,
+                backgroundColor: state.isFocused
+                  ? "var(--profiq-blue-transparent)"
+                  : "white",
+                color: state.isFocused ? "white" : "black",
+              }),
+              multiValue: (baseStyles, state) => ({
+                ...baseStyles,
+                backgroundColor: "var(--profiq-green-shaddow)",
+                color: "white",
+              }),
+              multiValueLabel: (baseStyles, state) => ({
+                ...baseStyles,
+                color: "white",
+              }),
+              multiValueRemove: (baseStyles, state) => ({
+                ...baseStyles,
+                ":hover": {
+                  backgroundColor: "#ffbdadad",
+                },
+              }),
+              // styling of main component
+              control: (baseStyles, state) => ({
+                ...baseStyles,
+                boxShadow: "0",
+                borderRadius: "4px 0 0 4px",
+                borderColor: state.isFocused
+                  ? "var(--profiq-blue)"
+                  : "var(--profiq-green)",
+                ":hover": {
+                  borderColor: "var(--profiq-blue-light)",
+                },
+                height: "100%",
+              }),
+              menuList: (baseStyles, state) => ({
+                ...baseStyles,
+                maxHeight: "270px",
+              }),
+            }}
+          />
 
-        <button
-          className={clsx(
-            "ml-0.5 rounded-r text-white py-2 px-4 border-0 cursor-pointer",
-            val.length > 0
-              ? " bg-profiq-green hover:bg-profiq-blue"
-              : "bg-gray-400 cursor-not-allowed",
-          )}
-          onClick={handleSubmit}
-        >
-          Create
-        </button>
+          <button
+            className={clsx(
+              "ml-0.5 rounded-r text-white py-2 px-4 border-0 cursor-pointer",
+              val.length > 0
+                ? " bg-profiq-green hover:bg-profiq-blue"
+                : "bg-gray-400 cursor-not-allowed",
+            )}
+            onClick={handleSubmit}
+          >
+            Create
+          </button>
+        </div>
+        {/* Select note */}
+        <div className="text-xs pl-2.5 pt-0.5">
+          Search programming languages, IDEs, or OS
+        </div>
       </div>
       {/* remove duplicates checkbox */}
       <div className={clsx("mt-5 flex flex-row justify-center items-center")}>
