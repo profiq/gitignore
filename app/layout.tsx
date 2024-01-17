@@ -32,7 +32,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: ".gitignore HUB",
       description:
         "Creating your project-specific .gitignore files has never been easier.",
-      images: `${domain}/squareLogo.png`,
+      images: `${domain}/square-logo.png`,
     },
   };
 }
