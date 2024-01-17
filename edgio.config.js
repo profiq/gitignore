@@ -17,6 +17,17 @@ module.exports = {
   // effectively purging the cache each time you deploy.
   // purgeCacheOnDeploy: false,
 
+  cloudRuntime: "nodejs20.x",
+
+  environments: {
+    prod: {
+      hostnames: [{ hostname: "gitignore.profiq.com" }],
+    },
+    dev: {
+      hostnames: [{ hostname: "dev.gitignore.profiq.com" }],
+    },
+  },
+
   next: {
     // Output sourcemaps so that stack traces have original source filenames and line numbers when tailing
     // the logs in the Edgio developer console.
