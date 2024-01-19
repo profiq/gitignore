@@ -8,12 +8,12 @@ export default async function Usage() {
     <>
       <h2 id="cli-fetch">CLI Fetch</h2>
       <p className="flex flex-col">
-        <b>{domain}/api/result/options=[URL encoded list]</b>
+        <b>{domain}/api/result?options=[URL encoded list]</b>
         <br />
         <span>Examples:</span>
-        <span>{domain}/api/result/options=Python</span>
-        <span>{domain}/api/result/options=Python%2CJava</span>
-        <span>{domain}/api/result/options=Python%2CJava%2CC%2B%2B</span>
+        <span>{domain}/api/result?options=Python</span>
+        <span>{domain}/api/result?options=Python%2CJava</span>
+        <span>{domain}/api/result?options=Python%2CJava%2CC%2B%2B</span>
       </p>
     </>
   );
