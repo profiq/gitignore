@@ -5,6 +5,13 @@ const { withEdgio } = require("@edgio/next/config");
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  redirects: () => [
+    {
+      source: "/docs",
+      destination: "/docs/usage",
+      permanent: false,
+    },
+  ],
 };
 
 const _preEdgioExport = nextConfig;
