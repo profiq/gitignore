@@ -1,6 +1,9 @@
 @tailwind base;
 
 @layer base {
+  h1 {
+    @apply text-4xl font-bold mb-4;
+  }
   h2 {
     @apply text-2xl font-bold mb-4;
   }
@@ -11,7 +14,7 @@
     @apply mb-2;
   }
   pre.code {
-    @apply border-4 border-profiq-green p-2 my-4 rounded;
+    @apply border-4 border-profiq-green text-wrap p-2 my-4 rounded;
   }
 }
 

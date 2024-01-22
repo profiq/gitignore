@@ -8,7 +8,7 @@ const nextConfig = {
   redirects: () => [
     {
       source: "/docs",
-      destination: "/docs/usage",
+      destination: "/docs/installation",
       permanent: false,
     },
   ],

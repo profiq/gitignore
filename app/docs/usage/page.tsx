@@ -1,6 +1,7 @@
 export default async function Usage() {
   return (
     <>
+      <h1 id="usage">Usage</h1>
       <h2 id="preview">Preview</h2>
       <p className="flex flex-col">Print gitignore to the terminal</p>
       <pre className="code">{"gi java,c++"}</pre>

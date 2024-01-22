@@ -6,6 +6,7 @@ export default async function Usage() {
   }`;
   return (
     <>
+      <h1 id="installation">Installation</h1>
       <p>
         You need to create a function in your shell so that you can call it from
         your CLI whenever you need it.
