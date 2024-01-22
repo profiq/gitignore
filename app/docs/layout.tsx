@@ -17,13 +17,34 @@ export default function DocsLayout({
       ],
     },
     {
+      id: "installation",
+      title: "Installation",
+      items: [
+        {
+          id: "bash",
+          link: "/docs/installation#bash",
+          text: "Bash",
+        },
+        {
+          id: "zsh",
+          link: "/docs/installation#zsh",
+          text: "Zsh",
+        },
+      ],
+    },
+    {
       id: "usage",
       title: "Usage",
       items: [
         {
-          id: "fetch",
-          link: "/docs/usage#cli-fetch",
-          text: "CLI Fetch",
+          id: "preview",
+          link: "/docs/usage#preview",
+          text: "Preview",
+        },
+        {
+          id: "project",
+          link: "/docs/usage#project",
+          text: "Project",
         },
       ],
     },

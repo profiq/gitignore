@@ -7,6 +7,12 @@
   h3 {
     @apply text-xl mb-4;
   }
+  p {
+    @apply mb-2;
+  }
+  pre.code {
+    @apply border-4 border-profiq-green p-2 my-4 rounded;
+  }
 }
 
 @tailwind components;
