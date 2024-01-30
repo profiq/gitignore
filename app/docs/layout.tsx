@@ -17,6 +17,17 @@ export default function DocsLayout({
       ],
     },
     {
+      id: "api",
+      title: "API",
+      items: [
+        {
+          id: "requests",
+          link: "/docs/api#requests",
+          text: "Requests",
+        },
+      ],
+    },
+    {
       id: "installation",
       title: "Installation",
       items: [
