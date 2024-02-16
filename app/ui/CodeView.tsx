@@ -22,10 +22,14 @@ export default function CodeView({ code, options, remDupl }: Props) {
   const btnClasses = "bg-profiq-green text-white p-2 rounded-md ml-2";
 
   // Create URLSearchParams object for download link
-  let params = new URLSearchParams();
-  params.append("options", options.join(","));
-  params.append("remDupl", remDupl.toString());
-  params.append("download", "true");
+  let rawParams = new URLSearchParams();
+  rawParams.append("options", options.join(","));
+  rawParams.append("remDupl", remDupl.toString());
+
+  const downloadParams = new URLSearchParams();
+  downloadParams.append("options", options.join(","));
+  downloadParams.append("remDupl", remDupl.toString());
+  downloadParams.append("download", "true");
 
   return (
     <>
@@ -40,7 +44,7 @@ export default function CodeView({ code, options, remDupl }: Props) {
           )}
         >
           <a
-            href={`/api/result?${params.toString()}`}
+            href={`/api/result?${downloadParams.toString()}`}
             download={`${options.join("_")}.gitignore`}
           >
             <button className={clsx(btnClasses, "mr-2")}>Download</button>
@@ -48,7 +52,7 @@ export default function CodeView({ code, options, remDupl }: Props) {
           {/* CopyButton has to be in seperate component as it has to be client component */}
           <CopyButton code={code} className={clsx(btnClasses)} />
 
-          <a href={`/api/result?${params.toString()}`} target="_blank">
+          <a href={`/api/result?${rawParams.toString()}`} target="_blank">
             <button className={clsx(btnClasses)}>Raw view</button>
           </a>
           <p className="flex-grow flex flex-row text-ellipsis truncate  w-[5px] overflow-hidden p-2 ml-8">{`${options.join(
