@@ -32,6 +32,14 @@ const Header: React.FC = () => {
             <FaGithub className="m-1.5 w-8 h-8" />
           </div>
         </a>
+        <Link
+          className={clsx(
+            "text-white hover:text-profiq-green float-right px-5 leading-[80px] text-base font-semibold",
+          )}
+          href="/docs"
+        >
+          Documentation
+        </Link>
       </div>
     </header>
   );

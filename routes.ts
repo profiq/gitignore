@@ -30,6 +30,16 @@ export default new Router()
       ignore_origin_no_cache: [200],
     },
   })
+  .match("/docs/usage", {
+    caching: {
+      cache_key: {
+        include_headers: ["Content-Type"],
+      },
+      max_age: "86400s",
+      stale_while_revalidate: "31536000s",
+      ignore_origin_no_cache: [200],
+    },
+  })
   .match("/result", {
     caching: {
       cache_key: {
